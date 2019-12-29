@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class Colaboradores extends Migration
+class CreateColaboradorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,20 @@ class Colaboradores extends Migration
      */
     public function up()
     {
-        Schema::create('colaboradores', function (Blueprint $table) {
+        Schema::create('colaboradors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('Pessoa_idPessoa');
-            $table->foreign('Pessoa_idPessoa')->references('id')->on('pessoa');
-            $table->boolean('responsavel',1);
+            $table->foreign('Consulta_idConsulta ')->references('id')->on('consultas');
+            $table->integer('PIS');
+            $table->string('cargo',255);
+            $table->string('conta',255);
+            $table->string('tipoDaConta',45);
+            $table->string('agencia',255);
+            $table->integer('salario');
+            $table->date('dataDeAdmissao');
             $table->timestamps();
         });
+    }
 
         // idColaborador INT
         // Pessoa_idPessoa INT
@@ -30,9 +37,6 @@ class Colaboradores extends Migration
         // agencia VARCHAR(255)
         // salario INT
         // dataDeAdmissao DATE
-    }
-
-        
 
     /**
      * Reverse the migrations.
@@ -41,6 +45,6 @@ class Colaboradores extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colaboradores');
+        Schema::dropIfExists('colaboradors');
     }
 }
