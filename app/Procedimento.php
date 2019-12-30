@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Procedimento extends Model
 {
     protected $fillable = [
-        'tipo','valor','descricao'
+        'tipo',
+        'valor',
+        'descricao',
     ];
 }

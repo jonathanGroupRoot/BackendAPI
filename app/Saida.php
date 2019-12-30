@@ -2,9 +2,32 @@
 
 namespace App;
 
+use Illuminate\Auth\Authenticatable;
+use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class Saida extends Model
+class Saida extends Model implements AuthenticatableContract, AuthorizableContract
 {
-    //
+    use Authenticatable, Authorizable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'Estoque_idEstoque', 
+        'Colaborador_idColaborador',
+    ];
+
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    // protected $hidden = [
+    //     'password',
+    // ];
 }

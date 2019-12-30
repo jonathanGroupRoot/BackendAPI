@@ -18,7 +18,8 @@ class Acompanhante extends Model implements AuthenticatableContract, Authorizabl
      * @var array
      */
     protected $fillable = [
-        'responsavel', 'Pessoa_idPessoa',
+        'responsavel', 
+        'Pessoa_idPessoa',
     ];
 
     /**

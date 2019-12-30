@@ -18,7 +18,8 @@ class Cliente extends Model implements AuthenticatableContract, AuthorizableCont
      * @var array
      */
     protected $fillable = [
-        'Acompanhante_idAcompanhante', 'Pessoa_idPessoa',
+        'Acompanhante_idAcompanhante',
+        'Pessoa_idPessoa',
     ];
 
     /**
