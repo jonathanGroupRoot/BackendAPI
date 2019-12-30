@@ -16,7 +16,7 @@ class Acompanhante extends Migration
         Schema::create('acompanhantes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('Pessoa_idPessoa');
-            $table->foreign('Pessoa_idPessoa')->references('id')->on('pessoa');
+            $table->foreign('Pessoa_idPessoa')->references('id')->on('pessoas');
             $table->boolean('responsavel',1);
             $table->timestamps();
         });

@@ -17,10 +17,10 @@ class Cliente extends Migration
             $table->bigIncrements('id');
             
             $table->unsignedBigInteger('Acompanhante_idAcompanhante');
-            $table->foreign('Acompanhante_idAcompanhante ')->references('id')->on('acompanhante');
+            $table->foreign('Acompanhante_idAcompanhante ')->references('id')->on('acompanhantes');
 
             $table->unsignedBigInteger('Pessoa_idPessoa');
-            $table->foreign('Pessoa_idPessoa ')->references('id')->on('pessoa');
+            $table->foreign('Pessoa_idPessoa ')->references('id')->on('pessoas');
             
 
             $table->timestamps();

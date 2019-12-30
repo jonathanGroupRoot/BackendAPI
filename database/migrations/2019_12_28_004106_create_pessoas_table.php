@@ -16,10 +16,10 @@ class Pessoa extends Migration
         Schema::create('pessoas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',255);
-            $table->integer('cpf');
-            $table->date('data_de_nascimento');
-            $table->date('data_de_cadastro');
-            $table->integer('rg');
+            $table->integer('CPF');
+            $table->date('dataDeNascimento');
+            $table->date('dataDeCadastro');
+            $table->integer('RG');
             $table->string('endereco',255);
             $table->integer('telefone');
             $table->boolean('sexo',1);
