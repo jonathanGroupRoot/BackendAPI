@@ -15,7 +15,16 @@ class CreateEstoquesTable extends Migration
     {
         Schema::create('estoques', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('quantidade');
+            $table->date('data');
+            $table->unsignedBigInteger('Material_idMaterial');
+            $table->foreign('Material_idMaterial')->references('id')->on('materials');
             $table->timestamps();
+
+            // idEstoque INT
+            // quantidade INT
+            // data DATE
+            // Material_idMaterial INT
         });
     }
 

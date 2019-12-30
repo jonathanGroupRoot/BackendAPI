@@ -15,6 +15,11 @@ class CreateSaidasTable extends Migration
     {
         Schema::create('saidas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('Estoque_idEstoque');
+            $table->foreign('Estoque_idEstoque')->references('id')->on('estoques');
+
+            $table->unsignedBigInteger('Colaborador_idColaborador');
+            $table->foreign('Colaborador_idColaborador')->references('id')->on('colaboradors');
             $table->timestamps();
         });
     }

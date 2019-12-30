@@ -15,7 +15,17 @@ class CreateFornecedorsTable extends Migration
     {
         Schema::create('fornecedors', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome',255);
+            $table->integer('cnpj');
+            $table->integer('telefone');
+            $table->string('endereco',255);
             $table->timestamps();
+
+            // idFornecedor INT
+            // nome VARCHAR(255)
+            // cnpj INT
+            // telefone INT
+            // endereco VARCHAR(25
         });
     }
 
