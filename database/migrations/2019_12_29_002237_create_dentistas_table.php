@@ -19,7 +19,7 @@ class Dentista extends Migration
             $table->string('especialidades',255);
             $table->boolean('responsavelTecnico',1);
 
-            $table->unsignedBigInteger('Colaborador_idColaborador');
+            $table->bigInteger('Colaborador_idColaborador')->unsigned();
             $table->foreign('Colaborador_idColaborador')->references('id')->on('colaboradors')->onDelete('cascade');
 
             $table->timestamps();
