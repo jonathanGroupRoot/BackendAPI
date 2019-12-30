@@ -20,7 +20,7 @@ class Cliente extends Migration
             $table->foreign('Acompanhante_idAcompanhante ')->references('id')->on('acompanhantes');
 
             $table->unsignedBigInteger('Pessoa_idPessoa');
-            $table->foreign('Pessoa_idPessoa ')->references('id')->on('pessoa');
+            $table->foreign('Pessoa_idPessoa ')->references('id')->on('pessoas');
             
 
             $table->timestamps();

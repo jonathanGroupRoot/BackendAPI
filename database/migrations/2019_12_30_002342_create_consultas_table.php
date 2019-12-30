@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class Consultas extends Migration
+class CreateConsultasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Consultas extends Migration
      */
     public function up()
     {
-        Schema::create('Consultas', function (Blueprint $table) {
+        Schema::create('consultas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('dadaDeCadastro');
             $table->string('tipoDeAtendimento');
@@ -27,13 +27,9 @@ class Consultas extends Migration
             $table->unsignedBigInteger('Cliente_idCliente');
             $table->foreign('Cliente_idCliente')->references('id')->on('clientes');
             
-
             $table->timestamps();
         });
-
     }
-   
-        
 
     /**
      * Reverse the migrations.
