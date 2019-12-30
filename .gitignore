@@ -1,4 +1,8 @@
 /vendor
 /.idea
 Homestead.json
+<<<<<<< HEAD
 Homestead.yaml
+=======
+Homestead.yaml
+>>>>>>> da802d483d75c7a44c3380c1f490651536a1df78
