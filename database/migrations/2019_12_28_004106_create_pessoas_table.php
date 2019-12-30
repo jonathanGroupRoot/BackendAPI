@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Pessoa extends Migration
+class CreatePessoasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -27,18 +27,6 @@ class Pessoa extends Migration
             $table->boolean('ativo',1);
             $table->timestamps();
         });
-
-        // idPessoa INT
-        // name VARCHAR(255)
-        // cpf INT
-        // dataDeNascimento DATE
-        // dataDeCadastro DATE
-        // rg INT
-        // endereco VARCHAR(255)
-        // telefone INT
-        // sexo BINARY(1)
-        // nacionalidade VARCHAR(255)
-        // ativo BINARY(1)
     }
 
         

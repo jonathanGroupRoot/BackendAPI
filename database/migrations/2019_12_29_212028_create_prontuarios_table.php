@@ -19,11 +19,10 @@ class CreateProntuariosTable extends Migration
             $table->date('dataDoProcedimento');
             $table->date('dataDeRetorno');
 
-            $table->unsignedBigInteger('Consulta_idConsulta');
-            $table->foreign('Consulta_idConsulta ')->references('id')->on('consultas');
-
-            $table->unsignedBigInteger('Dentista_idDentista ');
-            $table->foreign('Dentista_idDentista')->references('id')->on('dentistas');
+            $table->bigInteger('Consulta_idConsulta')->unsigned();
+            $table->foreign('Consulta_idConsulta')->references('id')->on('consultas')->onDelete('cascade');
+            $table->bigInteger('Dentista_idDentista')->unsigned();
+            $table->foreign('Dentista_idDentista')->references('id')->on('dentistas')->onDelete('cascade');
             
 
             $table->timestamps();

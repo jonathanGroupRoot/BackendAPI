@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Dentista extends Migration
+class CreateDentistasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,8 +19,8 @@ class Dentista extends Migration
             $table->string('especialidades',255);
             $table->boolean('responsavelTecnico',1);
 
-            $table->unsignedBigInteger('Colaborador_idColaborador');
-            $table->foreign('Colaborador_idColaborador')->references('id')->on('colaboradors');
+            $table->bigInteger('Colaborador_idColaborador')->unsigned();
+            $table->foreign('Colaborador_idColaborador')->references('id')->on('colaboradores')->onDelete('cascade');
 
             $table->timestamps();
         });

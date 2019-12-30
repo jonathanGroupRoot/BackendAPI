@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Acompanhante extends Migration
+class CreateAcompanhantesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,10 @@ class Acompanhante extends Migration
     {
         Schema::create('acompanhantes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('Pessoa_idPessoa');
-            $table->foreign('Pessoa_idPessoa')->references('id')->on('pessoas');
+
+            $table->bigInteger('Pessoa_idPessoa')->unsigned();
+            $table->foreign('Pessoa_idPessoa')->references('id')->on('pessoas')->onDelete('cascade');
+
             $table->boolean('responsavel',1);
             $table->timestamps();
         });

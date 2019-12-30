@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Cliente extends Migration
+class CreateClientesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,13 +15,11 @@ class Cliente extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
-            $table->unsignedBigInteger('Acompanhante_idAcompanhante');
-            $table->foreign('Acompanhante_idAcompanhante ')->references('id')->on('acompanhantes');
 
-            $table->unsignedBigInteger('Pessoa_idPessoa');
-            $table->foreign('Pessoa_idPessoa ')->references('id')->on('pessoas');
-            
+            $table->bigInteger('Acompanhante_idAcompanhante')->unsigned();
+            $table->foreign('Acompanhante_idAcompanhante')->references('id')->on('acompanhantes')->onDelete('cascade');
+            $table->bigInteger('Pessoa_idPessoa')->unsigned();
+            $table->foreign('Pessoa_idPessoa')->references('id')->on('pessoas')->onDelete('cascade');
 
             $table->timestamps();
         });

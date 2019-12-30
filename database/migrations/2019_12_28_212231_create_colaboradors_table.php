@@ -15,8 +15,6 @@ class CreateColaboradorsTable extends Migration
     {
         Schema::create('colaboradores', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('Pessoa_idPessoa');
-            $table->foreign('Consulta_idConsulta ')->references('id')->on('consultas');
             $table->integer('PIS');
             $table->string('cargo',255);
             $table->string('conta',255);
@@ -24,6 +22,9 @@ class CreateColaboradorsTable extends Migration
             $table->string('agencia',255);
             $table->integer('salario');
             $table->date('dataDeAdmissao');
+            
+            $table->bigInteger('Pessoa_idPessoa')->unsigned();
+            $table->foreign('Pessoa_idPessoa')->references('id')->on('pessoas')->onDelete('cascade');
             $table->timestamps();
         });
     }

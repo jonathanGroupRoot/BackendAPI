@@ -17,17 +17,15 @@ class CreateConsultasTable extends Migration
             $table->bigIncrements('id');
             $table->date('dadaDeCadastro');
             $table->string('tipoDeAtendimento');
-
-            $table->unsignedBigInteger('Procedimento_idProcedimento ');
-            $table->foreign('Procedimento_idProcedimento ')->references('id')->on('procedimentos');
-
-            $table->unsignedBigInteger('Colaborador_idColaborador');
-            $table->foreign('Colaborador_idColaborador')->references('id')->on('colaboradors');
-
-            $table->unsignedBigInteger('Cliente_idCliente');
+            $table->bigInteger('Procedimento_idProcedimento')->unsigned();
+            $table->foreign('Procedimento_idProcedimento')->references('id')->on('procedimentos')->onDelete('cascade');
+            $table->bigInteger('Colaborador_idColaborador')->unsigned();
+            $table->foreign('Colaborador_idColaborador')->references('id')->on('colaboradores')->onDelete('cascade');
+            $table->bigInteger('Cliente_idCliente')->unsigned();
             $table->foreign('Cliente_idCliente')->references('id')->on('clientes');
-            
             $table->timestamps();
+          
+            
         });
     }
 
