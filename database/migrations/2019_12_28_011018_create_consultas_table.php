@@ -19,10 +19,10 @@ class Consultas extends Migration
             $table->string('tipoDeAtendimento');
 
             $table->unsignedBigInteger('Procedimento_idProcedimento ');
-            $table->foreign('Procedimento_idProcedimento ')->references('id')->on('procedimento');
+            $table->foreign('Procedimento_idProcedimento ')->references('id')->on('procedimentos');
 
             $table->unsignedBigInteger('Colaborador_idColaborador');
-            $table->foreign('Colaborador_idColaborador')->references('id')->on('colaborador');
+            $table->foreign('Colaborador_idColaborador')->references('id')->on('colaboradors');
 
             $table->unsignedBigInteger('Cliente_idCliente');
             $table->foreign('Cliente_idCliente')->references('id')->on('cliente');

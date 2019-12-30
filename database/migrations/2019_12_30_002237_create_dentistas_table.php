@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Acompanhante extends Migration
+class Dentista extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,18 @@ class Acompanhante extends Migration
      */
     public function up()
     {
-        Schema::create('acompanhantes', function (Blueprint $table) {
+        Schema::create('dentistas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('Pessoa_idPessoa');
-            $table->foreign('Pessoa_idPessoa')->references('id')->on('pessoas');
-            $table->boolean('responsavel',1);
+            $table->integer('CRO');
+            $table->string('especialidades',255);
+            $table->boolean('responsavelTecnico',1);
+
+            $table->unsignedBigInteger('Colaborador_idColaborador');
+            $table->foreign('Colaborador_idColaborador')->references('id')->on('colaboradors');
+
             $table->timestamps();
         });
+
     }
 
         
@@ -31,6 +36,6 @@ class Acompanhante extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acompanhantes');
+        Schema::dropIfExists('dentistas');
     }
 }

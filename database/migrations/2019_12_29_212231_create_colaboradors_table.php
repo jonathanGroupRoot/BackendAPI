@@ -13,7 +13,7 @@ class CreateColaboradorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('colaboradors', function (Blueprint $table) {
+        Schema::create('colaboradores', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('Pessoa_idPessoa');
             $table->foreign('Consulta_idConsulta ')->references('id')->on('consultas');
