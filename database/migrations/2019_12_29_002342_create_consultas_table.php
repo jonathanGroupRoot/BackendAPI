@@ -22,7 +22,7 @@ class CreateConsultasTable extends Migration
             $table->foreign('Procedimento_idProcedimento')->references('id')->on('procedimentos')->onDelete('cascade');
 
             $table->bigInteger('Colaborador_idColaborador')->unsigned();
-            $table->foreign('Colaborador_idColaborador')->references('id')->on('colaboradors'->onDelete('cascade'));
+            $table->foreign('Colaborador_idColaborador')->references('id')->on('colaboradors')->onDelete('cascade');
 
             $table->bigInteger('Cliente_idCliente')->unsigned();
             $table->foreign('Cliente_idCliente')->references('id')->on('clientes')->onDelete('cascade');

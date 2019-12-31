@@ -17,7 +17,7 @@ class CreateMaterialsTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome',255);
             $table->string('codigo',255);
-            $table->int('preco',255);
+            $table->integer('preco');
             $table->bigInteger('Fornecedor_idFornecedor')->unsigned();
             $table->foreign('Fornecedor_idFornecedor')->references('id')->on('fornecedors')->onDelete('cascade');
             $table->timestamps();
