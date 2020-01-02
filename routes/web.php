@@ -15,7 +15,10 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/listPessoas', 'PessoaController@list');
+$router->get('/api/listPessoas', 'PessoaController@list');
 
-$router->post('/CadastrarPessoas','PessoaController@cadastrarPessoa');
+$router->post('/api/CadastrarPessoas','PessoaController@cadastrarPessoa');
 
+$router->delete('/api/delete/{id}','PessoaController@delete');
+
+$router->put('/api/atualizar/{id}', 'PessoaController@atualizar');
