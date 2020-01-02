@@ -20,13 +20,14 @@ class Pessoa extends Model implements AuthenticatableContract, AuthorizableContr
     protected $fillable = [
         'nome', 
         'cpf',
-        'data_de_nascimento',
-        'data_de_cadastro',
-        'rg','endereco',
+        'dataDeNascimento',
+        'dataDeCadastro',
+        'RG',
+        'endereco',
         'telefone',
         'sexo',
         'nacionalidade',
-        //'ativo',
+        'ativo',
     ];
 
     /**
