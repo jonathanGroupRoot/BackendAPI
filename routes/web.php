@@ -22,3 +22,13 @@ $router->post('/api/CadastrarPessoas','PessoaController@cadastrarPessoa');
 $router->delete('/api/delete/{id}','PessoaController@delete');
 
 $router->put('/api/atualizar/{id}', 'PessoaController@atualizar');
+
+//Rota Dentista
+
+$router->get('/api/listDentista','DentistaController@listDentista');
+
+$router->post('/api/cadastrarDentista','DentistaController@cadastrarDentista');
+
+$router->delete('/api/deleteDentista/{id}','DentistaController@deleteDentista');
+
+$router->put('/api/atualizar/{id}','DentistaController@atualizar');

@@ -19,7 +19,7 @@ class Dentista extends Model implements AuthenticatableContract, AuthorizableCon
      */
     protected $fillable = [
         'CRO',
-        'especialidade',
+        'especialidades',
         'responsavelTecnico',
         'Colaborador_idColaborador',
     ];
