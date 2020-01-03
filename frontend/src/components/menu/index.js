@@ -1,11 +1,12 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 export default class Menu extends React.Component{
     render(){
         return(
-            <h1>
-                Uma bela barra de menu
-            </h1>
+            <div>
+                <Link to='/'>HOME</Link>    
+                <Link to='/create'>ADD</Link>  
+            </div>
         );
     }
 }

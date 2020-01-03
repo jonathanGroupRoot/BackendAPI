@@ -1,9 +1,9 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Menu from './components/menu';
-import './App.css';
 
 function App() {
+  
   return (
     <BrowserRouter>
       <Switch>
