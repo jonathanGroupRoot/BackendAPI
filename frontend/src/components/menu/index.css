@@ -1,0 +1,28 @@
+.menu-main {
+  background-color: dodgerblue;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.menu-main div {
+  padding: 2%;
+}
+
+.menu-main div a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-right: 20px;
+  opacity: .6;
+}
+
+.menu-main div a:hover {
+  opacity: 1;
+}
+/*# sourceMappingURL=index.css.map */
