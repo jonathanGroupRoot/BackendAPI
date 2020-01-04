@@ -1,4 +1,6 @@
 import React from 'react';
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 import {connect} from 'react-redux';
 // import API from '../services/API.js';
 import './style.scss';
@@ -8,8 +10,8 @@ const Read = ({theme})=>{
         return(
             <div className='read-main' style={({backgroundColor:themeChanged.bgcolor})}>
                 
-                <h3 style={({color:themeChanged.color})}>Lista de pessoas</h3>
-                <div className='read-table'>
+                <h3 style={({color:themeChanged.color})}>LISTA DE PESSOAS</h3>
+                <SimpleBar style={{ maxWidth: "100%",paddingBottom:'1.5%'}} className='read-table'>
                     <table>
                         <thead>
                             <tr style={({backgroundColor:themeChanged.bggood})}>
@@ -36,7 +38,7 @@ const Read = ({theme})=>{
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </SimpleBar>
             </div>
                 
         );

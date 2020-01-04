@@ -2,9 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import './index.scss';
-function fun(){
+function fun(theme){
     return {
         type:'Alterar tema',
+        themeMode:theme,
     }
 }
 const menu = ({theme,dispatch})=>{
@@ -15,7 +16,7 @@ const menu = ({theme,dispatch})=>{
                     <Link className='LINK' to='/create' style={({color:theme.goodcolor})}>ADD</Link>
                 </div>
                 <div>
-                    <a style={({color:theme.goodcolor})} onClick={()=>dispatch(fun())}>Alterar tema</a>
+                    <p className='LINK' style={({color:theme.goodcolor})} onClick={()=>dispatch(fun(theme.themeMode))}>Alterar tema</p>
                 </div>  
             </div>
         );
