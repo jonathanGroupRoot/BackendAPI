@@ -14,21 +14,20 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
-
+//Rota Pessoa
 $router->get('/api/listPessoas', 'PessoaController@list');
-
 $router->post('/api/CadastrarPessoas','PessoaController@cadastrarPessoa');
-
 $router->delete('/api/delete/{id}','PessoaController@delete');
-
-$router->put('/api/atualizar/{id}', 'PessoaController@atualizar');
+$router->put('/api/atualizarPessoa/{id}', 'PessoaController@atualizar');
 
 //Rota Dentista
-
-$router->get('/api/listDentista','DentistaController@listDentista');
-
+$router->get('/api/listarDentista','DentistaController@listDentista');
 $router->post('/api/cadastrarDentista','DentistaController@cadastrarDentista');
-
 $router->delete('/api/deleteDentista/{id}','DentistaController@deleteDentista');
-
 $router->put('/api/atualizar/{id}','DentistaController@atualizar');
+
+//Rota Procedimento
+$router->get('/api/listarProcedimentos','ProcedimentoController@listarProcedimento');
+$router->post('/api/cadastrarProcedimento','ProcedimentoController@cadastrarProcedimento');
+$router->delete('/api/deletarProcedimento/{id}','ProcedimentoController@deletarProcedimento');
+$router->put('/api/atualizarProcedimento/{id}','ProcedimentoController@atualizarProcedimento');
