@@ -31,3 +31,27 @@ $router->get('/api/listarProcedimentos','ProcedimentoController@listarProcedimen
 $router->post('/api/cadastrarProcedimento','ProcedimentoController@cadastrarProcedimento');
 $router->delete('/api/deletarProcedimento/{id}','ProcedimentoController@deletarProcedimento');
 $router->put('/api/atualizarProcedimento/{id}','ProcedimentoController@atualizarProcedimento');
+
+//Rota Acompanhante
+$router->get('/api/listarAcompanhante','AcompanhanteController@listarAcompanhante');
+$router->post('/api/cadastrarAcompanhante','AcompanhanteController@cadastrarAcompanhante');
+$router->delete('/api/deletarAcompanhante/{id}','AcompanhanteController@deletarAcompanhante');
+$router->put('/api/atualizarAcompanhante/{id}','AcompanhanteController@atualizarAcompanhante');
+
+//Rota Cliente
+$router->get('/api/listarCliente','ClienteController@listarCliente');
+$router->post('/api/cadastrarCliente','ClienteController@cadastrarCliente');
+$router->delete('/api/deletarCliente/{id}','ClienteController@deletarCliente');
+$router->put('/api/atualizarCliente/{id}','ClienteController@atualizarCliente');
+
+//Rota Consulta
+$router->get('api/listarConsulta','ConsultaController@listarConsultas');
+$router->post('/api/cadastrarConsulta','ConsultaController@cadastrarConsultas');
+$router->delete('/api/deletarConsulta/{id}','ConsultaController@deletarConsulta');
+$router->put('/api/atualizarConsulta/{id}','ConsultaController@atualizarConsulta');
+
+//Rota Colaborador
+$router->get('/api/listarColaboradores','ColaboradorController@listarColaboradores');
+$router->post('/api/cadastrarColaboradores','ColaboradorController@cadastrarColaboradores');
+$router->delete('/api/deletarColaboradores/{id}','ColaboradorController@deletarColaboradores');
+$router->put('/api/atualizarColaboradores/{id}','ColaboradorController@atualizarColaboradores');

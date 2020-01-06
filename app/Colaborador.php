@@ -25,6 +25,7 @@ class Colaborador extends Model implements AuthenticatableContract, Authorizable
         'agencia',
         'salario',
         'dataDeAdmissao',
+        'Pessoa_idPessoa',
     ];
 
     /**

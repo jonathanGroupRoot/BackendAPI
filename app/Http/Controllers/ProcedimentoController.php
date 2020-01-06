@@ -20,7 +20,7 @@ class ProcedimentoController extends Controller
         return response()->json('Procedimento Cadastrado Com Sucesso');
 
     }
-    public function deletarProcedimento(Request $request,$id)
+    public function deletarProcedimento($id)
     {
         $registros = Procedimento::find($id);
         $del = $registros->delete();
