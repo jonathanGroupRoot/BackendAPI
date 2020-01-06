@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import store from './components/services/theme';
 import Menu from './components/menu';
 import Read from './components/read';
+import Create from './components/create';
 
 
 function App() {
@@ -15,9 +16,8 @@ function App() {
         <Route path='/' component={Menu} />
       </Switch>
       <Switch>
-        
           <Route exact path='/' component={Read} />
-        
+          <Route path='/create' component={Create} />
       </Switch>
     </Provider>
     </BrowserRouter>

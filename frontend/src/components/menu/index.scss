@@ -2,16 +2,17 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     div{
         padding: 2%;
 
-        a{
+        .LINK{
             text-decoration: none;
             cursor: pointer;
             white-space: nowrap;
             margin-right: 20px;
             opacity: .8;
-            font-weight: bold;
+
             &:hover{
                 opacity: 1;
                 
