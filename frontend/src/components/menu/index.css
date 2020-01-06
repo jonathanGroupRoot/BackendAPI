@@ -1,5 +1,4 @@
 .menu-main {
-  background-color: dodgerblue;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7,22 +6,24 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .menu-main div {
   padding: 2%;
 }
 
-.menu-main div a {
-  color: white;
+.menu-main div .LINK {
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
   margin-right: 20px;
-  opacity: .6;
+  opacity: .8;
 }
 
-.menu-main div a:hover {
+.menu-main div .LINK:hover {
   opacity: 1;
 }
 /*# sourceMappingURL=index.css.map */

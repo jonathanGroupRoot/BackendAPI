@@ -2,6 +2,7 @@ import React from 'react';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 // import API from '../services/API.js';
 import './style.scss';
 
@@ -11,10 +12,11 @@ const Read = ({theme})=>{
             <div className='read-main' style={({backgroundColor:themeChanged.bgcolor})}>
                 
                 <h3 style={({color:themeChanged.color})}>LISTA DE PESSOAS</h3>
-                <SimpleBar style={{ maxWidth: "100%",paddingBottom:'1.5%'}} className='read-table'>
+                <SimpleBar style={{ maxWidth: "100%",paddingBottom:'15px'}} className='read-table'>
                     <table>
                         <thead>
                             <tr style={({backgroundColor:themeChanged.bggood})}>
+                                <th style={({color:themeChanged.goodcolor})}>AÇÃO</th>
                                 <th style={({color:themeChanged.goodcolor})}>NOME</th>
                                 <th style={({color:themeChanged.goodcolor})}>CPF</th>
                                 <th style={({color:themeChanged.goodcolor})}>RG</th>
@@ -27,6 +29,7 @@ const Read = ({theme})=>{
                         </thead>
                         <tbody>
                             <tr>
+                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color,textDecoration:'none',whiteSpace:'nowrap',})}><Link to='/delete' style={({color:"#d63031",textDecoration:'none'})}>DELETAR</Link> | <Link to='/update' style={({color:'#0984e3',textDecoration:'none'})}>ALTERAR</Link></td>
                                 <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
                                 <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
                                 <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>

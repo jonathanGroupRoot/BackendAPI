@@ -1,16 +1,11 @@
 .read-main {
   min-height: 100vh;
   width: 100%;
+  padding: 1% 0;
 }
 
 .read-main h3 {
   text-align: center;
-}
-
-.read-main .read-table {
-  width: 100%;
-  overflow-x: scroll;
-  padding-bottom: 2%;
 }
 
 .read-main .read-table table {
