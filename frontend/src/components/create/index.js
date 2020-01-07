@@ -22,26 +22,15 @@ class Create extends React.Component{
     }
 
     handleChangeRegex = (event)=>{
-        let regex = /^[0-9.-]+$/;
-        if(regex.test(event.target.value)) {   
-            this.setState({data:{
-                ...this.state.data,
-                cpf: event.target.value
-            }});
-            if(event.target.value.length === 4 || event.target.value.length === 8){
-                let dot = this.state.data.cpf + ".";
-                this.setState({data:{cpf: dot}});
-            }
-            
-            if(event.target.value.length === 12){
-                let line = this.state.data.cpf + "-";
-                this.setState({data:{cpf: line}});
-            }
-        }else{
-            if(event.target.value.length <= 1){
-                this.setState({data:{cpf: ""}});
-            }
-        }  
+        let cpf = event.target.value
+              .replace(/\D/g, '') // substitui qualquer caracter que nao seja numero por nada
+              .replace(/(\d{3})(\d)/, '$1.$2') // captura 2 grupos de numero o primeiro de 3 e o segundo de 1, apos capturar o primeiro grupo ele adiciona um ponto antes do segundo grupo de numero
+              .replace(/(\d{3})(\d)/, '$1.$2')
+              .replace(/(\d{3})(\d{1,2})/, '$1-$2')
+              .replace(/(-\d{2})\d+?$/, '$1'); // captura 2 numeros seguidos de um traço e não deixa ser digitado mais nada
+        
+        this.setState({data:{cpf:cpf}});
+
     }
     clear = (event)=>{
         event.preventDefault();
@@ -118,7 +107,6 @@ class Create extends React.Component{
                     <br/>
                     <input type='text' style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} placeholder='CPF' id='CreateCPF' onChange={this.handleChangeRegex} value={this.state.data.cpf} maxLength='14' className='styledInput'/>
                 </label>
-                <button onClick={this.clear} className="Create-Btn">Reset</button>
                 <br/>
                  {/* RG */}
                  <label>

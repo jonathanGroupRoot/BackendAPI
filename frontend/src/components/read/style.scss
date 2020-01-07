@@ -1,8 +1,83 @@
+@keyframes deletePopop{
+    from{
+        margin-left: 100%;
+    }to{
+        margin-left: 1.8%;
+    }
+}
+
+@keyframes deletePopopWide{
+    from{
+        margin-left: 100%;
+    }to{
+        margin-left: 60%;
+    }
+}
+
+
+
 .read-main{
+    *{
+        transition: all 1s;
+    }
     min-height: 100vh;
     width: 100%;
     
     padding: 1% 0;
+    // DATA FOR POPOP
+    .unwork{
+        display: none;
+    }
+
+    .delete{
+        box-shadow: 3px 7px 33px 3px rgba(0,0,0,0.75);
+        width: 95%;
+        animation: deletePopop 1s;
+        margin-left: 1.8%;
+        margin-bottom: 50px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex-wrap: nowrap;
+        padding: 2%;
+        transition: all .7s;
+        div{
+            button{
+                background-color: transparent;
+                border: none;
+                font-size: 1em;
+                padding: 2%;
+            }
+            .first-btn-delete{
+                border: 1px solid #d63031;
+                color: #d63031;
+                
+                &:hover{
+                    outline: none;
+                    background-color: #d63031;
+                    color: #dfe6e9;
+                    transition: .5s all;
+                }
+            }
+            .second-btn-delete{  
+                margin-left: 2%;
+                margin-top: 4%;
+                border: 1px solid #0984e3;
+                color: #0984e3;
+                &:hover{
+                    outline: none;
+                    background-color: #0984e3;
+                    color: #dfe6e9;
+                    transition: .5s all;
+                }
+            }
+        }
+    }
+
+    // GENERAL DATA
     h3{
         text-align: center;
     }
@@ -17,6 +92,9 @@
                 width: 30%;
                 td{
                     padding: 20px;
+                    .link{
+                        cursor: pointer;
+                    }
                 }
                 th{
                     width: 30vw;
@@ -28,6 +106,16 @@
                     // border: 1px solid #cecece;
                 }
             } 
+        }
+    }
+}
+
+@media (min-width: 900px){
+    .read-main{
+        .delete{
+            width: 40%;
+            margin-left: 58%;
+            animation: deletePopopWide 1s;
         }
     }
 }

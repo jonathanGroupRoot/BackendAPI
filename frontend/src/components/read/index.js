@@ -6,11 +6,30 @@ import {Link} from 'react-router-dom';
 // import API from '../services/API.js';
 import './style.scss';
 
-const Read = ({theme})=>{
-        const themeChanged = theme;
+class Read extends React.Component{
+    state = {
+        PopopDelete:'unwork',
+    }
+
+    popopController = (id)=>{
+        this.setState({PopopDelete:"delete"});
+    }
+
+    render(){
+        const themeChanged = this.props.theme;
         return(
             <div className='read-main' style={({backgroundColor:themeChanged.bgcolor})}>
-                
+                <div className={this.state.PopopDelete} style={({color:themeChanged.color})}>
+                    <div>
+                        <h3>TEM CERTEZA?</h3>
+                        <p>Esse dado será apagado <b>PARA SEMPRE</b></p>
+                        <p>Caso prefira, apenas o oculte.</p>
+                    </div>
+                    <div>
+                        <button className='first-btn-delete'>APAGAR</button>
+                        <button className='second-btn-delete'>OCULTAR</button>
+                    </div>
+                </div>
                 <h3 style={({color:themeChanged.color})}>LISTA DE PESSOAS</h3>
                 <SimpleBar style={{ maxWidth: "100%",paddingBottom:'15px'}} className='read-table'>
                     <table>
@@ -29,7 +48,11 @@ const Read = ({theme})=>{
                         </thead>
                         <tbody>
                             <tr>
-                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color,textDecoration:'none',whiteSpace:'nowrap',})}><Link to='/delete' style={({color:"#d63031",textDecoration:'none'})}>DELETAR</Link> | <Link to='/update' style={({color:'#0984e3',textDecoration:'none'})}>ALTERAR</Link></td>
+                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color,textDecoration:'none',whiteSpace:'nowrap',})}>
+                                    <b style={({color:"#d63031",textDecoration:'none'})} onClick={()=>this.popopController(1)} className='link'>DELETAR </b> 
+                                     | 
+                                    <b><Link to='/update' style={({color:'#0984e3',textDecoration:'none'})}> ALTERAR</Link></b>
+                                </td>
                                 <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
                                 <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
                                 <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
@@ -45,6 +68,7 @@ const Read = ({theme})=>{
             </div>
                 
         );
+    }
 }
 
 export default connect(state=>({theme:state.theme}))(Read);
