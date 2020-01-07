@@ -67,3 +67,15 @@ $router->get('/api/listarMaterial','MaterialController@listarMaterial');
 $router->post('api/cadastrarMaterial','MaterialController@cadastrarMaterial');
 $router->delete('/api/deletarMaterial/{id}','MaterialController@deletarMaterial');
 $router->put('/api/atualizarMaterial/{id}','MaterialController@atualizarMaterial');
+
+//Rota Estoque
+$router->get('/api/listarEstoque','EstoqueController@listarEstoque');
+$router->post('/api/cadastrarEstoque','EstoqueController@cadastrarEstoque');
+$router->delete('/api/deletarEstoque/{id}','EstoqueController@deletarEstoque');
+$router->put('/api/atualizarEstoque/{id}','EstoqueController@atualizarEstoque');
+
+//Rota Entrada
+$router->get('/api/listarEntrada','EntradaController@listarEntrada');
+$router->post('/api/cadastrarEntrada','EntradaController@cadastrarEntrada');
+$router->delete('/api/deletarEntrada/{id}','EntradaController@deletarEntrada');
+$router->put('/api/atualizarEntrada/{id}','EntradaController@atualizarEntrada');
