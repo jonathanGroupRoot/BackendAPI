@@ -55,3 +55,15 @@ $router->get('/api/listarColaboradores','ColaboradorController@listarColaborador
 $router->post('/api/cadastrarColaboradores','ColaboradorController@cadastrarColaboradores');
 $router->delete('/api/deletarColaboradores/{id}','ColaboradorController@deletarColaboradores');
 $router->put('/api/atualizarColaboradores/{id}','ColaboradorController@atualizarColaboradores');
+
+//Rota Fornecedor
+$router->get('/api/listarFornecedores','FornecedorController@listarFornecedores');
+$router->post('/api/cadastrarFornecedores','FornecedorController@cadastrarFornecedores');
+$router->delete('api/deletarFornecedores/{id}','FornecedorController@deletarFornecedores');
+$router->put('/api/atualizarFornecedores/{id}','FornecedorController@atualizarFornecedores');
+
+//Rota Material
+$router->get('/api/listarMaterial','MaterialController@listarMaterial');
+$router->post('api/cadastrarMaterial','MaterialController@cadastrarMaterial');
+$router->delete('/api/deletarMaterial/{id}','MaterialController@deletarMaterial');
+$router->put('/api/atualizarMaterial/{id}','MaterialController@atualizarMaterial');
