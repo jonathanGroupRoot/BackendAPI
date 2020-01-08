@@ -74,8 +74,14 @@ $router->post('/api/cadastrarEstoque','EstoqueController@cadastrarEstoque');
 $router->delete('/api/deletarEstoque/{id}','EstoqueController@deletarEstoque');
 $router->put('/api/atualizarEstoque/{id}','EstoqueController@atualizarEstoque');
 
-//Rota Entrada
+//Rota Entrada Estoque
 $router->get('/api/listarEntrada','EntradaController@listarEntrada');
-$router->post('/api/cadastrarEntrada','EntradaController@cadastrarEntrada');
+$router->post('/api/Entrada','EntradaController@entradaEstoque');
 $router->delete('/api/deletarEntrada/{id}','EntradaController@deletarEntrada');
 $router->put('/api/atualizarEntrada/{id}','EntradaController@atualizarEntrada');
+
+//Rota Saida Estoque
+$router->get('/api/listarSaida','SaidaController@listarSaida');
+$router->post('/api/saidaEstoque','SaidaController@saidaEstoque');
+$router->delete('/api/delSaida/{id}','SaidaController@deletarSaida');
+$router->put('/api/atualizarSaida/{id}','SaidaController@atualizarSaida');

@@ -14,24 +14,10 @@ class EstoqueController extends Controller
     }
     public function cadastrarEstoque(Request $request)
     {
-        $fornecedor = new Fornecedor();
-        $fornecedor->nome = $request->nomeFornecedor;
-        $fornecedor->cnpj = $request->cnpj;
-        $fornecedor->telefone = $request->telefone;
-        $fornecedor->endereco = $request->endereco;
-        $fornecedor->save();
-
-        $material = new Material();
-        $material->nome = $request->nome;
-        $material->codigo = $request->codigo;
-        $material->preco = $request->preco;
-        $material->Fornecedor_idFornecedor = $fornecedor->id;
-        $material->save();
-        
         $estoque = new Estoque();
         $estoque->quantidade = $request->quantidade;
         $estoque->data = $request->data;
-        $estoque->Material_idMaterial = $material->id;
+        $estoque->Material_idMaterial = $request->materialID;
         $estoque->save();
         return response()->json('Estoque Cadastrado Com Sucesso!!');
     }
