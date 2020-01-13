@@ -94,7 +94,7 @@ class Create extends React.Component{
                 <label>
                     Nome:
                     <br/>
-                    <input type="text" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.nome} onChange={this.handleChange} name='nome' className='styledInput' placeholder='Nome'/>
+                    <input type="text" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.data.nome} onChange={this.handleChange} name='nome' className='styledInput' placeholder='Nome'/>
                 </label>
                 <br/>
                 
@@ -103,21 +103,21 @@ class Create extends React.Component{
                 <label>
                     Endereço
                     <br/>
-                    <input type="text" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.endereco} onChange={this.handleChange} name='endereco' className='styledInput' placeholder='Endreço'/>
+                    <input type="text" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.data.endereco} onChange={this.handleChange} name='endereco' className='styledInput' placeholder='Endreço'/>
                 </label>
                 <br/>
                 {/* TELEFONE */}
                 <label>
                     Telefone
                     <br/>
-                    <input type="text" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.telefone} onChange={this.handleChange} name='telefone' className='styledInput' placeholder='Telefone'/>
+                    <input type="text" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.data.telefone} onChange={this.handleChange} name='telefone' className='styledInput' placeholder='Telefone'/>
                 </label>
                 <br/>
                 {/* Nacionalidade */}
                 <label>
                     Nacionalidade
                     <br/>
-                    <input type="text" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.nacionalidade} onChange={this.handleChange} name='nacionalidade' className='styledInput' placeholder='Nacionalidade'/>
+                    <input type="text" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.data.nacionalidade} onChange={this.handleChange} name='nacionalidade' className='styledInput' placeholder='Nacionalidade'/>
                 </label>
                 <br/>
                 {/**CPF */}
@@ -131,14 +131,14 @@ class Create extends React.Component{
                  <label>
                     RG
                     <br/>
-                    <input type="number" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.RG} onChange={this.handleChange} name='RG' className='styledInput' placeholder='RG'/>
+                    <input type="number" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.data.RG} onChange={this.handleChange} name='RG' className='styledInput' placeholder='RG'/>
                 </label>
                 <br/>
                 {/**data de Nascimento */}
                 <label>
                     Data de Nascimento:
                     <br/>
-                    <input type="date" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.dataDeNascimento} onChange={this.handleChange} name='dataDeNascimento' className='styledInput' />
+                    <input type="date" style={({color:themeChanged.goodcolor,backgroundColor:'transparent',border:'none',borderBottom:'1px solid '+themeChanged.goodcolor})} value={this.state.data.dataDeNascimento} onChange={this.handleChange} name='dataDeNascimento' className='styledInput' />
                 </label>
                 <br/>
                 
