@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import API from '../services/API.js';
 import './style.scss';
 
-class Create extends React.Component{
+class Update extends React.Component{
     state = {
         data:{
             sexo:1,
@@ -20,6 +20,17 @@ class Create extends React.Component{
 
     // IMPORTANTE ===================================
 
+
+    componentDidMount(){
+        const { id } = this.props.match.params;
+
+
+
+        this.setState({data:{
+            id:id
+        }});
+    }
+
     handleSubmit = async (event)=>{
         event.preventDefault();
         
@@ -28,7 +39,7 @@ class Create extends React.Component{
             ...this.state.data,
             dataDeNascimento:(this.state.data.dataDeNascimento + " 11:11:11"),
         }
-        API.post(`/api/CadastrarPessoas?nome=${dataForSubmit.nome}&CPF=${dataForSubmit.CPF}&dataDeNascimento=${dataForSubmit.dataDeNascimento}&dataDeCadastro=${dataForSubmit.dataDeCadastro}&RG=${dataForSubmit.RG}&endereco=${dataForSubmit.endereco}&telefone=${dataForSubmit.telefone}&sexo=${dataForSubmit.sexo}&nacionalidade=${dataForSubmit.nacionalidade}&ativo=${dataForSubmit.ativo}`)
+        API.put(`/api/atualizarPessoa/${dataForSubmit.id}/?nome=${dataForSubmit.nome}&CPF=${dataForSubmit.CPF}&dataDeNascimento=${dataForSubmit.dataDeNascimento}&dataDeCadastro=${dataForSubmit.dataDeCadastro}&RG=${dataForSubmit.RG}&endereco=${dataForSubmit.endereco}&telefone=${dataForSubmit.telefone}&sexo=${dataForSubmit.sexo}&nacionalidade=${dataForSubmit.nacionalidade}&ativo=${dataForSubmit.ativo}`)
             .then((response)=>window.location.href = "/")
             .catch(error => {console.log(error.message)});
     }
@@ -159,4 +170,4 @@ class Create extends React.Component{
     }
 }
 
-export default connect(state=>({theme:state.theme}))(Create);
+export default connect(state=>({theme:state.theme}))(Update);

@@ -3,16 +3,30 @@ import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-// import API from '../services/API.js';
+import API from '../services/API.js';
 import './style.scss';
 
 class Read extends React.Component{
     state = {
         PopopDelete:'unwork',
+        mainData:[],
+        idDelete:0,
     }
 
+    async componentDidMount(){
+        await API.get('/api/listPessoas').then(response=>{
+            this.setState({mainData:response.data});
+            
+        });
+    }
     popopController = (id)=>{
-        this.setState({PopopDelete:"delete"});
+        this.setState({PopopDelete:"delete",idDelete:id});
+    }
+
+    deleteApi = async()=>{
+        await API.delete('/api/delete/'+this.state.idDelete);
+        this.componentDidMount();
+        this.setState({PopopDelete:"unwork"});
     }
 
     render(){
@@ -26,7 +40,7 @@ class Read extends React.Component{
                         <p>Caso prefira, apenas o oculte.</p>
                     </div>
                     <div>
-                        <button className='first-btn-delete'>APAGAR</button>
+                        <button className='first-btn-delete' onClick={()=>this.deleteApi()}>APAGAR</button>
                         <button className='second-btn-delete'>OCULTAR</button>
                     </div>
                 </div>
@@ -47,21 +61,30 @@ class Read extends React.Component{
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color,textDecoration:'none',whiteSpace:'nowrap',})}>
-                                    <b style={({color:"#d63031",textDecoration:'none'})} onClick={()=>this.popopController(1)} className='link'>DELETAR </b> 
-                                     | 
-                                    <b><Link to='/update' style={({color:'#0984e3',textDecoration:'none'})}> ALTERAR</Link></b>
-                                </td>
-                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
-                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
-                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
-                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
-                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
-                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
-                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
-                                <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>JULIO</td>
-                            </tr>
+                            
+
+                                {this.state.mainData.map((item)=>{
+                                    return(
+                                        <tr key={item.id}>
+                                            <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color,textDecoration:'none',whiteSpace:'nowrap',})}>
+                                            <b style={({color:"#d63031",textDecoration:'none'})} onClick={()=>this.popopController(item.id)} className='link'>DELETAR </b> 
+                                            | 
+                                            <b><Link to={'/update/'+item.id} style={({color:'#0984e3',textDecoration:'none'})}> ALTERAR</Link></b>
+                                            </td>
+                                            <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>{item.nome}</td>
+                                            <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>{item.CPF}</td>
+                                            <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>{item.RG}</td>
+                                            <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>{item.endereco}</td>
+                                            <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>{((item.sexo)?'Masculino':'Feminino')}</td>
+                                            <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>{item.nacionalidade}</td>
+                                            <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>{item.dataDeNascimento}</td>
+                                            <td style={({color:themeChanged.color,borderBottom: "1px solid "+themeChanged.color})}>{item.dataDeCadastro}</td>
+                                        </tr>
+                                    );
+                                })}
+
+                                
+                            
                         </tbody>
                     </table>
                 </SimpleBar>
