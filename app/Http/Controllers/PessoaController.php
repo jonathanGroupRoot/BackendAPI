@@ -39,8 +39,8 @@ class PessoaController extends Controller
     }
     public function editar($id)
     {
-        $editar = Pessoa::find($id)->all();
-        return response()->json($editar);
+        $editar = Pessoa::find($id);
+        return response()->json($editar->all());
     }
     public function atualizar(Request $request,$id){
 
