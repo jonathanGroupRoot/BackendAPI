@@ -39,6 +39,11 @@ class AcompanhanteController extends Controller
         $del = $acompanhante->delete();
         return response()->json('Acompanhante Deletado Com Sucesso!!');
     }
+    public function editar($id)
+    {
+        $editar = Acompanhante::find($id);
+        return response()->json($editar);
+    }
     public function atualizarAcompanhante(Request $request,$id)
     {
         $acompanhante = $request->all();

@@ -45,6 +45,11 @@ class ColaboradorController extends Controller
         $del = $colaborador->delete();
         return response()->json('Colaborador Deletado Com Sucesso!!');
     }
+    public function editar($id)
+    {
+        $editar = Colaborador::find($id);
+        return response()->json($editar);
+    }
     public function atualizarColaboradores(Request $request,$id)
     {
         $colaborador = $request->all();

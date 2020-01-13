@@ -34,6 +34,11 @@ class MaterialController extends Controller
         $del = $material->delete();
         return response()->json('Material Deletado Com Sucesso!!');
    }
+   public function editar($id)
+   {
+       $editar = Material::find($id);
+       return response()->json($editar);
+   }
    public function atualizarMaterial(Request $request,$id)
    {
         $material = $request->all();

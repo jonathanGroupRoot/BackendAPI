@@ -40,6 +40,11 @@ class ClienteController extends Controller
         $del = $cliente->delete();
         return response()->json('Cliente Deletado Com Sucesso!!');
     }
+    public function editar($id)
+    {
+        $editar = Cliente::find($id);
+        return response()->json($editar);
+    }
     public function atualizarCliente(Request $request,$id)
     {   
         $cliente = $request->all();

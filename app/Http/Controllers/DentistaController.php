@@ -56,6 +56,11 @@ class DentistaController extends Controller
     return response()->json('Deletado Com Sucesso');
         
     }
+    public function editar($id)
+    {
+        $editar = Dentista::find($id);
+        return response()->json($editar);
+    }
     public function atualizar(Request $request, $id){
     $dentista = $request->all();
     Dentista::find($id)->update($dentista);

@@ -26,6 +26,11 @@ class ConsultaController extends Controller
         return response()->json('Consulta Marcado Com Sucesso!!');
 
     }
+    public function editar($id)
+    {
+        $editar = Consulta::find($id);
+        return response()->json($editar);
+    }
     public function atualizarConsulta(Request $request,$id)
     {
         $consulta = $request->all();

@@ -26,6 +26,12 @@ class ProcedimentoController extends Controller
         $del = $registros->delete();
         return response()->json('Procedimento Deletado Com Sucesso!!');
     }
+    public function editar($id)
+    {
+        $editar = Procedimento::find($id);
+        return response()->json($editar);
+    }
+ 
     public function atualizarProcedimento(Request $request,$id)
     {
         $registros = $request->all();

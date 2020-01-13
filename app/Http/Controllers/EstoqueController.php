@@ -27,6 +27,11 @@ class EstoqueController extends Controller
         $del = $estoque->delete();
         return response()->json('Estoque Deletado Com Sucesso!!');
     }
+    public function editar($id)
+    {
+        $editar = Estoque::find($id);
+        return response()->json($editar);
+    }
     public function atualizarEstoque(Request $request,$id)
     {
         $estoque = $request->all();

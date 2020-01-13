@@ -20,6 +20,11 @@ class FornecedorController extends Controller
         $fornecedor->save();
         return response()->json('Fornecedor Cadastrado Com Sucesso!!');
     }
+    public function editar($id)
+    {
+        $editar = Fornecedor::find($id);
+        return response()->json($editar);
+    }
     public function atualizarFornecedores(Request $request,$id)
     {
         $fornecedor = $request->all();
