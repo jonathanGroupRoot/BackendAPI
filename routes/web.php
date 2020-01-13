@@ -19,6 +19,7 @@ $router->get('/api/listPessoas', 'PessoaController@list');
 $router->post('/api/CadastrarPessoas','PessoaController@cadastrarPessoa');
 $router->delete('/api/delete/{id}','PessoaController@delete');
 $router->put('/api/atualizarPessoa/{id}', 'PessoaController@atualizar');
+$router->get('/api/editarPessoa/{id}','PessoaController@editar');
 
 //Rota Dentista
 $router->get('/api/listarDentista','DentistaController@listDentista');
