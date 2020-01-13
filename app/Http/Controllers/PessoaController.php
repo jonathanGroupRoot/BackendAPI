@@ -37,7 +37,7 @@ class PessoaController extends Controller
         $del = $pessoa->delete();
         return response()->json('Deletado Com Sucesso!!');
     }
-    public function atualizar(Request $request,$id){
+    public function atualizar($id, Request $request){
 
         $registros = $request->all();
         Pessoa::find($id)->update($registros);
