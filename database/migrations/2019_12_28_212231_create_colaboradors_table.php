@@ -28,15 +28,6 @@ class CreateColaboradorsTable extends Migration
         });
     }
 
-        // idColaborador INT
-        // Pessoa_idPessoa INT
-        // PIS INT
-        // cargo VARCHAR(255)
-        // conta VARCHAR(255)
-        // tipoDaConta VARCHAR(45)
-        // agencia VARCHAR(255)
-        // salario INT
-        // dataDeAdmissao DATE
 
     /**
      * Reverse the migrations.

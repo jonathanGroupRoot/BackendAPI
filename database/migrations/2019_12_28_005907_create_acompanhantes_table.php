@@ -15,9 +15,9 @@ class CreateAcompanhantesTable extends Migration
     {
         Schema::create('acompanhantes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('Pessoa_idPessoa')->unsigned();
+            $table->bigInteger('Pessoa_idPessoa')->unsigned()->nullable();
             $table->foreign('Pessoa_idPessoa')->references('id')->on('pessoas')->onDelete('cascade');
-            $table->boolean('responsavel',1);
+            $table->boolean('responsavel',1)->nullable();
             $table->timestamps();
         });
     }

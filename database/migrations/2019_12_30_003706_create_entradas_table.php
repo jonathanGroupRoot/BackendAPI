@@ -23,10 +23,6 @@ class CreateEntradasTable extends Migration
             $table->foreign('Colaborador_idColaborador')->references('id')->on('colaboradors')->onDelete('cascade');
             
             $table->timestamps();
-
-            // idEntrada INT
-            // Estoque_idEstoq…
-            // Colaborador_idC…
         });
     }
 

@@ -20,11 +20,6 @@ class CreateEstoquesTable extends Migration
             $table->bigInteger('Material_idMaterial')->unsigned();
             $table->foreign('Material_idMaterial')->references('id')->on('materials')->onDelete('cascade');
             $table->timestamps();
-
-            // idEstoque INT
-            // quantidade INT
-            // data DATE
-            // Material_idMaterial INT
         });
     }
 

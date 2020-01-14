@@ -20,12 +20,6 @@ class CreateFornecedorsTable extends Migration
             $table->integer('telefone');
             $table->string('endereco',255);
             $table->timestamps();
-
-            // idFornecedor INT
-            // nome VARCHAR(255)
-            // cnpj INT
-            // telefone INT
-            // endereco VARCHAR(25
         });
     }
 

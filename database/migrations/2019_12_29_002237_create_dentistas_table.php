@@ -16,7 +16,7 @@ class CreateDentistasTable extends Migration
         Schema::create('dentistas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('CRO');
-            $table->string('especialidades',255);
+            $table->string('especialidades',255)->nullable();
             $table->boolean('responsavelTecnico',1);
 
             $table->bigInteger('Colaborador_idColaborador')->unsigned();
