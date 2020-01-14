@@ -11,9 +11,7 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+
 //Rota Pessoa
 $router->get('/api/listPessoas', 'PessoaController@list');
 $router->post('/api/CadastrarPessoas','PessoaController@cadastrarPessoa');
