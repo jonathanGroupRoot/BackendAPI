@@ -20,7 +20,7 @@ class PessoaController extends Controller
         $registros = new Pessoa;
         $registros->nome = $request->nome;
         $registros->CPF = $request->CPF;
-        $pessoa->CEP = $request->CEP;
+        $registros->CEP = $request->CEP;
         $registros->dataDeNascimento = $request->dataDeNascimento;
         $registros->dataDeCadastro = $request->dataDeCadastro;
         $registros->RG = $request->RG;
