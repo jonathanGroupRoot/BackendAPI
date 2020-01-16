@@ -24,7 +24,7 @@ class CreatePessoasTable extends Migration
             $table->string('telefone',16);
             $table->boolean('sexo',1);
             $table->string('nacionalidade',255)->default('Brasil');
-            $table->string('motivo',255);
+            $table->string('motivo',255)->nullable();
             $table->boolean('ativo',1);
             $table->timestamps();
         });

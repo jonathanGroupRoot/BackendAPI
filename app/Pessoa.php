@@ -28,6 +28,8 @@ class Pessoa extends Model implements AuthenticatableContract, AuthorizableContr
         'sexo',
         'nacionalidade',
         'ativo',
+        'CEP',
+        'motivo'
     ];
 
     /**
