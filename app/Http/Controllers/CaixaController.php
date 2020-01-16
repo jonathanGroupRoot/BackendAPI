@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Colaborador;
-use App\Consulta;
+use App\Caixa;
 
 class CaixaController extends Controller
 {
