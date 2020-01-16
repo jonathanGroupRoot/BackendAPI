@@ -18,7 +18,6 @@ class Consulta extends Model implements AuthenticatableContract, AuthorizableCon
      * @var array
      */
     protected $fillable = [
-        'dataDeCadastro', 
         'tipoDeAtendimento',
         'Procedimento_idProcedimento',
         'Colaborador_idColaborador',

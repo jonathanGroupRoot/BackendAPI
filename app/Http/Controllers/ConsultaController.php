@@ -17,7 +17,6 @@ class ConsultaController extends Controller
     {
       
         $consulta = new Consulta();
-        $consulta->dataDeCadastro = $request->dataDeCadastro;
         $consulta->tipoDeAtendimento = $request->tipoDeAtendimento;
         $consulta->Procedimento_idProcedimento = $request->procedimento;
         $consulta->Colaborador_idColaborador = $request->colaborador;
