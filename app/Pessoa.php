@@ -21,7 +21,6 @@ class Pessoa extends Model implements AuthenticatableContract, AuthorizableContr
         'nome', 
         'cpf',
         'dataDeNascimento',
-        'dataDeCadastro',
         'RG',
         'endereco',
         'telefone',

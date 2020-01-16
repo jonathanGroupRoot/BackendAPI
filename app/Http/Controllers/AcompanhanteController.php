@@ -14,7 +14,6 @@ class AcompanhanteController extends Controller
         $pessoa->CPF = $request->CPF;
         $pessoa->CEP = $request->CEP;
         $pessoa->dataDeNascimento = $request->dataDeNascimento;
-        $pessoa->dataDeCadastro = $request->dataDeCadastro;
         $pessoa->RG = $request->RG;
         $pessoa->endereco = $request->endereco;
         $pessoa->telefone = $request->telefone;

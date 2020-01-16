@@ -22,7 +22,6 @@ class PessoaController extends Controller
         $registros->CPF = $request->CPF;
         $registros->CEP = $request->CEP;
         $registros->dataDeNascimento = $request->dataDeNascimento;
-        $registros->dataDeCadastro = $request->dataDeCadastro;
         $registros->RG = $request->RG;
         $registros->endereco = $request->endereco;
         $registros->telefone = $request->telefone;
