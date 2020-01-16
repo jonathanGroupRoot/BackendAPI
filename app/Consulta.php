@@ -19,6 +19,7 @@ class Consulta extends Model implements AuthenticatableContract, AuthorizableCon
      */
     protected $fillable = [
         'tipoDeAtendimento',
+        'hora',
         'Procedimento_idProcedimento',
         'Colaborador_idColaborador',
         'Cliente_idCliente',

@@ -21,6 +21,7 @@ class ConsultaController extends Controller
         $consulta->Procedimento_idProcedimento = $request->procedimento;
         $consulta->Colaborador_idColaborador = $request->colaborador;
         $consulta->Cliente_idCliente = $request->cliente;
+        $consulta->hora = $request->hora;
         $consulta->save();
         return response()->json('Consulta Marcado Com Sucesso!!');
 
