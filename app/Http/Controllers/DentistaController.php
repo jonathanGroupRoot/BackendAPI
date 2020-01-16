@@ -19,6 +19,7 @@ class DentistaController extends Controller
     $pessoa = new Pessoa();
     $pessoa->nome = $request->nome;
     $pessoa->CPF = $request->CPF;
+    $pessoa->CEP = $request->CEP;
     $pessoa->dataDeNascimento = $request->dataDeNascimento;
     $pessoa->dataDeCadastro = $request->dataDeCadastro;
     $pessoa->RG = $request->RG;

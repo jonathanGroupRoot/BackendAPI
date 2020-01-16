@@ -17,7 +17,7 @@ class CreateProntuariosTable extends Migration
             $table->bigIncrements('id');
             $table->integer('numeracaoDoDente');
             $table->date('dataDoProcedimento');
-            $table->date('dataDeRetorno');
+            $table->date('dataDeRetorno')->default('2001-01-01');
 
             $table->bigInteger('Consulta_idConsulta')->unsigned();
             $table->foreign('Consulta_idConsulta')->references('id')->on('consultas')->onDelete('cascade');

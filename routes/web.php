@@ -93,3 +93,6 @@ $router->get('/api/listarSaida','SaidaController@listarSaida');
 $router->post('/api/saidaEstoque','SaidaController@saidaEstoque');
 $router->delete('/api/delSaida/{id}','SaidaController@deletarSaida');
 $router->put('/api/atualizarSaida/{id}','SaidaController@atualizarSaida');
+
+//Rota Caixa
+$router->post('/api/EntradaCaixa','CaixaController@entradaCaixa');
