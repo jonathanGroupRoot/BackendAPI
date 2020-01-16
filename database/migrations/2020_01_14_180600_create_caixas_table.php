@@ -20,7 +20,7 @@ class CreateCaixasTable extends Migration
             $table->bigInteger('id_Colaborador')->unsigned();
             $table->foreign('id_Colaborador')->references('id')->on('colaboradors')->onDelete('cascade');
             $table->bigInteger('id_Consulta')->unsigned();
-            $table->foreign('id_consulta')->references('id')->on('consultas')->onDelete('cascade');
+            $table->foreign('id_Consulta')->references('id')->on('consultas')->onDelete('cascade');
             $table->timestamps();
         });
     }
