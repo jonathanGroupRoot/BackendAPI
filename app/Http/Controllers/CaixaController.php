@@ -10,7 +10,10 @@ class CaixaController extends Controller
 
     public function saldoTotal(){
         $caixa =  new caixa();
-        $caixa->valor->all();
+        foreach($caixa as $total)
+        $total->valor;
+        $caixa->save();
+
         // $tot = 0;
         // foreach($caixa as $saldo){
         //     if($saldo->tipoDeEntrada) // se não colocar valor, ele já presume como TRUE
