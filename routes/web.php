@@ -96,3 +96,4 @@ $router->put('/api/atualizarSaida/{id}','SaidaController@atualizarSaida');
 
 //Rota Caixa
 $router->post('/api/EntradaCaixa','CaixaController@entradaCaixa');
+$router->post('/api/somaCaixa','CaixaController@somarCaixa');

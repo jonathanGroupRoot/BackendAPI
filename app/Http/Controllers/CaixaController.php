@@ -14,7 +14,14 @@ class CaixaController extends Controller
         $caixa->id_Colaborador = $request->colaborador;
         $caixa->id_Consulta = $request->consulta;
         $caixa->save();
-        return response()->json('Deu Certo');
-        
+        return response()->json('Alteração no Caixa!!');
+    }
+    public function somarCaixa(Request $request)
+    {
+        $soma = new Caixa();
+        $soma->valor = $soma + valor;
+        $soma->tipoDeEntrada = $request->tipoDeEntrada;
+        $soma->save();
+        return response()->json('Somado ao caixa');
     }
 }
