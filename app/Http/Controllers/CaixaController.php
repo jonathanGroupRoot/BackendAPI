@@ -14,13 +14,13 @@ class CaixaController extends Controller
         $caixa->id_Colaborador = $request->colaborador;
         $caixa->id_Consulta = $request->consulta;
         $caixa->save();
-        foreach($caixa as $caixa)
-        if($caixa->tipoDeEntrada===1){
-            $caixa += $caixa->valor;
+        @foreach($caixa as $caixas)
+        if($caixas->tipoDeEntrada===1){
+            $caixas += $caixas->valor;
         }else{
-            $caixa -= $caixa->valor;
+            $caixas -= $caixas->valor;
         }
-        endforeach
+        @endforeach
         return response()->json('Alteração no Caixa!!');
     }
  
