@@ -18,7 +18,10 @@ class Caixa extends Model implements AuthenticatableContract, AuthorizableContra
      * @var array
      */
     protected $fillable = [
-        'valor', 'tipoDeEntrada','id_Colaborador','id_Consulta',
+        'valor',
+        'tipoDeEntrada',
+        'id_Colaborador',
+        'id_Consulta',
     ];
 
     // /**

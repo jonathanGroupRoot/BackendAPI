@@ -6,6 +6,7 @@ use App\Caixa;
 
 class CaixaController extends Controller
 {
+    protected $id = null;
     public function entradaCaixa(Request $request)
     {
         $caixa = new Caixa();
@@ -15,7 +16,7 @@ class CaixaController extends Controller
         $caixa->id_Consulta = $request->consulta;
         $caixa->save();
         foreach($caixa as $caixas)
-        if($caixas->tipoDeEntrada===1){
+        if($caixas->tipoDeEntrada === 1){
             $caixas += $caixas->valor;
         }else{
             $caixas -= $caixas->valor;
