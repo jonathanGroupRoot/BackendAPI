@@ -20,7 +20,6 @@ class CaixaController extends Controller
         }else{
             $caixas -= $caixas->valor;
         }
-        endforeach
         return response()->json('Alteração no Caixa!!');
     }
  
