@@ -31,11 +31,11 @@ class CaixaController extends Controller
         $caixa->id_Colaborador = $request->colaborador;
         $caixa->id_Consulta = $request->consulta;
         foreach($caixa as $tot)
-        if($tot->tipoDeEntrada === 1)
+        if($caixa->tipoDeEntrada === 1)
         {
-            $tot += $caixa->valor;
+            $tot = $caixa + $valor;
         }else{
-            $tot -= $caixa->valor;
+            $tot = $caixa - $valor;
         }
         $caixa->save();
         
