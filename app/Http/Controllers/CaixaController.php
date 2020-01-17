@@ -14,13 +14,20 @@ class CaixaController extends Controller
         $caixa->tipoDeEntrada = $request->tipoDeEntrada;
         $caixa->id_Colaborador = $request->colaborador;
         $caixa->id_Consulta = $request->consulta;
-        $caixa->save();
-        foreach($caixa as $caixas)
-        if($caixa->tipoDeEntrada === 1){
-            $caixa += $caixas->valor;
-        }else{
-            $caixa -= $caixas->valor;
+        if($caixa->tipoDeEntrada === 1)
+        {
+            $caixa += $caixa->valor;
         }
+        else{
+            $caixa -= $caixa->valor;
+        }
+        $caixa->save();
+        // foreach($caixa as $caixas)
+        // if($caixa->tipoDeEntrada === 1){
+        //     $caixa += $caixas->valor;
+        // }else{
+        //     $caixa -= $caixas->valor;
+        // }
         return response()->json('Alteração no Caixa!!');
     }
  
