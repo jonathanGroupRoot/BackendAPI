@@ -31,13 +31,11 @@ class CaixaController extends Controller
         $caixa->tipoDeEntrada = $request->tipoDeEntrada;
         $caixa->id_Colaborador = $request->colaborador;
         $caixa->id_Consulta = $request->consulta;
-        foreach($caixa as $tot)
-        if($caixa->tipoDeEntrada === 1)
-        {
-            $tot = $caixa + $valor;
-        }else{
-            $tot = $caixa - $valor;
-        }
+       if($caixa->tipoDeEntrada === 1){
+           $caixa->valor += $valor;
+       }else{
+           $caixa->valor -= $valor;
+       }
         $caixa->save();
         
         return response()->json('Alteração no Caixa!!');
