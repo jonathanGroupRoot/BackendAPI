@@ -14,13 +14,11 @@ class CaixaController extends Controller
         $caixa->tipoDeEntrada = $request->tipoDeEntrada;
         $caixa->id_Colaborador = $request->colaborador;
         $caixa->id_Consulta = $request->consulta;
-        if($caixa->tipoDeEntrada === 1)
-        {
-            $caixa += $caixa->valor;
-        }
-        else{
-            $caixa -= $caixa->valor;
-        }
+       foreach($caixa as $tot)
+       if($caixa->tipoDeEntrada === 1)
+       {
+           $caixa->valor = $tot++;
+       }
         $caixa->save();
         // foreach($caixa as $caixas)
         // if($caixa->tipoDeEntrada === 1){
