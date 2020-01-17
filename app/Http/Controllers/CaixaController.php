@@ -6,7 +6,7 @@ use App\Caixa;
 
 class CaixaController extends Controller
 {
-    protected $id = null;
+    
     public function entradaCaixa(Request $request)
     {
         $caixa = new Caixa();
