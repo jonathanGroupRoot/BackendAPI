@@ -9,7 +9,7 @@ class CaixaController extends Controller
     
 
     public function saldoTotal(){
-        $caixa =  new caixa();
+        $caixa =  new Caixa();
         $caixa->valor::all();
         $caixa->save();
         return response()->json($caixa);
@@ -22,7 +22,7 @@ class CaixaController extends Controller
         //         $tot -= $saldo->valor;
         //     }
         // }
-        return response()->json([$caixa]);
+        
     }
 
     public function entradaCaixa(Request $request)
