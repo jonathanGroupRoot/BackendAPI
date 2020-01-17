@@ -16,7 +16,6 @@ class CreateCaixasTable extends Migration
         Schema::create('caixas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('valor');
-            $table->integer('caixa_final');
             $table->boolean('tipoDeEntrada',1);
             $table->bigInteger('id_Colaborador')->unsigned()->nullable();
             $table->foreign('id_Colaborador')->references('id')->on('colaboradors')->onDelete('cascade');
