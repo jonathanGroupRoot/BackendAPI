@@ -25,6 +25,7 @@ class CaixaController extends Controller
 
     public function entradaCaixa(Request $request)
     {
+        $valor = 0;
         $caixa = new Caixa();
         $caixa->valor = $request->valor;
         $caixa->tipoDeEntrada = $request->tipoDeEntrada;
