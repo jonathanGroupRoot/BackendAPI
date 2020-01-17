@@ -16,12 +16,12 @@ class CaixaController extends Controller
         $caixa->save();
         return response()->json('Alteração no Caixa!!');
     }
-    public function somarCaixa(Request $request,$valor)
-    {
-        $soma = new Caixa();
-        $soma->valor = $soma + $valor;
-        $soma->tipoDeEntrada = $request->tipoDeEntrada;
-        $soma->save();
-        return response()->json('Somado ao caixa');
-    }
+    // public function somarCaixa(Request $request,$valor)
+    // {
+    //     $soma = new Caixa();
+    //     $soma->valor = $soma + $valor;
+    //     $soma->tipoDeEntrada = $request->tipoDeEntrada;
+    //     $soma->save();
+    //     return response()->json('Somado ao caixa');
+    // }
 }
