@@ -11,7 +11,7 @@ class CaixaController extends Controller
     public function saldoTotal(){
         $caixa =  new caixa();
         foreach($caixa as $total)
-        $total->valor;
+        $caixa->valor->all();
         $caixa->save();
 
         // $tot = 0;
