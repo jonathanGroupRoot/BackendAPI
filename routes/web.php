@@ -95,4 +95,4 @@ $router->delete('/api/delSaida/{id}','SaidaController@deletarSaida');
 $router->put('/api/atualizarSaida/{id}','SaidaController@atualizarSaida');
 
 //Rota Caixa
-$router->post('/api/EntradaCaixa','CaixaController@entradaCaixa');
+$router->post('/api/EntradaCaixa','CaixaController@saldoTotal');

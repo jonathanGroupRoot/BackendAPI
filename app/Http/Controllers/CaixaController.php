@@ -20,32 +20,5 @@ class CaixaController extends Controller
             }
         }
         return response()->json(['saldo'=>$tot]);
-    }
-
-    public function entradaCaixa(Request $request)
-    {
-        $caixa = new Caixa();
-        $caixa->valor = $request->valor;
-        $caixa->tipoDeEntrada = $request->tipoDeEntrada;
-        $caixa->id_Colaborador = $request->colaborador;
-        $caixa->id_Consulta = $request->consulta;
-
-
-
-
-        $caixa->save();
-        
-        return response()->json('Alteração no Caixa!!');
-    }
+    }   
 }
-
-
-
-
-
-   // foreach($caixa as $caixas)
-        // if($caixa->tipoDeEntrada === 1){
-        //     $caixa += $caixas->valor;
-        // }else{
-        //     $caixa -= $caixas->valor;
-        // }
