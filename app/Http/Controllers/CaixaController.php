@@ -16,7 +16,7 @@ class CaixaController extends Controller
         $caixa->save();
         return response()->json('Alteração no Caixa!!');
     }
-    public function somarCaixa(Request $request)
+    public function somarCaixa(Request $request,$valor)
     {
         $soma = new Caixa();
         $soma->valor = $soma + $valor;
