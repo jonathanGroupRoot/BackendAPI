@@ -19,7 +19,7 @@ class CaixaController extends Controller
         if($caixa->tipoDeEntrada === 1){
             $caixas += $caixas->valor;
         }else{
-            $caixas -= $caixas->valor;
+            $caixa -= $caixas->valor;
         }
         return response()->json('Alteração no Caixa!!');
     }
