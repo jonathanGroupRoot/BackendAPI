@@ -17,7 +17,7 @@ class CaixaController extends Controller
        foreach($caixa as $tot)
        if($caixa->tipoDeEntrada === 1)
        {
-           $caixa->valor = $tot++;
+           $tot += $caixa->valor;
        }
         $caixa->save();
         // foreach($caixa as $caixas)
