@@ -16,7 +16,7 @@ class CaixaController extends Controller
         $caixa->id_Consulta = $request->consulta;
         $caixa->save();
         foreach($caixa as $caixas)
-        if($caixas->tipoDeEntrada === 1){
+        if($caixa->tipoDeEntrada === 1){
             $caixas += $caixas->valor;
         }else{
             $caixas -= $caixas->valor;
