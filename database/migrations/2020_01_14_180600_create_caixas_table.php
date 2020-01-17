@@ -16,10 +16,10 @@ class CreateCaixasTable extends Migration
         Schema::create('caixas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('valor');
-            $table->boolean('tipoDeEntrada',1)->nullable();
-            $table->bigInteger('id_Colaborador')->unsigned()->nullable();
+            $table->boolean('tipoDeEntrada',1);
+            $table->bigInteger('id_Colaborador')->unsigned();
             $table->foreign('id_Colaborador')->references('id')->on('colaboradors')->onDelete('cascade');
-            $table->bigInteger('id_Consulta')->unsigned()->nullable();
+            $table->bigInteger('id_Consulta')->unsigned();
             $table->foreign('id_Consulta')->references('id')->on('consultas')->onDelete('cascade');
             $table->timestamps();
         });
