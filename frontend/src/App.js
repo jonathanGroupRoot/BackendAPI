@@ -14,7 +14,8 @@ function App() {
     <BrowserRouter>
     <Provider store={store}>
       <Switch>
-        <Route path='/' component={Menu} />
+        <Route exact path='/' component={Menu} />
+        <Route exact path='/create' component={Menu} />
       </Switch>
       <Switch>
           <Route exact path='/' component={Read} />
