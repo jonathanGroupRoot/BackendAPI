@@ -22,13 +22,18 @@ class CaixaController extends Controller
            $tot -= $caixa->valor;
        }
         $caixa->save();
-        // foreach($caixa as $caixas)
+        
+        return response()->json('Alteração no Caixa!!');
+    }
+}
+
+
+
+
+
+   // foreach($caixa as $caixas)
         // if($caixa->tipoDeEntrada === 1){
         //     $caixa += $caixas->valor;
         // }else{
         //     $caixa -= $caixas->valor;
         // }
-        return response()->json('Alteração no Caixa!!');
-    }
- 
-}
