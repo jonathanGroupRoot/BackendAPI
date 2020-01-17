@@ -36,7 +36,7 @@ class CaixaController extends Controller
            $caixa->valor -= $valor;
        }
         $caixa->save();
-        return response()->json('Alteração no Caixa!!');
+        return response()->json(['Alteração no Caixa!!']);
     }
 }
 
