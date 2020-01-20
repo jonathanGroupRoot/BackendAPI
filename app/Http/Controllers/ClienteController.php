@@ -25,7 +25,7 @@ class ClienteController extends Controller
             'telefone' => 'required|min:16|max:16',
             'sexo' => 'required',
             'nacionalidade' => 'required'
-        ]);
+        ],$mensagens);
         $pessoa = new Pessoa();
         $pessoa->nome = $request->nome;
         $pessoa->CPF = $request->CPF;
