@@ -17,7 +17,7 @@ class PessoaController extends Controller
     }
     public function cadastrarPessoa(Request $request)
     {
-        $request->validate([
+        $this->validate($request,[
             'nome' => 'required|min:8|max:255',
             'CPF' => 'required|min:14|max:14|unique:pessoas,CPF',
             'CEP' => 'required|min:9|max:9',
@@ -28,6 +28,8 @@ class PessoaController extends Controller
             'sexo' => 'required',
             'nacionalidade' => 'required'
         ]);
+           
+        
             
         
         $registros = new Pessoa;
