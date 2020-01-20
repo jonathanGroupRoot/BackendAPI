@@ -19,12 +19,12 @@ class PessoaController extends Controller
     {
         $this->validate($request, [
             'nome' => 'required|min:8|max:255',
-            'CPF' => 'required|min:1|max:14',
-            'CEP' => 'required|min:1|max:9',
+            'CPF' => 'required|min:14|max:14',
+            'CEP' => 'required|min:9|max:9',
             'dataDeNascimento' => 'required',
-            'RG' => 'required|min:1|max:7',
+            'RG' => 'required|min:7|max:7',
             'endereco' => 'required|min:5|max:255',
-            'telefone' => 'required|min:9|max:16',
+            'telefone' => 'required|min:16|max:16',
             'sexo' => 'required',
             'nacionalidade' => 'required'
         ]);
