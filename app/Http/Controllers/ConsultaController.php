@@ -15,6 +15,10 @@ class ConsultaController extends Controller
     }
     public function cadastrarConsultas(Request $request)
     {
+        $this->validate($request,[
+            'tipoDeAtendimento' => 'required|min:5|max:255',
+            'procedimento' => 'required|min:5|max:255',
+        ]);
       
         $consulta = new Consulta();
         $consulta->tipoDeAtendimento = $request->tipoDeAtendimento;

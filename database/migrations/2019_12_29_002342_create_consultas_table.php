@@ -16,7 +16,7 @@ class CreateConsultasTable extends Migration
         Schema::create('consultas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->dateTime('hora');
-            $table->string('tipoDeAtendimento');
+            $table->string('tipoDeAtendimento',255);
 
             $table->bigInteger('Procedimento_idProcedimento')->unsigned();
             $table->foreign('Procedimento_idProcedimento')->references('id')->on('procedimentos')->onDelete('cascade');
