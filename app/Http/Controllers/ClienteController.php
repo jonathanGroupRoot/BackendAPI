@@ -35,7 +35,7 @@ class ClienteController extends Controller
             "CPF.unique" => ('O CPF Digitado já existe no sistema verifique e tente novamente!!'),
             "CEP.min" => ('No Mínimo 9 Caracteres!!'),
             "CEP.max" => ('No Máximo 9 Caracteres!!'),
-            "dataDeNascimento" => ('Campo Obrigatório!!'),
+            "dataDeNascimento.required" => ('Campo Obrigatório!!'),
             "RG.min" => ('No Mínimo 7 Caracteres!!'),
             "RG.max" => ('No Máximo 7 Caracteres!!'),
             "RG.unique" =>('O RG digitado já existe no sistema verifique e tente novamente!!'),
@@ -43,7 +43,7 @@ class ClienteController extends Controller
             "endereco.max" => ('No Máximo 255 Caracteres!!'),
             "telefone.min" => ('No Mínimo 16 Caracteres!!'),
             "telefone.max" => ('No Máximo 16 Caracteres!!'),
-            "sexo" => ('O campo sexo e Obrigatorio!!'),
+            "sexo.required" => ('O campo sexo e Obrigatorio!!'),
             "nacionalidade" => ('O campo nacionalidade e Obrigatorio!!'),
         ]);
         $pessoa = new Pessoa();
