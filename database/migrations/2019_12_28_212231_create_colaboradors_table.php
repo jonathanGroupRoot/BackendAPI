@@ -17,11 +17,11 @@ class CreateColaboradorsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('Pessoa_idPessoa')->unsigned();
             $table->foreign('Pessoa_idPessoa')->references('id')->on('pessoas')->onDelete('cascade');
-            $table->integer('PIS');
+            $table->string('PIS',14);
             $table->string('cargo',255);
-            $table->string('conta',255);
-            $table->string('tipoDaConta',45);
-            $table->string('agencia',255);
+            $table->string('conta',10);
+            $table->string('tipoDaConta',20);
+            $table->string('agencia',4);
             $table->integer('salario');
             $table->date('dataDeAdmissao');
             $table->timestamps();
