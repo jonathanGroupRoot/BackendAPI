@@ -28,7 +28,7 @@ class ClienteController extends Controller
             'sexo' => 'required',
             'nacionalidade' => 'required'
         ],[
-            'nome.min' => ('No Mínimo 5 Caracteres!!'),
+            "nome.min" => ("No Mínimo 5 Caracteres!!"),
             'nome.max' => ('No Máximo 255 Caracteres!!'),
             'CPF.min' => ('No Mínimo 14 Caracteres!!'),
             'CPF.max' => ('No Máximo 14 Caracteres!!'),
