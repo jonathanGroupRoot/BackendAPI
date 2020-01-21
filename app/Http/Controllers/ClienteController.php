@@ -10,13 +10,13 @@ class ClienteController extends Controller
 {
     public function cadastrarCliente(Request $request)
     {
-        $mensagens = [
-            'required' => ['O :attribute é obrigatório!'],
-            'nome.min' => ['É necessário no mínimo 5 caracteres no nome!!'],
-            'nome.max' => 'No Máximo 255 caracteres!!',
-            'CPF.min' => 'É necessário no '
+        // $mensagens = [
+        //     'required' => 'O :attribute é obrigatório!',
+        //     'nome.min' => 'É necessário no mínimo 5 caracteres no nome!!',
+        //     'nome.max' => 'No Máximo 255 caracteres!!',
+        //     'CPF.min' => 'É necessário no '
             
-        ];
+        // ];
         $this->validate($request,[
             'nome' => 'required|min:5|max:255',
             'CPF' => 'required|min:14|max:14|unique:pessoas,CPF',
@@ -27,7 +27,10 @@ class ClienteController extends Controller
             'telefone' => 'required|min:16|max:16',
             'sexo' => 'required',
             'nacionalidade' => 'required'
-        ],$mensagens);
+        ],[
+            'nome.min' => 'No Mínimo 5 Caracteres',
+            'nome.max' => 'No Máximo 255 Caracteres',
+        ]);
         $pessoa = new Pessoa();
         $pessoa->nome = $request->nome;
         $pessoa->CPF = $request->CPF;
