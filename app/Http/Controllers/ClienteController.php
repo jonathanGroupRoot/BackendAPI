@@ -11,8 +11,10 @@ class ClienteController extends Controller
     public function cadastrarCliente(Request $request)
     {
         $mensagens = [
-            'required' => 'O :attribute é obrigatório!',
-            'nome.min' => 'É necessário no mínimo 5 caracteres no nome!',
+            'required' => ['O :attribute é obrigatório!'],
+            'nome.min' => ['É necessário no mínimo 5 caracteres no nome!!'],
+            'nome.max' => 'No Máximo 255 caracteres!!',
+            'CPF.min' => 'É necessário no '
             
         ];
         $this->validate($request,[
