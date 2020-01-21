@@ -28,7 +28,7 @@ class ClienteController extends Controller
             'sexo' => 'required',
             'nacionalidade' => 'required'
         ],[
-            "nome.min" => $this->json('No Minimo 5 caracteres'),
+            "nome.min" => ('No Minimo 5 caracteres'),
             "nome.max" => "No Máximo 255 Caracteres",
         ]);
         $pessoa = new Pessoa();
