@@ -18,14 +18,19 @@ class ConsultaController extends Controller
         $this->validate($request,[
             'tipoDeAtendimento' => 'required|min:5|max:255',
             'procedimento' => 'required|min:5|max:255',
+            'hora' => 'required'
+        ],[
+            "tipoDeAtendimento.min" => ('Mínimo de 5 Caracteres'),
+            'tipoDeAtendimento.max' => ('Máximo de 255 Caracteres'),
+            'hora.required' => ('O campo hora e obrigatório')
         ]);
       
         $consulta = new Consulta();
         $consulta->tipoDeAtendimento = $request->tipoDeAtendimento;
         $consulta->Procedimento_idProcedimento = $request->procedimento;
+        $consulta->hora = $request->hora;
         $consulta->Colaborador_idColaborador = $request->colaborador;
         $consulta->Cliente_idCliente = $request->cliente;
-        $consulta->hora = $request->hora;
         $consulta->save();
         return response()->json('Consulta Marcado Com Sucesso!!');
 
