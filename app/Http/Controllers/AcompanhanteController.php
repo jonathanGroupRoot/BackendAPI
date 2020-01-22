@@ -36,7 +36,7 @@ class AcompanhanteController extends Controller
             "telefone.min" => ('No Mínimo 16 Caracteres!!'),
             "telefone.max" => ('No Máximo 16 Caracteres!!'),
             "sexo.required" => ('O campo sexo e Obrigatorio!!'),
-            "nacionalidade" => ('O campo nacionalidade e Obrigatorio!!'),
+            "nacionalidade.required" => ('O campo nacionalidade e Obrigatorio!!'),
         ]);
         $pessoa = new Pessoa();
         $pessoa->nome = $request->nome;

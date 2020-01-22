@@ -49,7 +49,7 @@ class DentistaController extends Controller
             "telefone.min" => ('No Mínimo 16 Caracteres!!'),
             "telefone.max" => ('No Máximo 16 Caracteres!!'),
             "sexo.required" => ('O campo sexo e Obrigatorio!!'),
-            "nacionalidade" => ('O campo nacionalidade e Obrigatorio!!'),
+            "nacionalidade.required" => ('O campo nacionalidade e Obrigatorio!!'),
             "PIS.min" => ('Mínimo 14 Caracteres!!'),
             "PIS.max" => ('Máximo 14 Caracteres!!'),
             "PIS.required" => ('O campo é obrogatório'),
@@ -65,7 +65,7 @@ class DentistaController extends Controller
             "agencia.max" => ('Máximo 4 Caracteres!!'),
             "agencia.required" => ('O Campo é Obrigatório!!'),
             "salario.required" => ('O Campo é Obrigatório!!'),
-            "dataDeAdmissão" => ('O Campo é Obrigatório!!')
+            "dataDeAdmissão.required" => ('O Campo é Obrigatório!!')
         ]);
  
     $pessoa = new Pessoa();
