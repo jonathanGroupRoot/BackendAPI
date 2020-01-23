@@ -33,8 +33,9 @@ class DentistaController extends Controller
             'salario' => 'required',
             'dataDeAdmissao' => 'required'
         ],[
-            "nome.min" => ('No Mínimo 5 Caracteres!!'),
-            "nome.max" => ('No Máximo 255 Caracteres!!'),
+            
+            'nome.min' => 'No Mínimo 5 Caracteres!!',
+            'nome.max' => 'No Máximo 255 Caracteres!!',
             "CPF.min" => ('No Mínimo 14 Caracteres!!'),
             "CPF.max" => ('No Máximo 14 Caracteres!!'),
             "CPF.unique" => ('O CPF Digitado já existe no sistema verifique e tente novamente!!'),
