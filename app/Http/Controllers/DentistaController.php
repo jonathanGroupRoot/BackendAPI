@@ -64,10 +64,10 @@ class DentistaController extends Controller
 
              $this->validate($request, [
                 'nome' => 'required|min:5|max:255',
-                'CPF' => 'required|min:14|max:14|bail|unique:pessoas,CPF',
+                'CPF' => 'required|min:14|max:14|bail|confirmed|unique:pessoas,CPF',
                 'CEP' => 'required|min:9|max:9',
                 'dataDeNascimento' => 'required',
-                'RG' => 'required|min:7|max:7|bail|unique:pessoas,RG',
+                'RG' => 'required|min:7|max:7|bail|confirmed|unique:pessoas,RG',
                 'endereco' => 'required|min:5|max:255',
                 'telefone' => 'required|min:16|max:16',
                 'sexo' => 'required|boolean',
