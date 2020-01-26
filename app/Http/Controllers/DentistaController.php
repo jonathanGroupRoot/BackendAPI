@@ -15,7 +15,11 @@ class DentistaController extends Controller
     }
     public function cadastrarDentista(Request $request)
     {
-        $this->validate($request,[
+        $messages = [
+            'nome.required' => 'O nome é obrigatório',
+            'CPF.required' => 'O CPF é obrigatório',
+        ];
+        $validator = Validator::make($request->all(),[
             'nome' => 'required|min:5|max:255',
             'CPF' => 'required|min:14|max:14|unique:pessoas,CPF',
             'CEP' => 'required|min:9|max:9',
@@ -32,42 +36,44 @@ class DentistaController extends Controller
             'agencia' => 'required|min:4|max:4',
             'salario' => 'required',
             'dataDeAdmissao' => 'required'
-        ],[
+        ],$messages);
+       
+        // ],[
             
-            'nome.min' => 'No Mínimo 5 Caracteres!!',
-            'nome.max' => 'No Máximo 255 Caracteres!!',
-            "CPF.min" => ('No Mínimo 14 Caracteres!!'),
-            "CPF.max" => ('No Máximo 14 Caracteres!!'),
-            "CPF.unique" => ('O CPF Digitado já existe no sistema verifique e tente novamente!!'),
-            "CEP.min" => ('No Mínimo 9 Caracteres!!'),
-            "CEP.max" => ('No Máximo 9 Caracteres!!'),
-            "dataDeNascimento.required" => ('Campo Obrigatório!!'),
-            "RG.min" => ('No Mínimo 7 Caracteres!!'),
-            "RG.max" => ('No Máximo 7 Caracteres!!'),
-            "RG.unique" =>('O RG digitado já existe no sistema verifique e tente novamente!!'),
-            "endereco.min" => ('No Mínimo 5 Caracteres!!'),
-            "endereco.max" => ('No Máximo 255 Caracteres!!'),
-            "telefone.min" => ('No Mínimo 16 Caracteres!!'),
-            "telefone.max" => ('No Máximo 16 Caracteres!!'),
-            "sexo.required" => ('O campo sexo e Obrigatorio!!'),
-            "nacionalidade.required" => ('O campo nacionalidade e Obrigatorio!!'),
-            "PIS.min" => ('Mínimo 14 Caracteres!!'),
-            "PIS.max" => ('Máximo 14 Caracteres!!'),
-            "PIS.required" => ('O campo é obrogatório'),
-            "cargo.min" => ('Mínimo 5 Caracteres!!'),
-            "cargo.max" => ('Máximo 255 Caracteres!!'),
-            "conta.min" => ('Mínimo 10 Caracteres!!'),
-            "conta.max" => ('Máximo 10 Caracteres!!'),
-            "conta.required" => ('O campo é Obrigatório!!'),
-            "tipoDaConta.min" => ('Mínimo 5 Caracteres!!'),
-            "tipoDaConta.max" => ('Máximo 5 Caracteres!!'),
-            "tipoDaConta.required" => ('O Campo é Obrigatório!!'),
-            "agencia.min" => ('Mínimo 4 Caracteres!!'),
-            "agencia.max" => ('Máximo 4 Caracteres!!'),
-            "agencia.required" => ('O Campo é Obrigatório!!'),
-            "salario.required" => ('O Campo é Obrigatório!!'),
-            "dataDeAdmissão.required" => ('O Campo é Obrigatório!!')
-        ]);
+        //     'nome.min' => 'No Mínimo 5 Caracteres!!',
+        //     'nome.max' => 'No Máximo 255 Caracteres!!',
+        //     "CPF.min" => ('No Mínimo 14 Caracteres!!'),
+        //     "CPF.max" => ('No Máximo 14 Caracteres!!'),
+        //     "CPF.unique" => ('O CPF Digitado já existe no sistema verifique e tente novamente!!'),
+        //     "CEP.min" => ('No Mínimo 9 Caracteres!!'),
+        //     "CEP.max" => ('No Máximo 9 Caracteres!!'),
+        //     "dataDeNascimento.required" => ('Campo Obrigatório!!'),
+        //     "RG.min" => ('No Mínimo 7 Caracteres!!'),
+        //     "RG.max" => ('No Máximo 7 Caracteres!!'),
+        //     "RG.unique" =>('O RG digitado já existe no sistema verifique e tente novamente!!'),
+        //     "endereco.min" => ('No Mínimo 5 Caracteres!!'),
+        //     "endereco.max" => ('No Máximo 255 Caracteres!!'),
+        //     "telefone.min" => ('No Mínimo 16 Caracteres!!'),
+        //     "telefone.max" => ('No Máximo 16 Caracteres!!'),
+        //     "sexo.required" => ('O campo sexo e Obrigatorio!!'),
+        //     "nacionalidade.required" => ('O campo nacionalidade e Obrigatorio!!'),
+        //     "PIS.min" => ('Mínimo 14 Caracteres!!'),
+        //     "PIS.max" => ('Máximo 14 Caracteres!!'),
+        //     "PIS.required" => ('O campo é obrogatório'),
+        //     "cargo.min" => ('Mínimo 5 Caracteres!!'),
+        //     "cargo.max" => ('Máximo 255 Caracteres!!'),
+        //     "conta.min" => ('Mínimo 10 Caracteres!!'),
+        //     "conta.max" => ('Máximo 10 Caracteres!!'),
+        //     "conta.required" => ('O campo é Obrigatório!!'),
+        //     "tipoDaConta.min" => ('Mínimo 5 Caracteres!!'),
+        //     "tipoDaConta.max" => ('Máximo 5 Caracteres!!'),
+        //     "tipoDaConta.required" => ('O Campo é Obrigatório!!'),
+        //     "agencia.min" => ('Mínimo 4 Caracteres!!'),
+        //     "agencia.max" => ('Máximo 4 Caracteres!!'),
+        //     "agencia.required" => ('O Campo é Obrigatório!!'),
+        //     "salario.required" => ('O Campo é Obrigatório!!'),
+        //     "dataDeAdmissão.required" => ('O Campo é Obrigatório!!')
+        // ]);
  
     $pessoa = new Pessoa();
     $pessoa->nome = $request->nome;
