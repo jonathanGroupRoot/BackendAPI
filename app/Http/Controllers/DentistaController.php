@@ -77,6 +77,7 @@ class DentistaController extends Controller
                 'CEP' => 'required|min:9|max:9',
                 'dataDeNascimento' => 'required',
                 'RG' => 'required|min:7|max:7|bail|unique:pessoas,RG',
+                'RG.*.first_name' => 'required_with:RG.*.last_name',
                 'endereco' => 'required|min:5|max:255',
                 'telefone' => 'required|min:16|max:16',
                 'sexo' => 'required|boolean',
