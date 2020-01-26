@@ -58,8 +58,8 @@ class DentistaController extends Controller
             'salario.required' => 'Salário é um campo obrigatório',
             'dataDeAdmissao.required' => 'Data De Admissao é um campo Obrigatório',
         ];
-        if (validate){
-            $this->validate($request, [
+        if ($messages){
+             $this->validate($request, [
                 'nome' => 'bail|required|min:5|max:255',
                 'CPF' => 'bail|required|min:14|max:14|unique:pessoas,CPF',
                 'CEP' => 'bail|required|min:9|max:9',
