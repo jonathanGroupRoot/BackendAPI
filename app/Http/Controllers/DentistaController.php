@@ -64,12 +64,16 @@ class DentistaController extends Controller
             'especialidades.min' => 'Especialidades Mínimo 5 caracteres',
             'especialidades.max' => 'Especialidades Máximo 255 caracteres',
             'responsavelTecnico.required' => 'Responsável Tecnico é um campo obrigatório',
+            'especialidades.min' => 'Especialidades Mínimo 5 Caracteres',
+            'especialidades.max' => 'Especialidades Máximo 5 Caracteres',
+            'especialidades.required' => 'Especialidades é um Campo Obrigatório',
       
         ];
 
              $this->validate($request, [
                 'nome' => 'required|min:5|max:255',
                 'CPF' => 'required|min:14|max:14|bail|unique:pessoas,CPF',
+                'CPF.*.first_name' => 'required_with:CPF.*.last_name',
                 'CEP' => 'required|min:9|max:9',
                 'dataDeNascimento' => 'required',
                 'RG' => 'required|min:7|max:7|bail|unique:pessoas,RG',
