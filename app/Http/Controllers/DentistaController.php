@@ -70,16 +70,20 @@ class DentistaController extends Controller
                 'RG' => 'required|min:7|max:7|bail|unique:pessoas,RG',
                 'endereco' => 'required|min:5|max:255',
                 'telefone' => 'required|min:16|max:16',
-                'sexo' => 'required',
+                'sexo' => 'required|boolean',
                 'nacionalidade' => 'required',
+                'ativo' => 'required|boolean',
                 'PIS' => 'required|min:14|max:14|bail|unique:colaboradors,PIS',
                 'cargo' => 'required|min:5|max:255',
                 'conta' => 'required|min:10|max:10',
                 'tipoDaConta' => 'required|min:5|max:20',
                 'agencia' => 'required|min:4|max:4',
                 'salario' => 'required',
+                'dataDeAdmissao' => 'required',
                 'CRO' => 'required|min:5|max:5',
-                'dataDeAdmissao' => 'required'
+                'especialidades' => 'required|min:5|max:255',
+                'responsavelTecnico' => 'required|boolean',
+               
             ],$messages);
 
             $pessoa = new Pessoa();
