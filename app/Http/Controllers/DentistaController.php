@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException
 use App\Dentista;
 use App\Pessoa;
 use App\Colaborador;
@@ -21,7 +21,7 @@ class DentistaController extends Controller
             'nome.min' => 'Minímo 5 caracteres',
             'CPF.required' => 'O CPF é obrigatório',
         ];
-        $validator = Validator::make($request->all(),[
+        $this->validate($request, [
             'nome' => 'bail|required|min:5|max:255',
             'CPF' => 'bail|required|min:14|max:14|unique:pessoas,CPF',
             'CEP' => 'bail|required|min:9|max:9',
@@ -39,12 +39,7 @@ class DentistaController extends Controller
             'salario' => 'bail|required',
             'dataDeAdmissao' => 'bail|required'
         ],$messages);
-       if ($validator->fails())
-       {
-           $msg = 'Todo Validação Ok!';
-           $error = $validator->errors();
-       }
-    else{
+       
             $pessoa = new Pessoa();
             $pessoa->nome = $request->nome;
             $pessoa->CPF = $request->CPF;
@@ -76,7 +71,7 @@ class DentistaController extends Controller
             $dentista->Colaborador_idColaborador = $colaborador->id;
             $dentista->save();
             return response()->json('Cadastrado Com Sucesso!!!');
-        }
+        
     
     }
     public function deleteDentista($id)
