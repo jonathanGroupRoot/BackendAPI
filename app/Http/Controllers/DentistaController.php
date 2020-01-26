@@ -21,22 +21,22 @@ class DentistaController extends Controller
             'CPF.required' => 'O CPF é obrigatório',
         ];
         $validator = Validator::make($request->all(),[
-            'nome' => 'required|min:5|max:255',
-            'CPF' => 'required|min:14|max:14|unique:pessoas,CPF',
-            'CEP' => 'required|min:9|max:9',
-            'dataDeNascimento' => 'required',
-            'RG' => 'required|min:7|max:7|unique:pessoas,RG',
-            'endereco' => 'required|min:5|max:255',
-            'telefone' => 'required|min:16|max:16',
-            'sexo' => 'required',
+            'nome' => 'bail|required|min:5|max:255',
+            'CPF' => 'bail|required|min:14|max:14|unique:pessoas,CPF',
+            'CEP' => 'bail|required|min:9|max:9',
+            'dataDeNascimento' => 'bail|required',
+            'RG' => 'bail|required|min:7|max:7|unique:pessoas,RG',
+            'endereco' => 'bail|required|min:5|max:255',
+            'telefone' => 'bail|required|min:16|max:16',
+            'sexo' => 'bail|required',
             'nacionalidade' => 'required',
-            'PIS' => 'required|min:14|max:14|unique:colaboradors,PIS',
-            'cargo' => 'required|min:5|max:255',
-            'conta' => 'required|min:10|max:10',
-            'tipoDaConta' => 'required|min:5|max:20',
-            'agencia' => 'required|min:4|max:4',
-            'salario' => 'required',
-            'dataDeAdmissao' => 'required'
+            'PIS' => 'bail|required|min:14|max:14|unique:colaboradors,PIS',
+            'cargo' => 'bail|required|min:5|max:255',
+            'conta' => 'bail|required|min:10|max:10',
+            'tipoDaConta' => 'bail|required|min:5|max:20',
+            'agencia' => 'bail|required|min:4|max:4',
+            'salario' => 'bail|required',
+            'dataDeAdmissao' => 'bail|required'
         ],$messages);
        if ($validator->fails())
        {
