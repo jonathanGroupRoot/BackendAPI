@@ -38,7 +38,12 @@ class DentistaController extends Controller
             'salario' => 'bail|required',
             'dataDeAdmissao' => 'bail|required'
         ],$messages);
-        
+       if ($validator->fails())
+       {
+           $msg = 'Todo Validação Ok!';
+           $error = $validator->errors();
+       }
+    else{
             $pessoa = new Pessoa();
             $pessoa->nome = $request->nome;
             $pessoa->CPF = $request->CPF;
@@ -70,6 +75,8 @@ class DentistaController extends Controller
             $dentista->Colaborador_idColaborador = $colaborador->id;
             $dentista->save();
             return response()->json('Cadastrado Com Sucesso!!!');
+        }
+    
     }
     public function deleteDentista($id)
     {
