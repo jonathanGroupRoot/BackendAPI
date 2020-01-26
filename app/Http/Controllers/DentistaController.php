@@ -56,25 +56,29 @@ class DentistaController extends Controller
             'agencia.min' => 'Agência Mínimo 4 caracteres',
             'agencia.max' => 'Agência Máximo 4 caracteres',
             'salario.required' => 'Salário é um campo obrigatório',
+            'CRO.required' => 'CRO é um campo Obrigatório',
+            'CRO.min' => 'CRO Mínimo 5 Caracteres',
+            'CRO.max' => 'CRO máximo 5 Caracteres',
             'dataDeAdmissao.required' => 'Data De Admissao é um campo Obrigatório',
         ];
 
              $this->validate($request, [
                 'nome' => 'required|min:5|max:255',
-                'CPF' => 'required|min:14|max:14|unique:pessoas,CPF|bail',
+                'CPF' => 'required|min:14|max:14|bail|unique:pessoas,CPF',
                 'CEP' => 'required|min:9|max:9',
                 'dataDeNascimento' => 'required',
-                'RG' => 'required|min:7|max:7|unique:pessoas,RG|bail',
+                'RG' => 'required|min:7|max:7|bail|unique:pessoas,RG',
                 'endereco' => 'required|min:5|max:255',
                 'telefone' => 'required|min:16|max:16',
                 'sexo' => 'required',
                 'nacionalidade' => 'required',
-                'PIS' => 'required|min:14|max:14|unique:colaboradors,PIS',
+                'PIS' => 'required|min:14|max:14|bail|unique:colaboradors,PIS',
                 'cargo' => 'required|min:5|max:255',
                 'conta' => 'required|min:10|max:10',
                 'tipoDaConta' => 'required|min:5|max:20',
                 'agencia' => 'required|min:4|max:4',
                 'salario' => 'required',
+                'CRO' => 'required|min:5|max:5',
                 'dataDeAdmissao' => 'required'
             ],$messages);
 
