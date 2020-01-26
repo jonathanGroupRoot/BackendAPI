@@ -18,6 +18,7 @@ class DentistaController extends Controller
     {
         $messages = [
             'nome.required' => 'O nome é obrigatório',
+            'nome.min' => 'Minímo 5 caracteres',
             'CPF.required' => 'O CPF é obrigatório',
         ];
         $validator = Validator::make($request->all(),[
