@@ -40,7 +40,6 @@ class DentistaController extends Controller
         ],$messages);
        if ($validator->fails())
        {
-           $msg = "Algum Dado Está Incorreto";
            $error = $validator->errors();
        }
     else{
