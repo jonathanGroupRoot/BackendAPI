@@ -58,25 +58,26 @@ class DentistaController extends Controller
             'salario.required' => 'Salário é um campo obrigatório',
             'dataDeAdmissao.required' => 'Data De Admissao é um campo Obrigatório',
         ];
-        $this->validate($request, [
-            'nome' => 'bail|required|min:5|max:255',
-            'CPF' => 'bail|required|min:14|max:14|unique:pessoas,CPF',
-            'CEP' => 'bail|required|min:9|max:9',
-            'dataDeNascimento' => 'bail|required',
-            'RG' => 'bail|required|min:7|max:7|unique:pessoas,RG',
-            'endereco' => 'bail|required|min:5|max:255',
-            'telefone' => 'bail|required|min:16|max:16',
-            'sexo' => 'bail|required',
-            'nacionalidade' => 'required',
-            'PIS' => 'bail|required|min:14|max:14|unique:colaboradors,PIS',
-            'cargo' => 'bail|required|min:5|max:255',
-            'conta' => 'bail|required|min:10|max:10',
-            'tipoDaConta' => 'bail|required|min:5|max:20',
-            'agencia' => 'bail|required|min:4|max:4',
-            'salario' => 'bail|required',
-            'dataDeAdmissao' => 'bail|required'
-        ],$messages);
-       
+        if (validate){
+            $this->validate($request, [
+                'nome' => 'bail|required|min:5|max:255',
+                'CPF' => 'bail|required|min:14|max:14|unique:pessoas,CPF',
+                'CEP' => 'bail|required|min:9|max:9',
+                'dataDeNascimento' => 'bail|required',
+                'RG' => 'bail|required|min:7|max:7|unique:pessoas,RG',
+                'endereco' => 'bail|required|min:5|max:255',
+                'telefone' => 'bail|required|min:16|max:16',
+                'sexo' => 'bail|required',
+                'nacionalidade' => 'required',
+                'PIS' => 'bail|required|min:14|max:14|unique:colaboradors,PIS',
+                'cargo' => 'bail|required|min:5|max:255',
+                'conta' => 'bail|required|min:10|max:10',
+                'tipoDaConta' => 'bail|required|min:5|max:20',
+                'agencia' => 'bail|required|min:4|max:4',
+                'salario' => 'bail|required',
+                'dataDeAdmissao' => 'bail|required'
+            ],$messages);
+        }else{
             $pessoa = new Pessoa();
             $pessoa->nome = $request->nome;
             $pessoa->CPF = $request->CPF;
@@ -108,8 +109,10 @@ class DentistaController extends Controller
             $dentista->Colaborador_idColaborador = $colaborador->id;
             $dentista->save();
             return response()->json('Cadastrado Com Sucesso!!!');
-        
-    
+        }
+      
+       
+           
     }
     public function deleteDentista($id)
     {
