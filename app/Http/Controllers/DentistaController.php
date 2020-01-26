@@ -38,7 +38,10 @@ class DentistaController extends Controller
             'salario' => 'required',
             'dataDeAdmissao' => 'required'
         ],$messages);
-       
+       if ($validator->fails())
+       {
+           $error = $validator->errors();
+       }
         // ],[
             
         //     'nome.min' => 'No Mínimo 5 Caracteres!!',
