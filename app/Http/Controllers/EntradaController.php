@@ -15,9 +15,19 @@ class EntradaController extends Controller
     }
     public function entradaEstoque(Request $request)
     {
+        $messages = [
+            'Estoque_idEstoque.required' => 'Estoque é um campo obrigatório',
+            'Estoque_idEstoque.integer' => 'Estoque não cadastrado em nosso sistema',
+            'Colaborador_idColaborador.required' => 'Colaborador é um campo obrigatório',
+            'Colaborador_idColaborador.integer' => 'Colaborador não cadastrado em nosso sistema',
+        ];
+        $this->validate($request, [
+            'Estoque_idEstoque' => 'required|integer',
+            'Colaborador_idColaborador' => 'required|integer',
+        ]);
         $entrada =  new Entrada();
-        $entrada->Estoque_idEstoque = $request->entradaEstoque;
-        $entrada->Colaborador_idColaborador = $request->entradaColaborador;
+        $entrada->Estoque_idEstoque = $request->Estoque_idEstoque;
+        $entrada->Colaborador_idColaborador = $request->Colaborador_idColaborador;
         $entrada->save();
         return response()->json('Entrada Com Sucesso!!');
     }
