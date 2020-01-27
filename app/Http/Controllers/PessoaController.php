@@ -29,7 +29,7 @@ class PessoaController extends Controller
             'CEP.min' => 'CEP mínimo 9 caracteres incluindo traços',
             'CEP.max' => 'CEP máximo 9 caracteres incluindo traços',
             'dataDeNascimento.required' => 'Esse campo é obrigatório',
-            'dataDeNascimento.date' => 'O campo Data de nascimento equivale a uma data',
+            'dataDeNascimento.date' => 'O campo Data de nascimento equivale somente a uma data',
             'RG.required' => 'RG é obrigatório',
             'RG.min' => 'RG mínimo 7 caracteres incluindo traços',
             'RG.max' => 'RG máximo 7 caracteres incluindo traços',
