@@ -25,6 +25,7 @@ class PessoaController extends Controller
             'CPF.min' => 'CPF mínimo 14 caracteres incluindo traços',
             'CPF.max' => 'CPF máximo 14 caracteres incluindo traços',
             'CPF.unique' => 'O CPF digitado já está cadastrado',
+            'CEP.required' => 'CEP é um campo obrigatório',
             'CEP.min' => 'CEP mínimo 9 caracteres incluindo traços',
             'CEP.max' => 'CEP máximo 9 caracteres incluindo traços',
             'dataDeNascimento.required' => 'Esse campo é obrigatório',
@@ -41,6 +42,7 @@ class PessoaController extends Controller
             'telefone.max' => 'Telefone máximo 16 caracteres incluindo traços',
             'sexo.required' => 'Este campo é obrigatório',
             'nacionalidade.required' => 'Este campo é obrigatório',
+            'ativo.required' => 'Ativo é um campo obrigatório',
         ];
         $this->validate($request,[
             'nome' => 'required|min:5|max:255',
