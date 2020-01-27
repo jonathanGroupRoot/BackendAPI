@@ -29,7 +29,7 @@ class FornecedorController extends Controller
         ];
         $this->validate($request, [
             'nome' => 'required|min:5|max:255',
-            'cnpj' => 'required|min:14|max:14|integer',
+            'cnpj' => 'required|min:14|max:14',
             'telefone' => 'required|min:16|max:16',
             'endereco' => 'required|min:5|max:255',
         ],$messages);
