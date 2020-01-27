@@ -15,14 +15,23 @@ class ConsultaController extends Controller
     }
     public function cadastrarConsultas(Request $request)
     {
+        $messages = [
+            'tipoDeAtendimento.required' => 'Tipo De Atendimento é um campo obrigatório',
+            'tipoDeAtendimento.min' => 'Tipo De Atendimento mínimo 5 caracteres',
+            'tipoDeAtendimento.max' => 'Tipo De Atendimento máximo 255 caracteres',
+            'procedimento.required' => 'Procedimento é um campo obrigatório',
+            'hora.required' => 'Hora da Consulta é um campo obrigatório',
+            'hora.dateTime' => 'Hora da Consulta equivale somente a um campo data e hora',
+            'Colaborador_idColaborador.required' => 'Colaborador é um  campo obrigatório',
+            'Cliente_idCliente.required' => 'Cliente é um campo obrigatório',
+           
+        ];
         $this->validate($request,[
             'tipoDeAtendimento' => 'required|min:5|max:255',
             'procedimento' => 'required|min:5|max:255',
-            'hora' => 'required'
-        ],[
-            "tipoDeAtendimento.min" => ('Mínimo de 5 Caracteres'),
-            'tipoDeAtendimento.max' => ('Máximo de 255 Caracteres'),
-            'hora.required' => ('O campo hora e obrigatório')
+            'hora' => 'required|dateTime',
+            'Colaborador_idColaborador' => 'required',
+            'Cliente_idCliente' => 'required',
         ]);
       
         $consulta = new Consulta();
