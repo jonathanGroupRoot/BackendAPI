@@ -15,10 +15,21 @@ class EstoqueController extends Controller
     }
     public function cadastrarEstoque(Request $request)
     {
+        $messages = [
+            'quantidade.required' => 'Quantidade é um campo obrigatório',
+            'quantidade.integer' => 'Quantidade equivale a somente valores inteiros',
+            'data.required' => 'Data é um campo obrigatório',
+            'data.date' => 'Data equivale somente a um campo tipo data',
+        ];
+        $this->validate($request,[
+            'quantidade' => 'required|integer',
+            'data' => 'required|date',
+            'Material_idMaterial' => 'required|integer',
+        ],$messages);
         $estoque = new Estoque();
         $estoque->quantidade = $request->quantidade;
         $estoque->data = $request->data;
-        $estoque->Material_idMaterial = $request->materialID;
+        $estoque->Material_idMaterial = $request->Material_idMaterial;
         $estoque->save();
         return response()->json('Estoque Cadastrado Com Sucesso!!');
     }
