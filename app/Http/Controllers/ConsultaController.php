@@ -21,7 +21,7 @@ class ConsultaController extends Controller
             'tipoDeAtendimento.max' => 'Tipo De Atendimento máximo 255 caracteres',
             'procedimento.required' => 'Procedimento é um campo obrigatório',
             'hora.required' => 'Hora da Consulta é um campo obrigatório',
-            'hora.dateTime' => 'Hora da Consulta equivale somente a um campo data e hora',
+            'hora.DateTime' => 'Hora da Consulta equivale somente a um campo data e hora',
             'Colaborador_idColaborador.required' => 'Colaborador é um  campo obrigatório',
             'Cliente_idCliente.required' => 'Cliente é um campo obrigatório',
            
@@ -29,7 +29,7 @@ class ConsultaController extends Controller
         $this->validate($request,[
             'tipoDeAtendimento' => 'required|min:5|max:255',
             'procedimento' => 'required|min:5|max:255',
-            'hora' => 'required|dateTime',
+            'hora' => 'required|DateTime',
             'Colaborador_idColaborador' => 'required',
             'Cliente_idCliente' => 'required',
         ],$messages);
