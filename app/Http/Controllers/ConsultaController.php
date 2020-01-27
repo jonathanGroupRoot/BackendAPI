@@ -29,7 +29,7 @@ class ConsultaController extends Controller
         ];
         $this->validate($request,[
             'tipoDeAtendimento' => 'required|min:5|max:255',
-            'procedimento' => 'required|min:5|max:255',
+            'procedimento' => 'required',
             'hora' => 'required|date',
             'Colaborador_idColaborador' => 'required',
             'Cliente_idCliente' => 'required',
