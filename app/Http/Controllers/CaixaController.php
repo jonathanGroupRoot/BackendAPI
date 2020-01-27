@@ -24,6 +24,20 @@ class CaixaController extends Controller
 
     public function entradaCaixa(Request $request)
     {
+        $messages = [
+            'valor.required' => 'Valor é um campo obrigatório',
+            'tipoDeEntrada.required' => 'Tipo de entrada é um campo obrigatório',
+            'colaborador.required' => 'Nome do colaborador é um campo obrigatório',
+            'colaborador.min' => 'Colaborador mínimo 5 caracteres',
+            'colaborador.max' => 'Colaborador máximo 255 caracteres',
+            'consulta.required' => 'Nome da consulta é um campo obrigatório',
+        ];
+        $this->validate($request, [
+            'valor' => 'required|integer',
+            'tipoDeEntrada' => 'required|boolean',
+            'colaborador' => 'required|min:5|max:255',
+            'consulta' => 'required',
+        ]);
         $valor = 0;
         $caixa = new Caixa();
         $caixa->valor = $request->valor;
