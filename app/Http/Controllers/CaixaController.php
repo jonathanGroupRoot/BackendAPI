@@ -33,7 +33,7 @@ class CaixaController extends Controller
         $this->validate($request, [
             'valor' => 'required|integer',
             'tipoDeEntrada' => 'required|boolean',
-            'colaborador' => 'required|min:5|max:255',
+            'colaborador' => 'required',
             'consulta' => 'required',
         ],$messages);
         $valor = 0;
