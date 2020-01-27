@@ -24,7 +24,7 @@ class EntradaController extends Controller
         $this->validate($request, [
             'Estoque_idEstoque' => 'required|integer',
             'Colaborador_idColaborador' => 'required|integer',
-        ]);
+        ],$messages);
         $entrada =  new Entrada();
         $entrada->Estoque_idEstoque = $request->Estoque_idEstoque;
         $entrada->Colaborador_idColaborador = $request->Colaborador_idColaborador;
