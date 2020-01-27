@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use App\Estoque;
 use App\Fornecedor;
 use App\Material;
