@@ -31,8 +31,8 @@ class ConsultaController extends Controller
             'tipoDeAtendimento' => 'required|min:5|max:255',
             'procedimento' => 'required',
             'hora' => 'required|date',
-            'Colaborador_idColaborador' => 'required',
-            'Cliente_idCliente' => 'required',
+            'Colaborador_idColaborador' => 'required|integer',
+            'Cliente_idCliente' => 'required|integer',
         ],$messages);
       
         $consulta = new Consulta();
