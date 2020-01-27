@@ -20,16 +20,10 @@ class EntradaController extends Controller
             'Estoque_idEstoque.integer' => 'Estoque não cadastrado em nosso sistema',
             'Colaborador_idColaborador.required' => 'Colaborador é um campo obrigatório',
             'Colaborador_idColaborador.integer' => 'Colaborador não cadastrado em nosso sistema',
-            'quantidade.required' => 'Quantidade de material e um campo obrigatório',
-            'quantidade.integer' => 'Quantidade equivale somente a um nome inteiro',
-            'data.required' => 'Data é um campo obrigatório',
-            'data.date' => 'O campo data equivale somente a uma data',
         ];
         $this->validate($request, [
             'Estoque_idEstoque' => 'required|integer',
             'Colaborador_idColaborador' => 'required|integer',
-            'quantidade' => 'required|integer',
-            'data' => 'required|date',
         ],$messages);
         $entrada =  new Entrada();
         $entrada->Estoque_idEstoque = $request->Estoque_idEstoque;
