@@ -56,6 +56,7 @@ class ColaboradorController extends Controller
             'salario.required' => 'Salário é um campo obrigatório',
             'salario.integer' => 'Este Campo Deve ser do Tipo númerico',
             'dataDeAdmissao.required' => 'Data De Admissao é um campo Obrigatório',
+            'dataDeAdmissao.date' => 'Esse campo equivale a uma data', 
         ];
         $this->validate($request,[
             'nome' => 'required|min:5|max:255',
@@ -77,7 +78,7 @@ class ColaboradorController extends Controller
             'tipoDaConta' => 'required|min:5|max:20',
             'agencia' => 'required|min:4|max:4',
             'salario' => 'required|integer',
-            'dataDeAdmissao' => 'required',
+            'dataDeAdmissao' => 'required|date',
 
         ],$messages);
         $pessoa = new Pessoa();
