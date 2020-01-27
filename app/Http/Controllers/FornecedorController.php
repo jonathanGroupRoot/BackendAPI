@@ -13,6 +13,26 @@ class FornecedorController extends Controller
     }
     public function cadastrarFornecedores(Request $request)
     {
+        $messages = [
+            'nome.required' => 'Nome é um campo obrigatório',
+            'nome.min' => 'Nome mínimo 5 caracteres',
+            'nome.max' => 'Nome máximo 255 caracteres',
+            'cnpj.required' => 'CNPJ é um campo obrigatório',
+            'cnpj.min' => 'CNPJ mínimo 14 caracteres incluindo traços',
+            'cnpj.max' => 'CNPJ máximo 14 caracteres incluindo traços',
+            'telefone.required' => 'Telefone é um campo obrigatório',
+            'telefone.min' => 'Telefone minimo 16 caracteres incluindo traços',
+            'telefone.max' => 'Telefone máximo 16 caracteres incluindo traços',
+            'endereco.required' => 'Endereço é um campo obrigatório',
+            'endereco.min' => 'Endereço mínimo 5 caracteres',
+            'endereco.max' => 'Endereço máximo 255 caracteres',
+        ];
+        $this->validate($request, [
+            'nome' => 'required|min:5|max:255',
+            'cnpj' => 'required|min:14|max:14|integer',
+            'telefone' => 'required|min:16|max:16',
+            'endereco' => 'required|min:5|max:255',
+        ],$messages);
         $fornecedor  = new Fornecedor();
         $fornecedor->nome = $request->nome;
         $fornecedor->cnpj = $request->cnpj;
