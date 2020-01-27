@@ -32,7 +32,7 @@ class ConsultaController extends Controller
             'hora' => 'required|dateTime',
             'Colaborador_idColaborador' => 'required',
             'Cliente_idCliente' => 'required',
-        ]);
+        ],$messages);
       
         $consulta = new Consulta();
         $consulta->tipoDeAtendimento = $request->tipoDeAtendimento;
