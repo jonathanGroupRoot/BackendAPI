@@ -24,8 +24,9 @@ class ConsultaController extends Controller
             'hora.required' => 'Hora da Consulta é um campo obrigatório',
             'hora.date' => 'Hora da Consulta equivale somente a um campo data e hora',
             'Colaborador_idColaborador.required' => 'Colaborador é um  campo obrigatório',
+            'Colaborador_idColaborador.integer' => 'Colaborador não existe em nosso sistema',
             'Cliente_idCliente.required' => 'Cliente é um campo obrigatório',
-           
+            'Cliente_idCliente.integer' => 'Cliente não existe em nosso sistema',
         ];
         $this->validate($request,[
             'tipoDeAtendimento' => 'required|min:5|max:255',
