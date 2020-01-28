@@ -20,6 +20,8 @@ class EstoqueController extends Controller
             'quantidade.integer' => 'Quantidade equivale a somente valores inteiros',
             'data.required' => 'Data é um campo obrigatório',
             'data.date' => 'Data equivale somente a um campo tipo data',
+            'Material_idMaterial.required' => 'Material é um campo obrigatório',
+            'Material_idMaterial.integer' => 'Material não cadastrado no sistema',
         ];
         $this->validate($request,[
             'quantidade' => 'required|integer',
