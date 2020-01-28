@@ -26,8 +26,8 @@ class SaidaController extends Controller
             'Colaborador_idColaborador' => 'required|integer',
         ],$messages);
         $saida =  new Saida();
-        $saida->Estoque_idEstoque = $request->saidaEstoque;
-        $saida->Colaborador_idColaborador = $request->saidaColaborador;
+        $saida->Estoque_idEstoque = $request->Estoque_idEstoque;
+        $saida->Colaborador_idColaborador = $request->Colaborador_idColaborador;
         $saida->save();
         return response()->json(' Com Sucesso!!');
     }
