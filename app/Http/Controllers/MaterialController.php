@@ -14,18 +14,38 @@ class MaterialController extends Controller
    }
    public function cadastrarMaterial(Request $request)
    {
-       $fornecedor = new Fornecedor(); 
-       $fornecedor->nome = $request->nomeFornecedor;
-       $fornecedor->cnpj = $request->cnpj;
-       $fornecedor->telefone = $request->telefone;
-       $fornecedor->endereco = $request->endereco;
-       $fornecedor->save();
+       $messages = [
+            'nome.required' => 'Nome é um campo obrigatório',
+            'nome.min' => 'Nome mínimo 5 caracteres',
+            'nome.max' => 'Nome máximo 255 caracteres',
+            'codigo.required' => 'Código do produto é um campo obrigatório',
+            'codigo.min' => 'Código do produto mínimo 2 caracteres',
+            'codigo.max' => 'Código do produto máximo 255 caracteres',
+            'preco.required' => 'Preço é um campo obrigatório',
+            'preco.integer' => 'Preço é um campo equivalente somente a valores inteiros',
+            'Fornecedor_idFornecedor.required' => 'Fornecedor é um campo obrigatório',
+            'Fornecedor_idForncedor.integer' => 'Fornecedor não cadastrado em nosso sistema',
+            
+       ];
+       $this->validate($request,[
+            'nome' => 'required|min:5|max:255',
+            'codigo' => 'required|min:2|max:255',
+            'preco' => 'required|integer',
+            'Fornecedor_idFornecedor' => 'required|integer',
+
+       ],$messages);
+    //    $fornecedor = new Fornecedor(); 
+    //    $fornecedor->nome = $request->nomeFornecedor;
+    //    $fornecedor->cnpj = $request->cnpj;
+    //    $fornecedor->telefone = $request->telefone;
+    //    $fornecedor->endereco = $request->endereco;
+    //    $fornecedor->save();
 
        $material = new Material();
        $material->nome = $request->nome;
        $material->codigo = $request->codigo;
        $material->preco = $request->preco;
-       $material->Fornecedor_idFornecedor = $fornecedor->id;
+       $material->Fornecedor_idFornecedor = $request->$Fornecedor_idFornecedor;
        $material->save();
        return response()->json('Material Cadastrado Com Sucesso!!');
    }
