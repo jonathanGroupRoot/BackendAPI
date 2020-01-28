@@ -45,7 +45,7 @@ class MaterialController extends Controller
        $material->nome = $request->nome;
        $material->codigo = $request->codigo;
        $material->preco = $request->preco;
-       $material->Fornecedor_idFornecedor = $request->$Fornecedor_idFornecedor;
+       $material->Fornecedor_idFornecedor = $request->Fornecedor_idFornecedor;
        $material->save();
        return response()->json('Material Cadastrado Com Sucesso!!');
    }
