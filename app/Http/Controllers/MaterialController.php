@@ -30,7 +30,7 @@ class MaterialController extends Controller
             'nome' => 'required|min:5|max:255',
             'codigo' => 'required|min:2|max:255',
             'preco' => 'required|integer',
-            'Fornecedor_idFornecedor' => 'required',
+            'Fornecedor_idFornecedor' => 'required|integer',
 
        ],$messages);
     //    $fornecedor = new Fornecedor(); 
