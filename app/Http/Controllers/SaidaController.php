@@ -29,7 +29,7 @@ class SaidaController extends Controller
         $saida->Estoque_idEstoque = $request->Estoque_idEstoque;
         $saida->Colaborador_idColaborador = $request->Colaborador_idColaborador;
         $saida->save();
-        return response()->json(' Com Sucesso!!');
+        return response()->json('Saida com Sucesso!!');
     }
     public function deletarSaida($id)
     {
