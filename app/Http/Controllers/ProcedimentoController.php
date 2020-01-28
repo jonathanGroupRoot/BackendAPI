@@ -13,6 +13,20 @@ class ProcedimentoController extends Controller
     }
     public function cadastrarProcedimento(Request $request)
     {
+        $messages = [
+            'tipo.required' => 'Tipo do procedimento é um campo obrigatório',
+            'tipo.min' => 'Tipo do procedimento mínimo 5 caracteres',
+            'tipo.max' => 'Tipo do procedimento máximo 255 caracteres',
+            'valor.required' => 'Valor é um campo obrigatório',
+            'valor.integer' => 'O campo valor equivale somente a um valor númerico',
+            'descricao.min' => 'Descrição mínimo 5 caracteres',
+            'descricao.max' => 'Descrição máximo 255 caracteres',
+        ];
+        $this->validate($request, [
+            'tipo' => 'required|min:5|max:255',
+            'valor' => 'required|integer',
+            'descricao' => 'required|min:5|max:255',
+        ],$messages);
         $procedimento = new Procedimento();
         $procedimento->tipo = $request->tipo;
         $procedimento->valor = $request->valor;
