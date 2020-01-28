@@ -19,6 +19,7 @@ class ProcedimentoController extends Controller
             'tipo.max' => 'Tipo do procedimento máximo 255 caracteres',
             'valor.required' => 'Valor é um campo obrigatório',
             'valor.integer' => 'O campo valor equivale somente a um valor númerico',
+            'descricao.required' => 'Descrição é um campo obrigatório',
             'descricao.min' => 'Descrição mínimo 5 caracteres',
             'descricao.max' => 'Descrição máximo 255 caracteres',
         ];
