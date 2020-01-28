@@ -24,14 +24,14 @@ class MaterialController extends Controller
             'preco.required' => 'Preço é um campo obrigatório',
             'preco.integer' => 'Preço é um campo equivalente somente a valores inteiros',
             'Fornecedor_idFornecedor.required' => 'Fornecedor é um campo obrigatório',
-            'Fornecedor_idForncedor.integer' => 'Fornecedor não cadastrado em nosso sistema',
+            
             
        ];
        $this->validate($request,[
             'nome' => 'required|min:5|max:255',
             'codigo' => 'required|min:2|max:255',
             'preco' => 'required|integer',
-            'Fornecedor_idFornecedor' => 'required|integer',
+            'Fornecedor_idFornecedor' => 'required',
 
        ],$messages);
     //    $fornecedor = new Fornecedor(); 
