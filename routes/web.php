@@ -98,3 +98,9 @@ $router->put('/api/atualizarSaida/{id}','SaidaController@atualizarSaida');
 $router->get('/api/saldoTotal','CaixaController@saldoTotal');
 $router->put('/api/EntradaCaixa','CaixaController@entradaCaixa');
 
+//Rota Usuário
+$router->get('/api/todosUsuarios','UsuarioController@mostrarTodosUsuarios');
+$router->post('/api/cadastrarUsuarios','UsuarioController@cadastrarUsuario');
+$router->get('/api/mostrarUmUsuario/{id}','UsuarioController@mostrarUmUsuario');
+$router->put('/api/atualizarUsuarios/{id}','UsuarioController@atualizarUsuario');
+$router->delete('/api/deletarUsuario/{id}','UsuarioController@deletar');

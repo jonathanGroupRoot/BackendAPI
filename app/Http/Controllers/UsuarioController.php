@@ -1,0 +1,86 @@
+<?php
+
+namespace App\Http\Controllers;
+use Illuminate\Htpp\Request;
+use Illuminate\Supports\Facades\Auth;
+use Tymon\JWTAuth\JWTAuth;
+use App\Usuario;
+
+class UsuarioController extends Controller
+{
+    protected $jwt;
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(JWTauth $jwt)
+    {
+        $this->jwt = $jwt;
+    }
+    public function usuarioLogin(Request $request)
+    {
+        $messages = [
+            'usuario.required' => 'Usuário é um campo obrigatório',
+            'usuario.min' => 'Usuário mínimo 5 caracteres',
+            'usuario.max' => 'Usuário máximo 40 caracteres',
+            'usuario.unique' => 'Usuário não cadastrado no sistema',
+            'password.required' => 'Senha é um campo obrigatório',
+            'password.min' => 'Senha mínimo 8 caracteres',
+            'password.max' => 'Senha máximo 40 caracteres',
+        ];
+        $this->validate($request, [
+            'usuario' => 'required|min:5|max:40|unique:usuarios,usuario',
+            'password' => 'required|min:8:max:40',
+        ],$messages);
+    }
+
+    public function mostrarTodosUsuarios(){
+        return response()->json(Usuario::all());
+    }
+
+    public function cadastrarUsuario(Request $request){
+        $messages = [
+            'usuario.required' => 'Usuário é um campo obrigatório',
+            'usuario.min' => 'Usuário mínimo 5 caracteres',
+            'usuario.max' => 'Usuário máximo 40 caracteres',
+            'usuario.unique' => 'Usuário já existe',
+            'email.required' => 'Email é um campo obrigatório',
+            'email.email' => 'Email não corresponde ao tipo email verifique e tente novamente',
+            'password.required' => 'Senha é um campo obrigatório',
+            'password.min' => 'Senha mínimo 8 caracteres',
+            'password.max' => 'Senha máximo 40 caracteres',
+        ];
+        $this->validate($request,[
+        'usuario' => 'required|min:5|max:40|unique:usuarios,usuarios',
+        'email' => 'required|email',
+        'password' => 'required|min:8|max:40',
+        ],$messages);
+        $usuario = new Usuario;
+        $usuario->email = $request->email;
+        $usuario->usuario = $request->usuario;
+        $usuario->password = Hash::make($request->password);
+        $usuario->verificado = 0;
+        $usuario->save();
+        return response()->json($usuario); 
+    }
+    public function mostrarUmUsuario($id)
+    {
+        return response()->json(Usuario::find($id));
+    }
+    public function atualizarUsuario(Request $request,$id)
+    {
+        $usuario = Usuario::find($id);
+        $usuario->usuario = $request->usuario;
+        $usuario->email = $request->email;
+        $usuario->password = $request->password;
+        $usuario->verificado = 0;
+        $usuario->save();
+        return response()->json($usuario);
+    }
+    public function deletar($id)
+    {
+        $usuario = Usuario::find($id);
+        return response()->json($usuario->delete());
+    }
+}
