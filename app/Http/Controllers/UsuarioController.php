@@ -25,6 +25,7 @@ class UsuarioController extends Controller
             'usuario.required' => 'Usuário é um campo obrigatório',
             'usuario.min' => 'Usuário mínimo 5 caracteres',
             'usuario.max' => 'Usuário máximo 40 caracteres',
+
             'password.required' => 'Senha é um campo obrigatório',
             'password.min' => 'Senha mínimo 8 caracteres',
             'password.max' => 'Senha máximo 40 caracteres',
@@ -33,11 +34,16 @@ class UsuarioController extends Controller
             'usuario' => 'required|min:5|max:40',
             'password' => 'required|min:8:max:40',
         ],$messages);
-        if(! $token = $this->jwt->claims(['usuario' => $request->usuario])->Auth::guard('web')->attempt($request->only('usuario','password')))
+        if(! $token = $this->jwt->claims(['usuario' => $request->usuario])->attempt($request->only('usuario','password')))
         {
             return response()->json(['Usuário não encontrado'],404);
         }
             return response()->json(compact('token'));
+    }
+    public function mostrarUsuarioAutenticado()
+    {
+        $usuario =  Auth::user();
+        return response()->json($usuario);
     }
   
 
