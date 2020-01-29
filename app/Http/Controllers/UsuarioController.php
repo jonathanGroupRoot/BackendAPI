@@ -52,13 +52,14 @@ class UsuarioController extends Controller
             'usuario.unique' => 'Usuário já existe',
             'email.required' => 'Email é um campo obrigatório',
             'email.email' => 'Email não corresponde ao tipo email verifique e tente novamente',
+            'email.unique' => 'Email já cadastrado',
             'password.required' => 'Senha é um campo obrigatório',
             'password.min' => 'Senha mínimo 8 caracteres',
             'password.max' => 'Senha máximo 40 caracteres',
         ];
         $this->validate($request,[
         'usuario' => 'required|min:5|max:40|unique:usuarios,usuario',
-        'email' => 'required|email',
+        'email' => 'required|email|unique',
         'password' => 'required|min:8|max:40',
         ],$messages);
         $usuario = new Usuario;
