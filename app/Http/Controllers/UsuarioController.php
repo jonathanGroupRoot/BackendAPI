@@ -59,7 +59,7 @@ class UsuarioController extends Controller
         ];
         $this->validate($request,[
         'usuario' => 'required|min:5|max:40|unique:usuarios,usuario',
-        'email' => 'required|email|unique',
+        'email' => 'required|email|unique:usuarios,email',
         'password' => 'required|min:8|max:40',
         ],$messages);
         $usuario = new Usuario;
