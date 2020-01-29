@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Illuminate\Supports\Facades\Auth;
-use Illuminate\Supports\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\JWTAuth;
 use App\Usuario;
 
@@ -15,7 +15,7 @@ class UsuarioController extends Controller
      *
      * @return void
      */
-    public function __construct(JWTauth $jwt)
+    public function __construct(JWTAuth $jwt)
     {
         $this->jwt = $jwt;
     }
@@ -57,7 +57,7 @@ class UsuarioController extends Controller
             'password.max' => 'Senha máximo 40 caracteres',
         ];
         $this->validate($request,[
-        'usuario' => 'required|min:5|max:40|unique:usuarios,usuarios',
+        'usuario' => 'required|min:5|max:40|unique:usuarios,usuario',
         'email' => 'required|email',
         'password' => 'required|min:8|max:40',
         ],$messages);
