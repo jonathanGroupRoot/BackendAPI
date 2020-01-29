@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\RequestGuard;
 use Tymon\JWTAuth\JWTAuth;
 use App\Usuario;
 
