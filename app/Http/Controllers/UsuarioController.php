@@ -25,13 +25,12 @@ class UsuarioController extends Controller
             'usuario.required' => 'Usuário é um campo obrigatório',
             'usuario.min' => 'Usuário mínimo 5 caracteres',
             'usuario.max' => 'Usuário máximo 40 caracteres',
-            'usuario.unique' => 'Usuário não cadastrado no sistema',
             'password.required' => 'Senha é um campo obrigatório',
             'password.min' => 'Senha mínimo 8 caracteres',
             'password.max' => 'Senha máximo 40 caracteres',
         ];
         $this->validate($request, [
-            'usuario' => 'required|min:5|max:40|unique:usuarios,usuario',
+            'usuario' => 'required|min:5|max:40',
             'password' => 'required|min:8:max:40',
         ],$messages);
         if(! $token = $this->jwt->claims(['usuario' => $request->usuario])->attempt($request->only('usuario','password')))
