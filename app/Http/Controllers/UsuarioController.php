@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Htpp\Request;
+use Illuminate\Http\Request;
 use Illuminate\Supports\Facades\Auth;
 use Illuminate\Supports\Facades\Hash;
 use Tymon\JWTAuth\JWTAuth;
