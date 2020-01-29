@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Htpp\Request;
 use Illuminate\Supports\Facades\Auth;
+use Illuminate\Supports\Facades\Hash;
 use Tymon\JWTAuth\JWTAuth;
 use App\Usuario;
 
@@ -33,6 +34,10 @@ class UsuarioController extends Controller
             'usuario' => 'required|min:5|max:40|unique:usuarios,usuario',
             'password' => 'required|min:8:max:40',
         ],$messages);
+        if(! $token = $this->jwt->attempt($request->only('usuario','password'))){
+            return response()->json(['Usuário não encontrado'],404);
+        }
+            return response()->json(compact('token'));
     }
 
     public function mostrarTodosUsuarios(){
