@@ -3,40 +3,23 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Contracts\Auth\Factory as Auth;
+use Illuminate\Support\Facades\Auth;
 
 class Authenticate
 {
-    /**
-     * The authentication guard factory instance.
-     *
-     * @var \Illuminate\Contracts\Auth\Factory
-     */
-    protected $auth;
 
-    /**
-     * Create a new middleware instance.
-     *
-     * @param  \Illuminate\Contracts\Auth\Factory  $auth
-     * @return void
-     */
-    public function __construct(Auth $auth)
-    {
-        $this->auth = $auth;
-    }
-
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
-     * @return mixed
-     */
     public function handle($request, Closure $next, $guard = null)
     {
-        if ($this->auth->guard($guard)->guest()) {
-            return response('Unauthorized.', 401);
+        try{
+            $user = Auth::payload();
+        }catch(\Tymon\JWTAuth\Exceptions\JWTException $erro){
+            return response()->json(['Token_Ausente' => $erro->getMessage()], 500);
+        }
+        catch(\Tymon\JWTAuth\Exceptions\JWTExpiredException $erro){
+            return response()->json(['Token_Expirado' => $erro->getMessage()], 500);
+        }
+        catch(\Tymon\JWTAuth\Exceptions\JWTInvalidException $erro){
+            return response()->json(['Token_Invalido' => $erro->getMessage()], 500);
         }
 
         return $next($request);

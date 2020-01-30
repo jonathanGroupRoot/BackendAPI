@@ -108,3 +108,4 @@ $router->delete('/api/deletarUsuario/{id}','UsuarioController@deletar');
 //Rota Login
 $router->post('/login','UsuarioController@usuarioLogin');
 $router->post('/info' ,'UsuarioController@mostrarUsuarioAutenticado');
+$router->post('/logout','UsuarioController@usuarioLogout');
