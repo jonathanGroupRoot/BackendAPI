@@ -10,6 +10,7 @@ use App\Cliente;
 
 class ConsultaController extends Controller
 {
+    
     public function listarConsultas()
     {
         return response()->json(Consulta::all());
@@ -35,16 +36,21 @@ class ConsultaController extends Controller
             'Colaborador_idColaborador' => 'required|integer',
             'Cliente_idCliente' => 'required|integer',
         ],$messages);
-      
+        
+
+        $time = Consulta::all();
         $consulta = new Consulta();
         $consulta->tipoDeAtendimento = $request->tipoDeAtendimento;
         $consulta->Procedimento_idProcedimento = $request->procedimento;
         $consulta->hora = $request->hora;
         $consulta->Colaborador_idColaborador = $request->Colaborador_idColaborador;
         $consulta->Cliente_idCliente = $request->Cliente_idCliente;
+        foreach($time as $times)
+        if($consulta->hora === $times->hora){
+            return response()->json('Consulta já marcada nesse horário');
+        }
         $consulta->save();
-        return response()->json('Consulta Marcado Com Sucesso!!');
-
+        return response()->json('Consulta Marcada Com Sucesso!!');
     }
     public function editar($id)
     {
