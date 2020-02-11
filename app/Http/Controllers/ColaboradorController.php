@@ -5,13 +5,19 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\Colaborador;
 use App\Pessoa;
-
+use DB;
 class ColaboradorController extends Controller
 {
 
     public function listarColaboradores()
     {
-        return response()->json(Colaborador::all());
+        $colaborador = DB::table('pessoas')
+        ->join('colaboradors','colaboradors.Pessoa_idPessoa', '=','pessoas.id')
+        ->select('pessoas.id','pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco',
+        'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade','pessoas.motivo','pessoas.ativo',
+        'colaboradors.id','colaboradors.PIS','colaboradors.cargo','colaboradors.conta','colaboradors.tipoDaConta',
+        'colaboradors.agencia','colaboradors.salario','colaboradors.dataDeAdmissao')->get();
+        return response()->json($colaborador);
     }
     public function cadastrarColaboradores(Request $request)
     {
@@ -51,6 +57,7 @@ class ColaboradorController extends Controller
             'conta.required' => 'Conta é um campo obrigatório',
             'conta.min' => 'Conta mínimo 10 caracteres incluindo traços',
             'conta.max' => 'Conta máximo 10 caracteres incluindo traços',
+            'conta.unique' => 'Conta já cadastrado no sistema',
             'tipoDaConta.required' => 'Tipo Da Conta é um campo obrigatório',
             'tipoDaConta.min' => 'Tipo Da Conta mínimo 5 caracteres',
             'tipoDaConta.max' => 'Tipo Da Conta máximo 20 caracteres',
@@ -78,7 +85,7 @@ class ColaboradorController extends Controller
             'PIS' => 'required|min:14|max:14|bail|unique:colaboradors,PIS',
             'PIS.*.first_name' => 'required_with:PIS.*.last_name',
             'cargo' => 'required|min:5|max:255',
-            'conta' => 'required|min:10|max:10',
+            'conta' => 'required|min:10|max:10|unique:colaboradors,conta',
             'tipoDaConta' => 'required|min:5|max:20',
             'agencia' => 'required|min:4|max:4',
             'salario' => 'required|integer',

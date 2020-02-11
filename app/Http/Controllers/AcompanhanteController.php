@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\Pessoa;
 use App\Acompanhante;
+use DB;
 
 class AcompanhanteController extends Controller
 {
@@ -73,7 +74,13 @@ class AcompanhanteController extends Controller
     }
     public function listarAcompanhante()
     {
-        return response()->json(Acompanhante::all());
+        $acompanhante = DB::table('pessoas')
+        ->join('acompanhantes','acompanhantes.Pessoa_idPessoa', '=','pessoas.id')
+        ->select('acompanhantes.id','acompanhantes.Pessoa_idPessoa','acompanhantes.responsavel',
+        'pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco',
+        'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade','pessoas.motivo','pessoas.ativo')
+        ->get();
+        return response()->json($acompanhante);        
     }
     public function deletarAcompanhante($id)
     {

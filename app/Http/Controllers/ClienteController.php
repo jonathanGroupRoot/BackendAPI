@@ -6,6 +6,7 @@ use Illuminate\Validation\ValidationException;
 use App\Cliente;
 use App\Acompanhante;
 use App\Pessoa;
+use DB;
 
 class ClienteController extends Controller
 {
@@ -74,7 +75,13 @@ class ClienteController extends Controller
     }
     public function listarCliente()
     {
-        return response()->json(Cliente::all());
+        $cliente = DB::table('pessoas')
+        ->join('clientes','clientes.Pessoa_idPessoa','=','pessoas.id')
+        ->select('clientes.id','clientes.Acompanhante_idAcompanhante','clientes.Pessoa_idPessoa',
+        'pessoas.id','pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco',
+        'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade',
+        'pessoas.motivo','pessoas.ativo')->get();
+        return response()->json($cliente);
     }
     public function deletarCliente($id)
     {

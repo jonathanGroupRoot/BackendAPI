@@ -6,14 +6,19 @@ use Illuminate\Validation\ValidationException;
 use App\Consulta;
 use App\Colaborador;
 use App\Cliente;
-
+use DB; 
 
 class ConsultaController extends Controller
 {
     
     public function listarConsultas()
     {
-        return response()->json(Consulta::all());
+        $consulta = DB::table('procedimentos')
+        ->join('consultas','consultas.Procedimento_idProcedimento','=','procedimentos.id')
+        ->select('consultas.id','consultas.hora','consultas.tipoDeAtendimento',
+        'consultas.Procedimento_idProcedimento','consultas.Colaborador_idColaborador',
+        'consultas.Cliente_idCliente')->get();
+        return response()->json($consulta);
     }
     public function cadastrarConsultas(Request $request)
     {

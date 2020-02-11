@@ -6,13 +6,20 @@ use Illuminate\Validation\ValidationException;
 use App\Dentista;
 use App\Pessoa;
 use App\Colaborador;
+use DB;
 
 class DentistaController extends Controller
 {
     
     public function listDentista()
     {
-        return response()->json(Dentista::all());
+        $dentista = DB::table('colaboradors')
+        ->join('dentistas','dentistas.Colaborador_idColaborador', '=', 'colaboradors.id')
+        ->select('dentistas.id','dentistas.CRO','dentistas.especialidades','dentistas.responsavelTecnico',
+        'dentistas.Colaborador_idColaborador','colaboradors.id','colaboradors.PIS',
+        'colaboradors.cargo','colaboradors.conta','colaboradors.tipoDaConta',
+        'colaboradors.agencia','colaboradors.agencia')->get();
+        return response()->json($dentista);
     }
     public function cadastrarDentista(Request $request)
     {
@@ -48,6 +55,7 @@ class DentistaController extends Controller
             'cargo.min' => 'Cargo mínimo 5 caracteres',
             'cargo.max' => 'Cargo máximo 5 caracteres',
             'conta.required' => 'Conta é um campo obrigatório',
+            'conta.unique' => 'Essa Conta já está cadastrado no sistema',
             'conta.min' => 'Conta mínimo 10 caracteres incluindo traços',
             'conta.max' => 'Conta máximo 10 caracteres incluindo traços',
             'tipoDaConta.required' => 'Tipo Da Conta é um campo obrigatório',
@@ -88,7 +96,8 @@ class DentistaController extends Controller
                 'PIS' => 'required|min:14|max:14|bail|unique:colaboradors,PIS',
                 'PIS.*.first_name' => 'required_with:PIS.*.last_name',
                 'cargo' => 'required|min:5|max:255',
-                'conta' => 'required|min:10|max:10',
+                'conta' => 'required|min:10|max:10|bail|unique:colaboradors,conta',
+                'conta.*.first_name' => 'required_with:conta.*.last_name',
                 'tipoDaConta' => 'required|min:5|max:20',
                 'agencia' => 'required|min:4|max:4',
                 'salario' => 'required|integer',

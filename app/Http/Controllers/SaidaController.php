@@ -6,12 +6,18 @@ use Illuminate\Validation\ValidationException;
 use App\Estoque;
 use App\Colaborador;
 use App\Saida;
+use DB;
 
 class SaidaController extends Controller
 {
     public function listarSaida()
     {
-        return response()->json(Saida::all());
+        $saida = DB::table('estoques')
+        ->join('saidas','saidas.Estoque_idEstoque', '=','estoques.id')
+        ->select('saidas.id','saidas.Estoque_idEstoque','saidas.Colaborador_idColaborador',
+        'estoques.id','estoques.quantidade','estoques.data','estoques.Material_idMaterial')
+        ->get();
+        return response()->json($saida);
     }
     public function saidaEstoque(Request $request)
     {
