@@ -27,7 +27,7 @@ class ConsultaController extends Controller
             'tipoDeAtendimento.min' => 'Tipo De Atendimento mínimo 5 caracteres',
             'tipoDeAtendimento.max' => 'Tipo De Atendimento máximo 255 caracteres',
             'procedimento.required' => 'Procedimento é um campo obrigatório',
-            'hora.required' => 'Hora da Consulta é um campo obrigatório',
+            'hora.required' =>'Hora da Consulta é um campo obrigatório',
             'hora.date' => 'Hora da Consulta equivale somente a um campo data e hora',
             'Colaborador_idColaborador.required' => 'Colaborador é um  campo obrigatório',
             'Colaborador_idColaborador.integer' => 'Colaborador não existe em nosso sistema',
