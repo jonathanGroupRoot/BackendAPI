@@ -46,6 +46,7 @@ $router->post('/api/cadastrarCliente','ClienteController@cadastrarCliente');
 $router->delete('/api/deletarCliente/{id}','ClienteController@deletarCliente');
 $router->put('/api/atualizarCliente/{id}','ClienteController@atualizarCliente');
 $router->get('/api/editarCliente/{id}', 'ClienteController@editar');
+$router->get('/api/pesquisarClientes','ClienteController@pesquisarClientes');
 
 //Rota Consulta
 $router->get('api/listarConsulta','ConsultaController@listarConsultas');
