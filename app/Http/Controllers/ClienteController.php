@@ -79,7 +79,7 @@ class ClienteController extends Controller
         ->join('clientes','clientes.Pessoa_idPessoa','=','pessoas.id')
         ->select('clientes.id','clientes.Acompanhante_idAcompanhante','clientes.created_at',
         'pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco','pessoas.dataDeNascimento',
-        'pessoas.id','pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco',
+        'pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco',
         'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade',
         'pessoas.motivo','pessoas.ativo')->get();
         return response()->json($cliente);
