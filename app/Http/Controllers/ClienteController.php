@@ -103,7 +103,7 @@ class ClienteController extends Controller
     }
     public function pesquisarClientes()
     {
-        $produtos = Pessoa::when(Request::input('nome'),function($query){
+        $produtos = Pessoa::all(Request::input('nome'),function($query){
             $query->where('nome',Request::input('nome'));
         })->get();
     }
