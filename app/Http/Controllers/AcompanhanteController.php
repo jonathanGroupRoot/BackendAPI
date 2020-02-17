@@ -76,7 +76,7 @@ class AcompanhanteController extends Controller
     {
         $acompanhante = DB::table('pessoas')
         ->join('acompanhantes','acompanhantes.Pessoa_idPessoa', '=','pessoas.id')
-        ->select('acompanhantes.id','acompanhantes.Pessoa_idPessoa','acompanhantes.responsavel',
+        ->select('acompanhantes.id','acompanhantes.Pessoa_idPessoa','acompanhantes.responsavel','acompanhantes.Created_at',
         'pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco','pessoas.dataDeNascimento',
         'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade','pessoas.motivo','pessoas.ativo')
         ->get();
