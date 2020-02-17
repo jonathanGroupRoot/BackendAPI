@@ -103,7 +103,9 @@ class ClienteController extends Controller
     }
     public function pesquisarClientes()
     {
-        $categories = DB::Where('nome', 'like', '%'. Input::get('nome'). '%')->get();
+        $produtos = Pessoa::when(Request::input('nome'),function($query){
+            $query->where('nome',Request::input('nome'));
+        })->get();
     }
     
   
