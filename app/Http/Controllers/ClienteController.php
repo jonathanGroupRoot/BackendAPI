@@ -77,7 +77,7 @@ class ClienteController extends Controller
     {
         $cliente = DB::table('pessoas')
         ->join('clientes','clientes.Pessoa_idPessoa','=','pessoas.id')
-        ->select('clientes.id','clientes.Acompanhante_idAcompanhante','clientes.Pessoa_idPessoa',
+        ->select('clientes.id','clientes.Acompanhante_idAcompanhante','clientes.Pessoa_idPessoa','clientes.Created_at',
         'pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco','pessoas.dataDeNascimento',
         'pessoas.id','pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco',
         'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade',
