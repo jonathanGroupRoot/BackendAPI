@@ -7,7 +7,7 @@ use App\Cliente;
 use App\Acompanhante;
 use App\Pessoa;
 use DB;
-
+use App\Http\Controllers\Input;
 class ClienteController extends Controller
 {
     public function cadastrarCliente(Request $request)
