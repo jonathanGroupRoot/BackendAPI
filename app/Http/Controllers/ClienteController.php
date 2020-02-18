@@ -113,11 +113,11 @@ class ClienteController extends Controller
     }
     public function pesquisarClientes(Request $request)
     {
-        $nome = $request->get('nome');
+        $nome = $request->query('nome');
         $dados = DB::table('pessoas')
         ->join('clientes','clientes.Pessoa_idPessoa', '=', 'pessoas.id')
         ->select('pessoas.*')
-        ->where('pessoas.nome', 'like', '%'.$nome)
+        ->where('pessoas.nome', "like", '%'.$nome)
         ->get();
         return response()->json($dados);
     }
