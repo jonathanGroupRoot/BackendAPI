@@ -151,7 +151,8 @@ class DentistaController extends Controller
     public function editar($id)
     {
         $editar = Dentista::find($id);
-        return response()->json($editar);
+        $dados = Cliente::all();
+        return response()->json($dados);
     }
     public function atualizar(Request $request, $id){
     $dentista = $request->all();
