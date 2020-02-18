@@ -98,9 +98,10 @@ class ClienteController extends Controller
         'pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco','pessoas.dataDeNascimento',
         'pessoas.CPF','pessoas.RG','pessoas.endereco',
         'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade',
-        'pessoas.motivo','pessoas.ativo')->where('clientes.id ='.$id)->get();
-        $editar = Cliente::find($id);
-        return response()->json($clientes);
+        'pessoas.motivo','pessoas.ativo')
+        ->where('clientes.id = '.$id)->get();
+        return response()->json($cliente);
+      
     }
     public function atualizarCliente(Request $request,$id)
     {   
