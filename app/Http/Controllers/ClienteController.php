@@ -92,8 +92,15 @@ class ClienteController extends Controller
     }
     public function editar($id)
     {
+        $cliente = DB::table('pessoas')
+        ->join('clientes','clientes.Pessoa_idPessoa','=','pessoas.id')
+        ->select('clientes.id','clientes.Acompanhante_idAcompanhante','clientes.created_at',
+        'pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco','pessoas.dataDeNascimento',
+        'pessoas.CPF','pessoas.RG','pessoas.endereco',
+        'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade',
+        'pessoas.motivo','pessoas.ativo')->where('cliente->id', '=' .$id)->get();
         $editar = Cliente::find($id);
-        return response()->json($editar);
+        return response()->json($clientes);
     }
     public function atualizarCliente(Request $request,$id)
     {   
