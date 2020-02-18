@@ -98,8 +98,8 @@ class ClienteController extends Controller
         'pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco','pessoas.dataDeNascimento',
         'pessoas.CPF','pessoas.RG','pessoas.endereco',
         'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade',
-        'pessoas.motivo','pessoas.ativo')
-        ->where('Pessoa_idPessoa = '.$id)->get();
+        'pessoas.motivo','pessoas.ativo')->get();
+        
         return response()->json($cliente);
       
     }
