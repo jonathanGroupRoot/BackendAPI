@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+use Request;
 use Illuminate\Validation\ValidationException;
 use App\Cliente;
 use App\Acompanhante;
