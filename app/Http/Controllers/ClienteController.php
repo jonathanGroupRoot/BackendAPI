@@ -109,7 +109,7 @@ class ClienteController extends Controller
         ->get();
         $nome = $request->get('nome');
         $clientes = Pessoa::where('nome', 'LIKE', '%'.$nome.'%')->paginate();
-        return response()->json($cliente);
+        return response()->json($clientes);
     }
     
   
