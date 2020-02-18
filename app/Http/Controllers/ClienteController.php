@@ -79,7 +79,7 @@ class ClienteController extends Controller
         ->join('clientes','clientes.Pessoa_idPessoa','=','pessoas.id')
         ->select('clientes.id','clientes.Acompanhante_idAcompanhante','clientes.created_at',
         'pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco','pessoas.dataDeNascimento',
-        'pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco',
+        'pessoas.CPF','pessoas.RG','pessoas.endereco',
         'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade',
         'pessoas.motivo','pessoas.ativo')->get();
         return response()->json($cliente);
@@ -103,10 +103,13 @@ class ClienteController extends Controller
     }
     public function pesquisarClientes(Request $request)
     {
-        $list = Cliente::all();
-        $nomes = $request->get('nome');
-        $list = Cliente::where('nome', 'LIKE', '%'.$nomes.'%')->paginate();
-        return response()->json($list);
+        $clientes = DB::table('pessoas')
+        ->join('clientes','clientes.Pessoa_idPessoa', '=', 'pessoas.id')
+        ->select('pessoas.nome')
+        ->get();
+        $nome = $request->get('nome');
+        $clientes = Pessoa::where('nome', 'LIKE', '%'.$nome.'%')->paginate();
+        return response()->json($cliente);
     }
     
   
