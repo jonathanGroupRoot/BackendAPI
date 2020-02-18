@@ -104,7 +104,7 @@ class ClienteController extends Controller
     public function pesquisarClientes(Request $request)
     {
         $nome = $request->get('nome');
-        $cliente = Pessoa::where('nome', 'LIKE', '%'.$nome.'%');
+        $cliente = Pessoa::where('nome', 'LIKE', '%'.$nome.'%')->paginate();
         return response()->json($cliente);
     }
     
