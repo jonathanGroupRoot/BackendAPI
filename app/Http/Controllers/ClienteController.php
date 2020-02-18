@@ -92,7 +92,6 @@ class ClienteController extends Controller
     }
     public function editar($id)
     {
-        $dado = Cliente::find($id);
         $cliente = DB::table('pessoas')
         ->join('clientes','clientes.Pessoa_idPessoa','=','pessoas.id')
         ->select('clientes.id','clientes.Acompanhante_idAcompanhante','clientes.created_at',
@@ -100,7 +99,7 @@ class ClienteController extends Controller
         'pessoas.CPF','pessoas.RG','pessoas.endereco',
         'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade',
         'pessoas.motivo','pessoas.ativo')
-        ->where('clientes.id')
+        ->where('clientes.id' == Pessoa::find($id))
         ->get();
         
         return response()->json($cliente);
