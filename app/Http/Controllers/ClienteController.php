@@ -117,7 +117,7 @@ class ClienteController extends Controller
         $dados = DB::table('pessoas')
         ->join('clientes','clientes.Pessoa_idPessoa', '=', 'pessoas.id')
         ->select('pessoas.*')
-        ->where('pessoas.nome','=',$nome)->get();
+        ->where('pessoas.nome','=',$nome)->paginate();
         return response()->json($dados);
     }
     
