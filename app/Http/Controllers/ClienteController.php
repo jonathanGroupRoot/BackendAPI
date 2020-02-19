@@ -108,10 +108,8 @@ class ClienteController extends Controller
     public function atualizarCliente(Request $request,$id)
     {   
         $registros = $request->all();
-        $up = Cliente::find($id);
-        $ups = $up->id->update($registros);
-        
-    
+        $clientes = Cliente::find($id);
+        Pessoa::find($clientes->Pessoa_idPessoa)->update();
         return response()->json('Cliente Atualizado Com Sucesso!!');
     }
     public function pesquisarClientes(Request $request)
