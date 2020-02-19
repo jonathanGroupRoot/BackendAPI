@@ -109,6 +109,7 @@ class ClienteController extends Controller
     {   
         $cliente = $request->all();
         Cliente::find($id)->update($cliente);
+        Pessoa::find($id)->update($cliente);
         return response()->json('Cliente Atualizado Com Sucesso!!');
     }
     public function pesquisarClientes(Request $request)

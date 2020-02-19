@@ -44,7 +44,7 @@ $router->get('/api/editarAcompanhante/{id}','AcompanhanteController@editar');
 $router->get('/api/listarCliente','ClienteController@listarCliente');
 $router->post('/api/cadastrarCliente','ClienteController@cadastrarCliente');
 $router->delete('/api/deletarCliente/{id}','ClienteController@deletarCliente');
-$router->put('/api/atualizarCliente/{id}','ClienteController@atualizarCliente');
+$router->post('/api/atualizarCliente/{id}','ClienteController@atualizarCliente');
 $router->get('/api/editarCliente/{id}', 'ClienteController@editar');
 $router->get('/api/pesquisarClientes','ClienteController@pesquisarClientes');
 
