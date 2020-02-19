@@ -135,7 +135,6 @@ class ClienteController extends Controller
             'telefone' => 'required|min:16|max:16',
             'sexo' => 'required|boolean',
             'nacionalidade' => 'required',
-            'ativo' => 'required|boolean',
         ],$messages).'id'.$id;
         $registros = $request->all();
         $clientes = Cliente::find($id);
