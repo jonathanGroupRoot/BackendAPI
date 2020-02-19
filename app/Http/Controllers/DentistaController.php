@@ -15,7 +15,7 @@ class DentistaController extends Controller
     {
         $dentista = DB::table('colaboradors')
         ->join('dentistas','dentistas.Colaborador_idColaborador', '=', 'colaboradors.id')
-        ->select('dentistas.*','colaboradors.*')->get();
+        ->select('colaboradors.*','dentistas.*')->get();
         return response()->json($dentista);
     }
     public function cadastrarDentista(Request $request)
