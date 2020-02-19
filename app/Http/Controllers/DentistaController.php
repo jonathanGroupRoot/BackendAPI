@@ -17,7 +17,7 @@ class DentistaController extends Controller
         // ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
         // ->select('pessoas.*','colaboradors.*')
         // ->get();
-        return response($pessoa);
+        // return response($pessoa);
         $dentista = DB::table('colaboradors')
         ->join('dentistas','dentistas.Colaborador_idColaborador', '=', 'colaboradors.id')
         ->select('colaboradors.*','dentistas.*')
