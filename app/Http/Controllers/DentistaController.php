@@ -21,7 +21,7 @@ class DentistaController extends Controller
         ->join('dentistas','dentistas.Colaborador_idColaborador', '=', 'colaboradors.id')
         ->select('dentistas.*','colaboradors.*')
         ->get();
-        return response()->json($dentista);
+        
     }
     public function cadastrarDentista(Request $request)
     {
