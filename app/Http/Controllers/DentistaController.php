@@ -17,10 +17,12 @@ class DentistaController extends Controller
         ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
         ->select('colaboradors.*','pessoas.*')
         ->get();
+        return response($pessoa);
         $dentista = DB::table('colaboradors')
         ->join('dentistas','dentistas.Colaborador_idColaborador', '=', 'colaboradors.id')
         ->select('dentistas.*','colaboradors.*')
         ->get();
+        return response($dentista);
         
     }
     public function cadastrarDentista(Request $request)
