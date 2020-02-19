@@ -111,7 +111,7 @@ class ClienteController extends Controller
         $dados = Cliente::find($id);
         $join = DB::table('pessoas')
         ->join('clientes','clientes.Pessoa_idPessoa','=','pessoas.id')
-        ->where('pessoas.id','=',$id)
+        ->where('pessoas.id','=',$dados->id)
         ->update($dados);
         return response()->json('Cliente Atualizado Com Sucesso!!');
     }
