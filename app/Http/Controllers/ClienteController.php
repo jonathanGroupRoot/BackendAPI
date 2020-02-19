@@ -109,7 +109,7 @@ class ClienteController extends Controller
     {   
         $registros = $request->all();
         $dados = Cliente::find($id);
-        $up = Pessoa::update($dados->id);
+        $up = update($dados->id);
         
         return response()->json('Cliente Atualizado Com Sucesso!!');
     }
