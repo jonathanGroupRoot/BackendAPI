@@ -107,8 +107,7 @@ class ClienteController extends Controller
     }
     public function atualizarCliente(Request $request,$id)
     {   
-        $cliente = $request->all();
-        $update = $cliente->find($id);
+        $update = $request->all();
         $clientes = DB::table('pessoas')
         ->join('clientes','clientes.Pessoa_idPessoa', '=', 'pessoas.id')
         ->update($update);
