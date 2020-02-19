@@ -13,9 +13,13 @@ class DentistaController extends Controller
     
     public function listDentista()
     {
+        $pessoa = DB::table('pessoas')
+        ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoa.id')
+        ->select('colaboradors.*','pessoas.*')
+        ->get();
         $dentista = DB::table('colaboradors')
         ->join('dentistas','dentistas.Colaborador_idColaborador', '=', 'colaboradors.id')
-        ->select('dentistas.*','colaboradors.*','Pessoa_idPessoa.*')
+        ->select('dentistas.*','colaboradors.*')
         ->get();
         return response()->json($dentista);
     }
