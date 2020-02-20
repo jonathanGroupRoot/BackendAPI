@@ -8,7 +8,7 @@ use App\Acompanhante;
 use App\Pessoa;
 use DB;
 use App\Http\Controllers\Input;
-use Illuminate\Validation\Rule;
+
 class ClienteController extends Controller
 {
     public function cadastrarCliente(Request $request)
