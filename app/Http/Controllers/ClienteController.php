@@ -128,11 +128,11 @@ class ClienteController extends Controller
         ];
         $this->validate($request,[
             'nome' => 'required|min:5|max:255',
-            'CPF' => 'required|min:14|max:14|bail|unique:pessoas,CPF|'.Rule::unique('clientes','Pessoa_idPessoa')->ignore($this->CPF->id),
+            'CPF' => 'required|min:14|max:14|bail|unique:pessoas,CPF|'->ignore(id),
             'CPF.*.first_name' => 'required_with:CPF.*.last_name',
             'CEP' => 'required|min:9|max:9',
             'dataDeNascimento' => 'required|date',
-            'RG' => 'required|min:7|max:7|bail|unique:pessoas,RG'.Rule::unique('clientes','Pessoa_idPessoa')->ignore($this->RG->id),
+            'RG' => 'required|min:7|max:7|bail|unique:pessoas,RG'->ignore(id),
             'RG.*.first_name' => 'required_with:RG.*.last_name',
             'endereco' => 'required|min:5|max:255',
             'telefone' => 'required|min:16|max:16',
