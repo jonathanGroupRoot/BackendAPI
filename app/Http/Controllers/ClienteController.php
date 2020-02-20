@@ -11,6 +11,8 @@ use App\Http\Controllers\Input;
 use Illuminate\Validation\Rule;
 class ClienteController extends Controller
 {
+    protected $pessoas;
+    
     public function cadastrarCliente(Request $request)
     {
         $messages = [
@@ -126,6 +128,7 @@ class ClienteController extends Controller
             'sexo.required' => 'Este campo é obrigatório',
             'nacionalidade.required' => 'Este campo é obrigatório',
         ];
+        
         $this->validate($request,[
             'nome' => 'required|min:5|max:255',
             'CPF' => "required|min:14|max:14|bail|unique:pessoas,CPF".$pessoas,
