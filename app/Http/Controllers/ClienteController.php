@@ -106,6 +106,7 @@ class ClienteController extends Controller
             'CPF.required' => 'O CPF é obrigatório',
             'CPF.min' => 'CPF mínimo 14 caracteres incluindo traços',
             'CPF.max' => 'CPF máximo 14 caracteres incluindo traços',
+            'CPF.unique' => 'O CPF digitado já está cadastrado',
             'CEP.required' => 'CEP é um campo obrigatório',
             'CEP.min' => 'CEP mínimo 9 caracteres incluindo traços',
             'CEP.max' => 'CEP máximo 9 caracteres incluindo traços',
@@ -114,6 +115,7 @@ class ClienteController extends Controller
             'RG.required' => 'RG é obrigatório',
             'RG.min' => 'RG mínimo 7 caracteres incluindo traços',
             'RG.max' => 'RG máximo 7 caracteres incluindo traços',
+            'RG.unique' => 'O RG digitado já está cadastrado no sistema',
             'endereco.required' => 'Endereço e obrigatório',
             'endereco.min' => 'Endereço mínimo 5 caracteres',
             'endereco.max' => 'Endereco máximo 5 caracteres',
@@ -122,20 +124,22 @@ class ClienteController extends Controller
             'telefone.max' => 'Telefone máximo 16 caracteres incluindo traços',
             'sexo.required' => 'Este campo é obrigatório',
             'nacionalidade.required' => 'Este campo é obrigatório',
+            'ativo.required' => 'Ativo é um campo obrigatório',
         ];
         $this->validate($request,[
             'nome' => 'required|min:5|max:255',
-            'CPF' => 'required|min:14|max:14',
+            'CPF' => 'required|min:14|max:14|bail|unique:pessoas,CPF'->ignore($CPF->id, 'CPF_id'),
             'CPF.*.first_name' => 'required_with:CPF.*.last_name',
             'CEP' => 'required|min:9|max:9',
             'dataDeNascimento' => 'required|date',
-            'RG' => 'required|min:7|max:7',
+            'RG' => 'required|min:7|max:7|bail|unique:pessoas,RG'->ignore($RG->id, 'RG_id'),
             'RG.*.first_name' => 'required_with:RG.*.last_name',
             'endereco' => 'required|min:5|max:255',
             'telefone' => 'required|min:16|max:16',
             'sexo' => 'required|boolean',
             'nacionalidade' => 'required',
-        ],$messages).'id'.$id;
+        ],$messages);
+        // ],$messages).'id'.$id;
         $registros = $request->all();
         $clientes = Cliente::find($id);
         Pessoa::find($clientes->Pessoa_idPessoa)->update($registros);
