@@ -140,8 +140,8 @@ class ClienteController extends Controller
             'nacionalidade' => 'required',
         ],$messages);
         $registros = $request->all();
-        $clientes = Cliente::find($id);
-        Pessoa::find($clientes->Pessoa_idPessoa)->update($registros);
+        $clientes = Cliente::find($id)->update($registros);
+        // Pessoa::find($clientes->Pessoa_idPessoa)->update($registros);
         return response()->json('Cliente Atualizado Com Sucesso!!');
     }
     public function pesquisarClientes(Request $request)
