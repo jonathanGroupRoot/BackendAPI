@@ -140,6 +140,18 @@ class ClienteController extends Controller
             'sexo' => 'required|boolean',
             'nacionalidade' => 'required',
         ],$messages);
+        Validator::make($data, [
+            'CPF' => [
+                'required',
+                Rule::unique('clientes')->ignore($CPF->id),
+            ],
+        ]);
+        Validator::make($data, [
+            'RG' => [
+                'required',
+                Rule::unique('clientes')->ignore($RG->id),
+            ],
+        ]);
         // ],$messages).'id'.$id;
         $registros = $request->all();
         $clientes = Cliente::find($id);
