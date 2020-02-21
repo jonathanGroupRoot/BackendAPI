@@ -134,7 +134,7 @@ class ClienteController extends Controller
         $validate = Validator::make($request, [
             'CPF' => [
                 'required',
-                Rule::unique('clientes')->ignore($clientes->Pessoa_idPessoa),
+                Rule::unique('request')->ignore($clientes->Pessoa_idPessoa),
             ],
         ]);
         
