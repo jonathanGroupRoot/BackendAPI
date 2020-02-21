@@ -9,6 +9,8 @@ use App\Pessoa;
 use DB;
 use App\Http\Controllers\Input;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\Validator;
+
 class ClienteController extends Controller
 {
 
