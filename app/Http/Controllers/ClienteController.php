@@ -131,7 +131,7 @@ class ClienteController extends Controller
         //     'nacionalidade.required' => 'Este campo é obrigatório',
         // ];
 
-        $validate = Validator::make($data, [
+        $validate = Validator::make($request, [
             'CPF' => [
                 'required',
                 Rule::unique('clientes')->ignore($clientes->Pessoa_idPessoa),
