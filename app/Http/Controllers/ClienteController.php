@@ -133,11 +133,11 @@ class ClienteController extends Controller
    
         $this->validate($request,[
           'nome' => 'required|min:5|max:255',
-            'CPF' => "required|min:14|max:14|bail|unique:pessoas,CPF".',id',$id,
+            'CPF' => "required|min:14|max:14|bail|unique:pessoas,CPF",'id',$id,
             'CPF.*.first_name' => 'required_with:CPF.*.last_name',
             'CEP' => 'required|min:9|max:9',
             'dataDeNascimento' => 'required|date',
-            "RG' => 'required|min:7|max:7|bail|unique:pessoas,RG".',id',$id,
+            "RG' => 'required|min:7|max:7|bail|unique:pessoas,RG",'id',$id,
             'RG.*.first_name' => 'required_with:RG.*.last_name',
             'endereco' => 'required|min:5|max:255',
             'telefone' => 'required|min:16|max:16',
