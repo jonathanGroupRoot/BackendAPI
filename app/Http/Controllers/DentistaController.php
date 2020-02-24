@@ -151,11 +151,13 @@ class DentistaController extends Controller
     }
     public function editar($id)
     {
-        $editar = DB::table('colaboradors')
+        $editar = DB::table('pessoas')
+        ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
         ->join('dentistas','dentistas.Colaborador_idColaborador','=','colaboradors.id')
         ->select('colaboradors.*','dentistas.*','pessoas.*')
         ->where('dentistas.id','=',$id)
         ->get();
+        return response()->json($editar);
     }
     public function atualizar(Request $request, $id){
     $dentista = $request->all();
