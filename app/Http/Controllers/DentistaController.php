@@ -219,19 +219,12 @@ class DentistaController extends Controller
 
             $this->validate($request, [
                 'nome' => 'required|min:5|max:255',
-                // 'CPF' => 'required|min:14|max:14|bail|unique:pessoas,CPF',
-                // 'CPF.*.first_name' => 'required_with:CPF.*.last_name',
                 'CEP' => 'required|min:9|max:9',
                 'dataDeNascimento' => 'required|date',
-                // 'RG' => 'required|min:7|max:7|bail|unique:pessoas,RG',
-                // 'RG.*.first_name' => 'required_with:RG.*.last_name',
                 'endereco' => 'required|min:5|max:255',
                 'telefone' => 'required|min:16|max:16',
                 'sexo' => 'required|boolean',
                 'nacionalidade' => 'required',
-                'ativo' => 'required|boolean',
-                // 'PIS' => 'required|min:14|max:14|bail|unique:colaboradors,PIS',
-                // 'PIS.*.first_name' => 'required_with:PIS.*.last_name',
                 'cargo' => 'required|min:5|max:255',
                 'conta' => 'required|min:10|max:10|bail',
                 'conta.*.first_name' => 'required_with:conta.*.last_name',
@@ -246,7 +239,7 @@ class DentistaController extends Controller
             ],$messages);
         $registros = $request->all();
         $dentistas = Dentista::find($id);
-        Pessoa::find($dentistas->id)->update($registros);
+        Colaboradors::find($dentistas->id)->update($registros);
         return response()->json('Atualizado Com Sucesso!!');
     }
   
