@@ -154,7 +154,7 @@ class DentistaController extends Controller
         $editar = DB::table('pessoas')
         ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
         ->join('dentistas','dentistas.Colaborador_idColaborador','=','colaboradors.id')
-        ->select('colaboradors.*','dentistas.*','pessoas.*')
+        ->select('pessoas.*','colaboradors.*','dentistas.*')
         ->where('dentistas.id','=',$id)
         ->get();
         return response()->json($editar);
