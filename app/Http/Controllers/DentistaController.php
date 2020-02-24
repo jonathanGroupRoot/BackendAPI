@@ -160,8 +160,9 @@ class DentistaController extends Controller
         return response()->json($editar);
     }
     public function atualizar(Request $request, $id){
-    $dentista = $request->all();
-    Dentista::find($id)->update($dentista);
+    $registros = $request->all();
+    $dentistas = Dentista::find($id);
+    Pessoa::find($dentistas->id)->update($registros);
     return response()->json('Atualizado Com Sucesso!!');
     }
   
