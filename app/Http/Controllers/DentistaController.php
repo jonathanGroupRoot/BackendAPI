@@ -14,7 +14,7 @@ class DentistaController extends Controller
     public function listDentista()
     {
       
-        $dentista = DB::table('dentistas')
+        $dentista = DB::table('colaboradors')
         ->join('dentistas','dentistas.Colaborador_idColaborador', '=', 'colaboradors.id')
         ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
         ->select('pessoas.*','colaboradors.*','dentistas.*')
