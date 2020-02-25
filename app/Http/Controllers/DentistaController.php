@@ -231,7 +231,7 @@ class DentistaController extends Controller
         ->select('pessoas.*','colaboradors.*','dentistas.*')
         ->where('dentistas.id','=',$id)
         ->get();
-        Colaborador::find($editar->Pessoa_idPesso)->update($editar);
+        Colaborador::find($editar->Pessoa_idPessoa)->update($editar);
 
         return response()->json('Atualizado Com Sucesso!!');
     }
