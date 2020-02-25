@@ -23,7 +23,7 @@ $router->get('/api/editarPessoa/{id}','PessoaController@editar');
 $router->get('/api/listarDentista','DentistaController@listDentista');
 $router->post('/api/cadastrarDentista','DentistaController@cadastrarDentista');
 $router->delete('/api/deleteDentista/{id}','DentistaController@deleteDentista');
-$router->put('/api/atualizar/{id}','DentistaController@atualizar');
+$router->get('/api/atualizar/{id}','DentistaController@atualizar');
 $router->get('/api/editarDentista/{id}', 'DentistaController@editar');
 
 //Rota Procedimento
