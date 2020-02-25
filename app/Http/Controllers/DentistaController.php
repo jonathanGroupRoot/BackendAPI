@@ -228,6 +228,7 @@ class DentistaController extends Controller
         
         $dentistas = Dentista::find($id);
         $registros = $request->all();
+        Pessoa::find($dentistas->Colaborador_idColaborador);
         return response()->json('Atualizado Com Sucesso!!');
     }
   
