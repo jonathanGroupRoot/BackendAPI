@@ -227,14 +227,10 @@ class DentistaController extends Controller
                
         ],$messages);
 
-        $editar = DB::table('pessoas')
-        ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
-        ->join('dentistas','dentistas.Colaborador_idColaborador','=','colaboradors.id')
-        ->select('pessoas.*','colaboradors.*','dentistas.*')
-        ->get();
         $dentista = Dentista::find($id);
+        $registros = Dentista::all();
         Colaborador::find($dentista->Colaborador_idColaborador);
-        Pessoa::find($id)->update($editar);
+        Pessoa::find($id)->update($registros);
 
 
         return response()->json('Atualizado Com Sucesso!!');
