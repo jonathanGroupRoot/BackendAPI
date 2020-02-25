@@ -226,9 +226,9 @@ class DentistaController extends Controller
             'responsavelTecnico' => 'required|boolean',
                
         ],$messages);
-        
-        $registros = $request->all();
+
         $dentista = Dentista::find($id);
+        $registros = $request->all();
         Colaborador::find($dentista->Colaborador_idColaborador);
         Pessoa::find($id)->update($registros);
 
