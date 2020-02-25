@@ -225,10 +225,12 @@ class DentistaController extends Controller
                 'responsavelTecnico' => 'required|boolean',
                
             ],$messages);
+        $pessoa = new Pessoa();
         $registros = $request->all();
         $dentistas = Dentista::find($id);
         Colaborador::find($dentistas->Colaborador_idColaborador)->update($registros);
-        Pessoa::find($dentistas->Colaborador_idColaborador)->update($registros);
+        Pessoa::find($dentistas->$pessoa->id);
+
         return response()->json('Atualizado Com Sucesso!!');
     }
   
