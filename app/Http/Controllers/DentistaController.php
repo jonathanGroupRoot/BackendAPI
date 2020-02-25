@@ -227,10 +227,10 @@ class DentistaController extends Controller
                
         ],$messages);
         
-        $dados = DB::table('pessoas')
+        DB::table('colaboradors')
         ->join('dentistas','dentistas.Colaborador_idColaborador','=','colaboradors.id')
-        ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
-        ->update($dados);
+        ->where('dentistas.id',$id)
+        ->update('$id');
         // $dentistas = Dentista::find($id);
         // $registros = $request->all();
         // Pessoa::find($dentistas->Colaborador_idColaborador);
