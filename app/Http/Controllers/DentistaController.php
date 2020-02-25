@@ -78,6 +78,7 @@ class DentistaController extends Controller
             'especialidades.min' => 'Especialidades Mínimo 5 Caracteres',
             'especialidades.max' => 'Especialidades Máximo 5 Caracteres',
             'especialidades.required' => 'Especialidades é um Campo Obrigatório',
+            'ativo.required' => 'Ativo é um campo Obrigatório',
       
         ];
 
@@ -180,7 +181,6 @@ class DentistaController extends Controller
             'cargo.min' => 'Cargo mínimo 5 caracteres',
             'cargo.max' => 'Cargo máximo 5 caracteres',
             'conta.required' => 'Conta é um campo obrigatório',
-            'conta.unique' => 'Essa Conta já está cadastrado no sistema',
             'conta.min' => 'Conta mínimo 10 caracteres incluindo traços',
             'conta.max' => 'Conta máximo 10 caracteres incluindo traços',
             'tipoDaConta.required' => 'Tipo Da Conta é um campo obrigatório',
@@ -225,9 +225,13 @@ class DentistaController extends Controller
                 'responsavelTecnico' => 'required|boolean',
                
             ],$messages);
-        $registros = $request->all();
-        $dentistas = Dentista::find($id);
-        Colaborador::find($dentistas->Colaborador_idColaborador)->update($registros);
+        $editar = DB::table('pessoas')
+        ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
+        ->join('dentistas','dentistas.Colaborador_idColaborador','=','colaboradors.id')
+        ->select('pessoas.*','colaboradors.*','dentistas.*')
+        ->where('dentistas.id','=',$id)
+        ->get();
+        Colaborador::find($editar->Pessoa_idPesso)->update($editar);
 
         return response()->json('Atualizado Com Sucesso!!');
     }
