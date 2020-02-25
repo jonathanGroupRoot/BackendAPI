@@ -227,10 +227,12 @@ class DentistaController extends Controller
                
         ],$messages);
         
+        $registros = $request->all();
         $dentista = Dentista::find($id);
         if($dentista)
         {
             Colaborador::find($dentista->Colaborador_idColaborador);
+            $dentista->Colaborador()->update($registros);
 
         }
         return response()->json('Atualizado Com Sucesso!!');
