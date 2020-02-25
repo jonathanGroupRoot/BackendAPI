@@ -230,7 +230,7 @@ class DentistaController extends Controller
         $registros = $request->all();
         $editar = DB::table('colaboradors')
         ->join('dentistas','dentistas.Colaborador_idColaborador','=','colaboradors.id')
-        // ->join('pessoas','pessoas.Colaborador_idColaborador','=','pe.id')
+        ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
         ->select('pessoas.*','colaboradors.*','dentistas.*')
         ->where('dentistas.id','=',$id)
         ->update($registros);
