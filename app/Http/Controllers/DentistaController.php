@@ -227,9 +227,9 @@ class DentistaController extends Controller
                
         ],$messages);
 
-        $dentista = Dentista::find($id);
         $registros = $request->all();
-        Colaborador::find($dentista->Colaborador_idColaborador->Pessoa_idPessoa->update($registros));
+        $dentista = Dentista::find($id);
+        Colaborador::find($dentista->Colaborador_idColaborador->Pessoa_idPessoa)->update($registros);
        
 
 
