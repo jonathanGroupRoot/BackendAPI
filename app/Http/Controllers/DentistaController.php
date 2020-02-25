@@ -228,7 +228,7 @@ class DentistaController extends Controller
         $registros = $request->all();
         $dentistas = Dentista::find($id);
         $up = Colaborador::find($dentistas->Colaborador_idColaborador)->update($registros);
-        Pessoa::find($dentistas->Colaborador_idColaborador)->update($registros);
+        Pessoa::find($dentistas->Colaborador_idColaborador);
         
 
         return response()->json('Atualizado Com Sucesso!!');
