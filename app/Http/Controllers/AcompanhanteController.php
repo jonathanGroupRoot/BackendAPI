@@ -36,7 +36,7 @@ class AcompanhanteController extends Controller
             'telefone.max' => 'Telefone máximo 16 caracteres incluindo traços',
             'sexo.required' => 'Este campo é obrigatório',
             'nacionalidade.required' => 'Este campo é obrigatório',
-            'ativo.required' => 'Ativo é um campo obrigatório',
+            // 'ativo.required' => 'Ativo é um campo obrigatório',
         ];
         $this->validate($request,[
             'nome' => 'required|min:5|max:255',
@@ -89,7 +89,7 @@ class AcompanhanteController extends Controller
     public function editar($id)
     {
         $editar = DB::table('pessoas')
-        ->join('acompanhantes','acompanhantes.id','=','pessoas.id')
+        ->join('acompanhantes','acompanhantes.Pessoa_idPessoa','=','pessoas.id')
         ->select('pessoas*','acompanhantes*')
         ->where('acompanhantes.id','=',$id)
         ->get();
