@@ -93,6 +93,7 @@ class AcompanhanteController extends Controller
         ->select('acompanhantes.*','pessoas.*')
         ->where('acompanhantes.id','=',$id)
         ->get();
+        return response()->json($editar);
     }
     public function atualizarAcompanhante(Request $request,$id)
     {
