@@ -124,7 +124,7 @@ class ColaboradorController extends Controller
     {
         $editar = DB::table('pessoas')
         ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
-        ->select('pessoas.*','colaboradors')
+        ->select('colaboradors.*','pessoas.*')
         ->where('colaboradors.id','=',$id)
         ->get();
         return response()->json($editar);
