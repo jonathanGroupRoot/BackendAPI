@@ -74,6 +74,14 @@ class ClienteController extends Controller
         $cliente = new Cliente();
         $cliente->Pessoa_idPessoa = $pessoa->id;
         $cliente->Acompanhante_idAcompanhante = $request->acompanhante;
+        $forAcom = $request->get('cpfA');
+        if($cliente->CPF === $forAcom)
+        {
+            return response()->json('');
+        }
+        else{
+            return response()->json('Acompanhante não cadastrado para continuar cadastre o em nosso sistema');
+        }
         $cliente->save();
         return response()->json('Cliente Cadastrado Com Sucesso!!');
 
