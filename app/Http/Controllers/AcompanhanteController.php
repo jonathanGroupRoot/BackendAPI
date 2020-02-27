@@ -99,7 +99,7 @@ class AcompanhanteController extends Controller
     {
         $registros = $request->all();
         $acompanhante =  Acompanhante::find($id);
-        $pessoa = Pessoa::find($id);
+        $pessoa = Pessoa::find($acompanhante->Pessoa_idPessoa);
 
         $acompanhante->update($registros);
         $pessoa->update($registros);
