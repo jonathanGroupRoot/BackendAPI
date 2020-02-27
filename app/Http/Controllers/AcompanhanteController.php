@@ -90,7 +90,7 @@ class AcompanhanteController extends Controller
     {
         $editar = DB::table('pessoas')
         ->join('acompanhantes','acompanhantes.Pessoa_idPessoa','=','pessoas.id')
-        ->select('pessoas*','acompanhantes*')
+        ->select('pessoas.*','acompanhantes.*')
         ->where('acompanhantes.id','=',$id)
         ->get();
     }
