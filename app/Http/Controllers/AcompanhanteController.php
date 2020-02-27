@@ -97,8 +97,12 @@ class AcompanhanteController extends Controller
     }
     public function atualizarAcompanhante(Request $request,$id)
     {
-        $acompanhante = $request->all();
-        Acompanhante::find($id)->update($acompanhante);
+        $registros = $request->all();
+        $acompanhante =  Acompanhante::find($id);
+        $pessoa = Pessoa::find($id);
+
+        $acompanhante->update($registros);
+        $pessoa->update($registros);
         return response()->json('Acompanhante Atualizado Com Sucesso!!');
     }
    
