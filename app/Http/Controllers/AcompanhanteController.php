@@ -88,8 +88,11 @@ class AcompanhanteController extends Controller
     }
     public function editar($id)
     {
-        $editar = Acompanhante::find($id);
-        return response()->json($editar);
+        $editar = DB::table('pessoas')
+        ->join('acompanhantes','acompanhantes.id','=','pessoas.id')
+        ->select('pessoas*','acompanhantes*')
+        ->where('acompanhantes.id','=',$id)
+        ->get();
     }
     public function atualizarAcompanhante(Request $request,$id)
     {
