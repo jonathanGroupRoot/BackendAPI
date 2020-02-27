@@ -13,10 +13,7 @@ class ColaboradorController extends Controller
     {
         $colaborador = DB::table('pessoas')
         ->join('colaboradors','colaboradors.Pessoa_idPessoa', '=','pessoas.id')
-        ->select('pessoas.id','pessoas.nome','pessoas.CPF','pessoas.RG','pessoas.endereco',
-        'pessoas.CEP','pessoas.telefone','pessoas.sexo','pessoas.nacionalidade','pessoas.motivo','pessoas.ativo',
-        'colaboradors.id','colaboradors.PIS','colaboradors.cargo','colaboradors.conta','colaboradors.tipoDaConta',
-        'colaboradors.agencia','colaboradors.salario','colaboradors.dataDeAdmissao')->get();
+        ->select('pessoas.*','colaboradors.*')->get();
         return response()->json($colaborador);
     }
     public function cadastrarColaboradores(Request $request)
@@ -125,14 +122,73 @@ class ColaboradorController extends Controller
     }
     public function editar($id)
     {
-        $editar = Colaborador::find($id);
+        $editar = DB::table('pessoas')
+        ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
+        ->select('pessoas.*','colaboradors')
+        ->where('colaboradors.id','=',$id)
+        ->get();
         return response()->json($editar);
     }
     public function atualizarColaboradores(Request $request,$id)
     {
-        $colaborador = $request->all();
-        Colaborador::find($id)->update($colaborador);
-        return response()->json('Dados Atualizados Com Sucesso!!');
+        $messages = [
+            'nome.required' => 'O nome é obrigatório',
+            'nome.min' => 'Minímo 5 caracteres',
+            'nome.max' => 'Máximo 255 caracteres',
+            'CEP.required' => 'CEP é um campo obrigatório',
+            'CEP.min' => 'CEP mínimo 9 caracteres incluindo traços',
+            'CEP.max' => 'CEP máximo 9 caracteres incluindo traços',
+            'dataDeNascimento.required' => 'Esse campo é obrigatório',
+            'dataDeNascimento.date' => 'O campo Data de nascimento equivale somente a uma data',
+            'endereco.required' => 'Endereço e obrigatório',
+            'endereco.min' => 'Endereço mínimo 5 caracteres',
+            'endereco.max' => 'Endereco máximo 5 caracteres',
+            'telefone.required' => 'Telefone é um campo obrigatório',
+            'telefone.min' => 'Telefone mínimo 16 caracteres incluindo traços',
+            'telefone.max' => 'Telefone máximo 16 caracteres incluindo traços',
+            'sexo.required' => 'Este campo é obrigatório',
+            'nacionalidade.required' => 'Este campo é obrigatório',
+            'cargo.required' => 'Cargo é um campo obrigatório',
+            'cargo.min' => 'Cargo mínimo 5 caracteres',
+            'cargo.max' => 'Cargo máximo 5 caracteres',
+            'conta.required' => 'Conta é um campo obrigatório',
+            'conta.min' => 'Conta mínimo 10 caracteres incluindo traços',
+            'conta.max' => 'Conta máximo 10 caracteres incluindo traços',
+            'conta.unique' => 'Conta já cadastrado no sistema',
+            'tipoDaConta.required' => 'Tipo Da Conta é um campo obrigatório',
+            'tipoDaConta.min' => 'Tipo Da Conta mínimo 5 caracteres',
+            'tipoDaConta.max' => 'Tipo Da Conta máximo 20 caracteres',
+            'agencia.required' => 'Agência é um campo obrigatório',
+            'agencia.min' => 'Agência Mínimo 4 caracteres',
+            'agencia.max' => 'Agência Máximo 4 caracteres',
+            'salario.required' => 'Salário é um campo obrigatório',
+            'salario.integer' => 'Este Campo Deve ser do Tipo númerico',
+            'dataDeAdmissao.required' => 'Data De Admissao é um campo Obrigatório',
+            'dataDeAdmissao.date' => 'Esse campo equivale somente a uma data verifique e digite novamente', 
+        ];
+        $this->validate($request,[
+            'nome' => 'required|min:5|max:255',
+            'CEP' => 'required|min:9|max:9',
+            'dataDeNascimento' => 'required|date',
+            'endereco' => 'required|min:5|max:255',
+            'telefone' => 'required|min:16|max:16',
+            'sexo' => 'required',
+            'nacionalidade' => 'required',
+            'cargo' => 'required|min:5|max:255',
+            'conta' => 'required|min:10|max:10|unique:colaboradors,conta',
+            'tipoDaConta' => 'required|min:5|max:20',
+            'agencia' => 'required|min:4|max:4',
+            'salario' => 'required|integer',
+            'dataDeAdmissao' => 'required|date',
+
+        ],$messages);
+        $registros = $request->all();
+        $colaborador = Colaborador::find($id);
+        $pessoa = Pessoa::find($colaborador->Pessoa_idPessoa);
+
+        $colaborador->update($registros);
+        $pessoa->update($pessoa);
+        return response()->json('Dados atualizados com sucesso!');
     }
 
 
