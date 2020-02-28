@@ -39,6 +39,7 @@ $router->post('/api/cadastrarAcompanhante','AcompanhanteController@cadastrarAcom
 $router->delete('/api/deletarAcompanhante/{id}','AcompanhanteController@deletarAcompanhante');
 $router->post('/api/atualizarAcompanhante/{id}','AcompanhanteController@atualizarAcompanhante');
 $router->get('/api/editarAcompanhante/{id}','AcompanhanteController@editar');
+$router->get('/api/pesquisarAcompanhante/','AcompanhanteController@pesquisarAcompanhante');
 
 //Rota Cliente
 $router->get('/api/listarCliente','ClienteController@listarCliente');
