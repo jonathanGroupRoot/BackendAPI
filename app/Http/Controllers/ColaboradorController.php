@@ -187,7 +187,7 @@ class ColaboradorController extends Controller
         $pessoa = Pessoa::find($colaborador->Pessoa_idPessoa);
 
         $colaborador->update($registros);
-        $pessoa->update($pessoa);
+        $pessoa->update($registros);
         return response()->json('Dados atualizados com sucesso!');
     }
 
