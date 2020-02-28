@@ -133,7 +133,7 @@ class AcompanhanteController extends Controller
         $pessoa->update($registros);
         return response()->json('Acompanhante Atualizado Com Sucesso!!');
     }
-    public function pesquisarAcompanhante()
+    public function pesquisarAcompanhante(Request $request)
     {
         $filtro = $request->get('nome');
         $pesquisar = DB::table('pessoas')
