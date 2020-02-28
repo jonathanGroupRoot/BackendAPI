@@ -139,7 +139,7 @@ class AcompanhanteController extends Controller
         $pesquisar = DB::table('pessoas')
         ->join('acompanhantes','acompanhantes.Pessoa_idPessoa','=','pessoas.id')
         ->select('acompanhantes.*','pessoas.*')
-        ->where('pessoas.nome', '=','LIKE','%'.$filtro.'%')
+        ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
         ->get();
         return response()->json($pesquisar);
     }
