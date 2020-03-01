@@ -90,7 +90,7 @@ class AcompanhanteController extends Controller
     {
         $editar = DB::table('pessoas')
         ->join('acompanhantes','acompanhantes.Pessoa_idPessoa','=','pessoas.id')
-        ->select('acompanhantes.*','pessoas.*')
+        ->select('pessoas.*','acompanhantes.*')
         ->where('acompanhantes.id','=',$id)
         ->get();
         return response()->json($editar);
@@ -138,7 +138,7 @@ class AcompanhanteController extends Controller
         $filtro = $request->get('nome');
         $pesquisar = DB::table('pessoas')
         ->join('acompanhantes','acompanhantes.Pessoa_idPessoa','=','pessoas.id')
-        ->select('acompanhantes.*','pessoas.*')
+        ->select('pessoas.*','acompanhantes.*')
         ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
         ->get();
         return response()->json($pesquisar);
