@@ -19,7 +19,7 @@ class CreateColaboradorsTable extends Migration
             $table->foreign('Pessoa_idPessoa')->references('id')->on('pessoas')->onDelete('cascade');
             $table->string('PIS',14)->unique();
             $table->string('cargo',255);
-            $table->string('conta',10);
+            $table->string('conta',255);
             $table->string('tipoDaConta',20);
             $table->string('agencia',4);
             $table->integer('salario');

@@ -195,7 +195,7 @@ class ColaboradorController extends Controller
         $filtro = $request->get('nome');
         $pesquisar = DB::table('pessoas')
         ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
-        ->select('pessoas.*','acompanhantes.*')
+        ->select('pessoas.*','colaboradors.*')
         ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
         ->get();
         return response()->json($pesquisar);

@@ -18,7 +18,7 @@ class CreatePessoasTable extends Migration
             $table->string('nome',255);
             $table->string('CPF',14)->unique();
             $table->date('dataDeNascimento');
-            $table->string('RG',7)->unique();
+            $table->string('RG',14)->unique();
             $table->string('endereco',255);
             $table->string('CEP',9);
             $table->string('telefone',16);
