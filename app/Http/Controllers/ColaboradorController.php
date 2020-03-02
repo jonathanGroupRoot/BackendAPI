@@ -190,6 +190,16 @@ class ColaboradorController extends Controller
         $pessoa->update($registros);
         return response()->json('Dados atualizados com sucesso!');
     }
+    public function pesquisar(Request $request)
+    {
+        $filtro = $request->get('nome');
+        $pesquisar = DB::table('pessoas')
+        ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
+        ->select('pessoas.*','acompanhantes.*')
+        ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
+        ->get();
+        return response()->json($pesquisar);
+    }
 
 
 }

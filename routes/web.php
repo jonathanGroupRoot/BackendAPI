@@ -62,6 +62,7 @@ $router->post('/api/cadastrarColaboradores','ColaboradorController@cadastrarCola
 $router->delete('/api/deletarColaboradores/{id}','ColaboradorController@deletarColaboradores');
 $router->post('/api/atualizarColaboradores/{id}','ColaboradorController@atualizarColaboradores');
 $router->get('api/editarColaboradores/{id}','ColaboradorController@editar');
+$router->get('/api/pesquisarColaboradores','ColaboradorController@pesquisar');
 
 //Rota Fornecedor
 $router->get('/api/listarFornecedores','FornecedorController@listarFornecedores');
