@@ -75,7 +75,7 @@ class ClienteController extends Controller
         $cliente->Pessoa_idPessoa = $pessoa->id;
         if($request->Acompanhante_idAcompanhante == 'null' && '')
         {
-            $cliente->Acompanhante_idAcompanhante == null;
+            $cliente->Acompanhante_idAcompanhante == 'null';
         }else{
             $cliente->Acompanhante_idAcompanhante = $request->Acompanhante_idAcompanhante;
         }
