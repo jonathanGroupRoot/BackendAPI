@@ -74,7 +74,7 @@ class ClienteController extends Controller
         $cliente = new Cliente();
         $cliente->Pessoa_idPessoa = $pessoa->id;
         if($cliente->Acompanhante_idAcompanhante == '' ){
-            return response()->json('');
+
         }
         $cliente->Acompanhante_idAcompanhante = $request->Acompanhante_idAcompanhante; 
         $cliente->save();
