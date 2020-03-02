@@ -78,8 +78,9 @@ class ClienteController extends Controller
             $cliente->Acompanhante_idAcompanhante == null;
         }else{
             $cliente->Acompanhante_idAcompanhante = $request->Acompanhante_idAcompanhante;
-            return response()->json('Cliente Cadastrado Com Sucesso!!');
         }
+        return response()->json('Cliente Cadastrado Com Sucesso!!');
+        $cliente->save();
        
         
         
