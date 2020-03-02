@@ -71,10 +71,12 @@ class ClienteController extends Controller
         $pessoa->ativo = $request->ativo;
         $pessoa->save();
     
+        $acompanha = $request->get('Acompanhante_idAcompanhante');
         $cliente = new Cliente();
         $cliente->Pessoa_idPessoa = $pessoa->id;
-        if($cliente->Acompanhante_idAcompanhante == '' ){
-
+        if($acompanha == 'null' or '' or 'NULL')
+        {
+            $cliente->Acompanhante_idAcompanhante = $acompanha;
         }
         $cliente->Acompanhante_idAcompanhante = $request->Acompanhante_idAcompanhante; 
         $cliente->save();
