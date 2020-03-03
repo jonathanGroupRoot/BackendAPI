@@ -51,10 +51,16 @@ class ColaboradorController extends Controller
             'cargo.required' => 'Cargo é um campo obrigatório',
             'cargo.min' => 'Cargo mínimo 5 caracteres',
             'cargo.max' => 'Cargo máximo 5 caracteres',
+            'banco.required' => 'Banco é um campo obrigatório',
+            'banco.min' => 'Banco mínimo 3 caracteres',
+            'banco.max' => 'Banco máximo 255 caracteres',
             'conta.required' => 'Conta é um campo obrigatório',
             'conta.min' => 'Conta mínimo 10 caracteres incluindo traços',
             'conta.max' => 'Conta máximo 10 caracteres incluindo traços',
             'conta.unique' => 'Conta já cadastrado no sistema',
+            'digito.required' => 'Digito é um campo obrigatório',
+            'digito.min' => 'Digito no mínimo 1 caractere',
+            'digito.max' => 'Digito máximo 1 caractere',
             'tipoDaConta.required' => 'Tipo Da Conta é um campo obrigatório',
             'tipoDaConta.min' => 'Tipo Da Conta mínimo 5 caracteres',
             'tipoDaConta.max' => 'Tipo Da Conta máximo 20 caracteres',
@@ -82,7 +88,9 @@ class ColaboradorController extends Controller
             'PIS' => 'required|min:14|max:14|bail|unique:colaboradors,PIS',
             'PIS.*.first_name' => 'required_with:PIS.*.last_name',
             'cargo' => 'required|min:5|max:255',
+            'banco' => 'required|min:3|max:255',
             'conta' => 'required|min:10|max:10|unique:colaboradors,conta',
+            'digito' => 'required|min:1|max:1',
             'tipoDaConta' => 'required|min:5|max:20',
             'agencia' => 'required|min:4|max:4',
             'salario' => 'required|integer',
@@ -105,7 +113,9 @@ class ColaboradorController extends Controller
         $colaborador = new Colaborador();
         $colaborador->PIS = $request->PIS;
         $colaborador->cargo = $request->cargo;
+        $colaborador->banco = $request->banco;
         $colaborador->conta = $request->conta;
+        $colaborador->digito = $request->digito;
         $colaborador->tipoDaConta = $request->tipoDaConta;
         $colaborador->agencia = $request->agencia;
         $colaborador->salario = $request->salario;

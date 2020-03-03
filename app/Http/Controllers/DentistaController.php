@@ -59,6 +59,9 @@ class DentistaController extends Controller
             'conta.unique' => 'Essa Conta já está cadastrado no sistema',
             'conta.min' => 'Conta mínimo 10 caracteres incluindo traços',
             'conta.max' => 'Conta máximo 10 caracteres incluindo traços',
+            'digito.required' => 'Digito é um campo obrigatório',
+            'digito.min' => 'Digito no mínimo 1 caractere',
+            'digito.max' => 'Digito máximo 1 caractere',
             'tipoDaConta.required' => 'Tipo Da Conta é um campo obrigatório',
             'tipoDaConta.min' => 'Tipo Da Conta mínimo 5 caracteres',
             'tipoDaConta.max' => 'Tipo Da Conta máximo 20 caracteres',
@@ -100,6 +103,7 @@ class DentistaController extends Controller
                 'cargo' => 'required|min:5|max:255',
                 'conta' => 'required|min:10|max:10|bail|unique:colaboradors,conta',
                 'conta.*.first_name' => 'required_with:conta.*.last_name',
+                'digito' => 'required|min:1|max:1',
                 'tipoDaConta' => 'required|min:5|max:20',
                 'agencia' => 'required|min:4|max:4',
                 'salario' => 'required|integer',
@@ -126,7 +130,9 @@ class DentistaController extends Controller
             $colaborador = new Colaborador();
             $colaborador->PIS = $request->PIS;
             $colaborador->cargo = $request->cargo;
+            $colaborador->banco = $request->banco;
             $colaborador->conta = $request->conta;
+            $colaborador->digito = $request->digito;
             $colaborador->tipoDaConta = $request->tipoDaConta;
             $colaborador->agencia = $request->agencia;
             $colaborador->salario = $request->salario;
