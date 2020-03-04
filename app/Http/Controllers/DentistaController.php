@@ -162,6 +162,7 @@ class DentistaController extends Controller
     ->select('colaboradors.*','dentistas.*')
     ->where('dentistas.id','=',$id)
     ->delete();
+    Pessoa::find($id)->delete();
     return response()->json('Deletado Com Sucesso');
         
     }
