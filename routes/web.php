@@ -25,6 +25,7 @@ $router->post('/api/cadastrarDentista','DentistaController@cadastrarDentista');
 $router->delete('/api/deleteDentista/{id}','DentistaController@deleteDentista');
 $router->post('/api/atualizar/{id}','DentistaController@atualizar');
 $router->get('/api/editarDentista/{id}', 'DentistaController@editar');
+$router->get('/api/pesquisarDentista','DentistaController@pesquisar');
 
 //Rota Procedimento
 $router->get('/api/listarProcedimentos','ProcedimentoController@listarProcedimento');

@@ -151,8 +151,11 @@ class DentistaController extends Controller
     }
     public function deleteDentista($id)
     {
-    $dentista = Pessoa::find($id);
-    $delet = $dentista->delete();
+    // $dentista = Pessoa::find($id);
+    // $delet = $dentista->delete();
+    $dentista = DB::table('pessoas')
+    ->join('dentistas','dentistas.Pessoa_idPessoa', '=','pessoas.id')
+    ->where('dentistas.Pessoa_idPessoa','=',$id);
     return response()->json('Deletado Com Sucesso');
         
     }
@@ -249,7 +252,7 @@ class DentistaController extends Controller
         $filtro = $request->get('nome');
         $pesquisar = DB::table('pessoas')
         ->join('dentistas','dentistas.Pessoa_idPessoa','=','pessoas.id')
-        ->select('pessoas.*','colaboradors.*')
+        ->select('pessoas.*','dentistas.*')
         ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
         ->get();
         return response()->json($pesquisar);
