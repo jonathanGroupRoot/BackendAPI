@@ -249,9 +249,9 @@ class DentistaController extends Controller
     public function pesquisar(Request $request)
     {
         $filtro = $request->get('nome');
-        $pesquisar = DB::table('colaboradors')
-        ->join('dentistas','dentistas.Colaborador_idColaborador','=','colaboradors.id')
-        ->select('colaboradors.*','dentistas.*')
+        $pesquisar = DB::table('pessoas')
+        ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
+        ->select('colaboradors.*','pessoas.*')
         ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
         ->get();
         return response()->json($pesquisar);
