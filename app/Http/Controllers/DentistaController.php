@@ -208,10 +208,6 @@ class DentistaController extends Controller
             'salario.integer' => 'Este Campo Deve ser do Tipo númerico',
             'dataDeAdmissao.required' => 'Data De Admissao é um campo Obrigatório',
             'dataDeAdmissao.date' => 'Esse campo equivale somente a uma data verifique e digite novamente', 
-            'CRO.required' => 'CRO é um campo Obrigatório',
-            'CRO.min' => 'CRO Mínimo 5 Caracteres',
-            'CRO.max' => 'CRO máximo 5 Caracteres',
-            'CRO.unique' => 'CRO já cadastrado em nosso sistema verifique e tente novamente',
             'especialidades.min' => 'Especialidades Mínimo 5 caracteres',
             'especialidades.max' => 'Especialidades Máximo 255 caracteres',
             'responsavelTecnico.required' => 'Responsável Tecnico é um campo obrigatório',
@@ -236,7 +232,6 @@ class DentistaController extends Controller
             'agencia' => 'required|min:4|max:4',
             'salario' => 'required|integer',
             'dataDeAdmissao' => 'required|date',
-            'CRO' => 'required|min:5|max:5|unique:dentistas,CRO',
             'especialidades' => 'required|min:5|max:255',
             'responsavelTecnico' => 'required|boolean',
                
@@ -255,9 +250,9 @@ class DentistaController extends Controller
     public function pesquisar(Request $request)
     {
         $filtro = $request->get('nome');
-        $pesquisar = DB::table('pessoas')
-        ->join('dentistas','dentistas.Pessoa_idPessoa','=','pessoas.id')
-        ->select('pessoas.*','dentistas.*')
+        $pesquisar = DB::table('colaboradors')
+        ->join('dentistas','dentistas.Colaborador_idColaborador','=','colaboradors.id')
+        ->select('colaboradors.*','dentistas.*')
         ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
         ->get();
         return response()->json($pesquisar);
