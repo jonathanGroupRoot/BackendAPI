@@ -153,8 +153,8 @@ class DentistaController extends Controller
     {
     // $dentista = Pessoa::find($id);
     // $delet = $dentista->delete();
-    $dentista = DB::table('pessoas')
-    ->join('dentistas','dentistas.Pessoa_idPessoa', '=','pessoas.id')
+    $dentista = DB::table('colaboradors')
+    ->join('dentistas','dentistas.Colaborador_idColaborador', '=','colaboradors.id')
     ->where('dentistas.id','=',$id);
     return response()->json('Deletado Com Sucesso');
         
