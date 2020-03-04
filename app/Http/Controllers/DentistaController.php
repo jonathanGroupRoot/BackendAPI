@@ -55,6 +55,7 @@ class DentistaController extends Controller
             'cargo.required' => 'Cargo é um campo obrigatório',
             'cargo.min' => 'Cargo mínimo 5 caracteres',
             'cargo.max' => 'Cargo máximo 5 caracteres',
+            'banco.required' => 'Banco é um campo obrigatório',
             'banco.min' => 'Banco mínimo 3 caracteres',
             'banco.max' => 'Banco máximo 255 caracteres',
             'conta.required' => 'Conta é um campo obrigatório',
