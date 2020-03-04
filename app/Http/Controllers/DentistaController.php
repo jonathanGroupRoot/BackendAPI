@@ -17,7 +17,7 @@ class DentistaController extends Controller
         $dentista = DB::table('pessoas')
         ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
         ->join('dentistas','dentistas.Colaborador_idColaborador', '=','colaboradors.id')
-        ->select('pessoas.*','colaboradors.*','dentistas.*')
+        ->select('pessoas.*','dentistas.*','colaboradors.*')
         ->get();
         return response($dentista);
         
@@ -155,14 +155,11 @@ class DentistaController extends Controller
     }
     public function deleteDentista($id)
     {
-    // $dentista = Pessoa::find($id);
-    // $delet = $dentista->delete();
-    $dentista = DB::table('colaboradors')
-    ->join('dentistas','dentistas.Colaborador_idColaborador', '=','colaboradors.id')
-    ->select('colaboradors.*','dentistas.*')
-    ->where('dentistas.id','=',$id)
+    $dentista = DB::table('pessoas')
+    ->join('colaboradors','colaborador.Pessoa_idPessoa', '=','pessoas.id')
+    ->select('pessoas.*','colaboradors.*')
+    ->where('colaboradors.id','=',$id)
     ->delete();
-    Pessoa::find($id)->delete();
     return response()->json('Deletado Com Sucesso');
         
     }
