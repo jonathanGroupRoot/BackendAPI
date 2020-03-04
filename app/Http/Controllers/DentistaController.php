@@ -244,6 +244,16 @@ class DentistaController extends Controller
         $pessoa->update($registros);
         return response()->json('Atualizado Com Sucesso!!');
     }
+    public function pesquisar(Request $request)
+    {
+        $filtro = $request->get('nome');
+        $pesquisar = DB::table('pessoas')
+        ->join('dentistas','dentistas.Pessoa_idPessoa','=','pessoas.id')
+        ->select('pessoas.*','colaboradors.*')
+        ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
+        ->get();
+        return response()->json($pesquisar);
+    }
   
 }
 
