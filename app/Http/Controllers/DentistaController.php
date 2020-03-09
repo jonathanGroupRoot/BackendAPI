@@ -250,8 +250,8 @@ class DentistaController extends Controller
     {
         $filtro = $request->get('nome');
         $pesquisar = DB::table('pessoas')
-        ->join('dentistas','dentistas.Colaborador_idColaborador','=','colaboradors.id')
         ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
+        ->join('dentistas','dentistas.Colaborador_idColaborador','=','colaboradors.id')
         ->select('pessoas.*','colaboradors.*','dentistas.*')
         ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
         ->get();
