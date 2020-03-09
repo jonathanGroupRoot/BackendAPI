@@ -252,7 +252,7 @@ class DentistaController extends Controller
         $pesquisar = DB::table('pessoas')
         ->join('dentistas','dentistas.Colaborador_idColaborador','=','colaboradors.id')
         ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
-        ->select('pessoas.*','colaboradors','dentistas.*')
+        ->select('pessoas.*','colaboradors.*','dentistas.*')
         ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
         ->get();
         return response()->json($pesquisar);
