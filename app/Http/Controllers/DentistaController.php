@@ -155,10 +155,10 @@ class DentistaController extends Controller
     }
     public function deleteDentista($id)
     {
-    $dentista = DB::table('pessoas')
-    ->join('colaboradors','colaboradors.Pessoa_idPessoa', '=','pessoas.id')
-    ->select('pessoas.*','colaboradors.*')
-    ->where('colaboradors.id','=',$id)
+    $dentista = DB::table('colaboradors')
+    ->join('dentistas','dentistas.Colaborador_idColaborador', '=','colaboradors.id')
+    ->select('colaboradors.*','dentistas.*')
+    ->where('dentistas.id','=',$id)
     ->delete();
     return response()->json('Deletado Com Sucesso');
         
