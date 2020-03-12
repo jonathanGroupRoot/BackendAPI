@@ -136,7 +136,7 @@ class ClienteController extends Controller
         $registros = $request->all();
         $clientes = Cliente::find($id);
         $pessoa = Pessoa::find($clientes->Pessoa_idPessoa);
-        $acompanhante = Acompanhante::find($clientes->Pessoa_idPessoa);
+        $acompanhante = Acompanhante::find($clientes->Acompanhante_idAcompanhante);
 
         $pessoa->update();
         $acompanhante->update();
