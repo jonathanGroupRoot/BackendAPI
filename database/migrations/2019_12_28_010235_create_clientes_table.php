@@ -16,7 +16,7 @@ class CreateClientesTable extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->bigIncrements('id');
             
-            $table->bigInteger('Acompanhante_idAcompanhante')->unsigned()->default(0);
+            $table->bigInteger('Acompanhante_idAcompanhante')->unsigned()->nullable();
             $table->foreign('Acompanhante_idAcompanhante')->references('id')->on('acompanhantes')->onDelete('cascade');
 
             $table->bigInteger('Pessoa_idPessoa')->unsigned();
