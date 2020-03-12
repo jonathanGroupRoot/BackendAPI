@@ -125,7 +125,7 @@ class ClienteController extends Controller
         ];
    
         $this->validate($request,[
-          'nome' => 'required|min:5|max:255',
+            'nome' => 'required|min:5|max:255',
             'CEP' => 'required|min:9|max:9',
             'dataDeNascimento' => 'required|date',
             'endereco' => 'required|min:5|max:255',
@@ -138,8 +138,8 @@ class ClienteController extends Controller
         $pessoa = Pessoa::find($clientes->Pessoa_idPessoa);
         $acompanhante = Acompanhante::find($clientes->Acompanhante_idAcompanhante);
 
-        $pessoa->update();
-        $acompanhante->update();
+        $pessoa->update($registros);
+        $acompanhante->update($registros);
         return response()->json('Cliente Atualizado Com Sucesso!!');
     }
     public function pesquisarClientes(Request $request)
