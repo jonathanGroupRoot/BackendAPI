@@ -135,8 +135,11 @@ class ClienteController extends Controller
         ],$messages);
         $registros = $request->all();
         $clientes = Cliente::find($id);
-        Pessoa::find($clientes->Pessoa_idPessoa)->update($registros);
-        Acompanhante::find($clientes->Pessoa_idPessoa)->update($registros);
+        $pessoa = Pessoa::find($clientes->Pessoa_idPessoa);
+        $acompanhante = Acompanhante::find($clientes->Pessoa_idPessoa);
+
+        $pessoa->update();
+        $acompanhante->update();
         return response()->json('Cliente Atualizado Com Sucesso!!');
     }
     public function pesquisarClientes(Request $request)
