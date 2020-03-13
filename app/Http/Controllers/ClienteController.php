@@ -142,7 +142,6 @@ class ClienteController extends Controller
         // $acompanhante->update($registros);
         $atualizar = DB::table('pessoas')
         ->join('clientes', 'clientes.Pessoa_idPessoa','=','pessoas.id')
-        ->join('acompanhantes','acompanhantes.Pessoa_idPessoa','=','pessoas.id')
         ->update($registros);
         return response()->json('Cliente Atualizado Com Sucesso!!');
     }
