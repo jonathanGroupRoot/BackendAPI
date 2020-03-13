@@ -133,16 +133,16 @@ class ClienteController extends Controller
             'sexo' => 'required|boolean',
             'nacionalidade' => 'required',
         ],$messages);
-         $registros = $request->all();
-        // $clientes = Cliente::find($id);
-        // $pessoa = Pessoa::find($clientes->Pessoa_idPessoa);
-        // $acompanhante = Acompanhante::find($clientes->Acompanhante_idAcompanhante);
+        $registros = $request->all();
+        $clientes = Cliente::find($id);
+        $pessoa = Pessoa::find($clientes->Pessoa_idPessoa);
+        $acompanhante = Acompanhante::find($clientes->Acompanhante_idAcompanhante);
 
-        // $pessoa->update($registros);
-        // $acompanhante->update($registros);
-        $atualizar = DB::table('pessoas')
-        ->join('clientes', 'clientes.Pessoa_idPessoa','=','pessoas.id')
-        ->update($registros);
+        $pessoa->update($registros);
+        $acompanhante->update($registros);
+        // $atualizar = DB::table('pessoas')
+        // ->join('clientes', 'clientes.Pessoa_idPessoa','=','pessoas.id')
+        // ->update($registros);
         return response()->json('Cliente Atualizado Com Sucesso!!');
     }
     public function pesquisarClientes(Request $request)
