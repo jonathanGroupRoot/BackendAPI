@@ -138,9 +138,7 @@ class ClienteController extends Controller
         $clientes = Cliente::find($id);
         $pessoa = Pessoa::find($clientes->Pessoa_idPessoa);
         $pessoa->update($registros);
-        $atualizar = DB::table('clientes')
-        ->where('id','=',$id)
-        ->update($registros);
+        $clientes->update($registros);
         // $registros = $request->all();
         // $clientes = Cliente::find($id);
         // $pessoa = Pessoa::find($clientes->Pessoa_idPessoa);
