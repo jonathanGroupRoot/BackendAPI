@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\Procedimento;
 use DB;
+use App\Http\Controllers\Input;
 
 class ProcedimentoController extends Controller
 {
@@ -75,7 +76,7 @@ class ProcedimentoController extends Controller
     {
         $search = $request->get('nome');
         $dados = DB::table('procedimentos')
-        ->select('descricao.*','tipo.*','valor.*')
+        ->select('descricao.*','valor.*','tipo.*')
         ->where('tipo','LIKE','%'.$search.'%')
         ->get();
         return response()->json($dados);
