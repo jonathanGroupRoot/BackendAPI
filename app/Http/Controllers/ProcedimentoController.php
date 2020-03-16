@@ -73,7 +73,7 @@ class ProcedimentoController extends Controller
     public function pesquisar(Request $request)
     {
         $search = $request->get('nome');
-        $dados = DB::table('procedimentos') 
+        $dados = DB::table('procedimentos')
         ->select('descricao.*','tipo.*','valor.*')
         ->where('tipo','LIKE','%'.$search.'%')
         ->get();
