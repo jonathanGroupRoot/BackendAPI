@@ -33,6 +33,7 @@ $router->post('/api/cadastrarProcedimento','ProcedimentoController@cadastrarProc
 $router->delete('/api/deletarProcedimento/{id}','ProcedimentoController@deletarProcedimento');
 $router->put('/api/atualizarProcedimento/{id}','ProcedimentoController@atualizarProcedimento');
 $router->get('/api/editarProcedimento/{id}','ProcedimentoController@editar');
+$router->get('/api/pesquisarProcedimentos','ProcedimentoController@pesquisar');
 
 //Rota Acompanhante
 $router->get('/api/listarAcompanhante','AcompanhanteController@listarAcompanhante');
