@@ -31,7 +31,7 @@ $router->get('/api/pesquisarDentista','DentistaController@pesquisar');
 $router->get('/api/listarProcedimentos','ProcedimentoController@listarProcedimento');
 $router->post('/api/cadastrarProcedimento','ProcedimentoController@cadastrarProcedimento');
 $router->delete('/api/deletarProcedimento/{id}','ProcedimentoController@deletarProcedimento');
-$router->put('/api/atualizarProcedimento/{id}','ProcedimentoController@atualizarProcedimento');
+$router->post('/api/atualizarProcedimento/{id}','ProcedimentoController@atualizarProcedimento');
 $router->get('/api/editarProcedimento/{id}','ProcedimentoController@editar');
 $router->get('/api/pesquisarProcedimentos','ProcedimentoController@pesquisar');
 
