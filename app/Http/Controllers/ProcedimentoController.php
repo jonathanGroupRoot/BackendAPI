@@ -76,7 +76,7 @@ class ProcedimentoController extends Controller
     {
         $search = $request->get('nome');
         $dados = DB::table('procedimentos')
-        ->select('descricao.*','valor.*','tipo.*')
+        ->select('tipo.*')
         ->where('tipo','LIKE','%'.$search.'%')
         ->get();
         return response()->json($dados);
