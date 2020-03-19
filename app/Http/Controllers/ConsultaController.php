@@ -16,6 +16,10 @@ class ConsultaController extends Controller
         $consulta = DB::table('procedimentos')
         ->join('consultas','consultas.Procedimento_idProcedimento','=','procedimentos.id')
         ->select('consultas.*','procedimentos.*')->get();
+
+        $consulta = DB::table('consultas')
+            ->rightJoin('clientes', 'clientes.Cliente_idCliente', '=', 'clientes.id')
+            ->get();
         return response()->json($consulta);
 
 
