@@ -15,10 +15,20 @@ class ConsultaController extends Controller
     {
         $consulta = DB::table('procedimentos')
         ->join('consultas','consultas.Procedimento_idProcedimento','=','procedimentos.id')
-        ->join('colaboradors','colaboradors.Colaborador_idColaborador','=','colaboradors.id')
-        ->join('clientes','clientes.Cliente_idCliente','=','clientes.id')
         ->select('consultas.*','colaboradors.*','clientes.*')->get();
         return response()->json($consulta);
+
+        $colaborador = DB::table('colaborador')
+        ->join('colaboradors','colaboradors.Colaborador_idColaborador','=','colaboradors.id')
+        ->select('colaboradors.*')->get();
+        return response()->json($colaborador);
+
+        $cliente = DB::table('clientes')
+        ->join('clientes','clientes.Cliente_idCliente','=','clientes.id')
+        ->select('clientes.*')->get();
+        return response()->json($cliente);
+
+        
     }
     public function cadastrarConsultas(Request $request)
     {
