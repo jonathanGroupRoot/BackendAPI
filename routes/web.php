@@ -55,7 +55,7 @@ $router->get('/api/pesquisarClientes','ClienteController@pesquisarClientes');
 $router->get('api/listarConsulta','ConsultaController@listarConsultas');
 $router->post('/api/cadastrarConsulta','ConsultaController@cadastrarConsultas');
 $router->delete('/api/deletarConsulta/{id}','ConsultaController@deletarConsulta');
-$router->put('/api/atualizarConsulta/{id}','ConsultaController@atualizarConsulta');
+$router->post('/api/atualizarConsulta/{id}','ConsultaController@atualizarConsulta');
 $router->get('/api/editarConsulta/{id} ','ConsultaController@editar');
 
 //Rota Colaborador

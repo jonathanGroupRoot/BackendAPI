@@ -15,18 +15,13 @@ class ConsultaController extends Controller
     {
         $consulta = DB::table('procedimentos')
         ->join('consultas','consultas.Procedimento_idProcedimento','=','procedimentos.id')
-        ->select('consultas.id','consultas.hora','consultas.tipoDeAtendimento',
-        'consultas.Procedimento_idProcedimento','consultas.Colaborador_idColaborador',
-        'consultas.Cliente_idCliente')->get();
+        ->select('consultas.*')->get();
         return response()->json($consulta);
     }
     public function cadastrarConsultas(Request $request)
     {
         $messages = [
-            'tipoDeAtendimento.required' => 'Tipo De Atendimento é um campo obrigatório',
-            'tipoDeAtendimento.min' => 'Tipo De Atendimento mínimo 5 caracteres',
-            'tipoDeAtendimento.max' => 'Tipo De Atendimento máximo 255 caracteres',
-            'procedimento.required' => 'Procedimento é um campo obrigatório',
+            'Procedimento_idProcedimento.required' => 'Procedimento é um campo obrigatório',
             'hora.required' =>'Hora da Consulta é um campo obrigatório',
             'hora.date' => 'Hora da Consulta equivale somente a um campo data e hora',
             'Colaborador_idColaborador.required' => 'Colaborador é um  campo obrigatório',
@@ -35,8 +30,7 @@ class ConsultaController extends Controller
             'Cliente_idCliente.integer' => 'Cliente não existe em nosso sistema',
         ];
         $this->validate($request,[
-            'tipoDeAtendimento' => 'required|min:5|max:255',
-            'procedimento' => 'required',
+            'Procedimento_idProcedimento' => 'required',
             'hora' => 'required|date',
             'Colaborador_idColaborador' => 'required|integer',
             'Cliente_idCliente' => 'required|integer',

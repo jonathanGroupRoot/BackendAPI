@@ -21,14 +21,10 @@ class ProcedimentoController extends Controller
             'tipo.max' => 'Tipo do procedimento máximo 255 caracteres',
             'valor.required' => 'Valor é um campo obrigatório',
             'valor.integer' => 'O campo valor equivale somente a um valor númerico',
-            'descricao.required' => 'Descrição é um campo obrigatório',
-            'descricao.min' => 'Descrição mínimo 5 caracteres',
-            'descricao.max' => 'Descrição máximo 255 caracteres',
         ];
         $this->validate($request, [
             'tipo' => 'required|min:5|max:255',
             'valor' => 'required|integer',
-            'descricao' => 'required|min:5|max:255',
         ],$messages);
         $procedimento = new Procedimento();
         $procedimento->tipo = $request->tipo;
@@ -58,14 +54,10 @@ class ProcedimentoController extends Controller
             'tipo.max' => 'Tipo do procedimento máximo 255 caracteres',
             'valor.required' => 'Valor é um campo obrigatório',
             'valor.integer' => 'O campo valor equivale somente a um valor númerico',
-            'descricao.required' => 'Descrição é um campo obrigatório',
-            'descricao.min' => 'Descrição mínimo 5 caracteres',
-            'descricao.max' => 'Descrição máximo 255 caracteres',
         ];
         $this->validate($request, [
             'tipo' => 'required|min:5|max:255',
             'valor' => 'required|integer',
-            'descricao' => 'required|min:5|max:255',
         ],$messages);
         $registros = $request->all();
         Procedimento::find($id)->update($registros);
