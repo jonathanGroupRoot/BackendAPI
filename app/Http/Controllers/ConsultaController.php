@@ -13,9 +13,10 @@ class ConsultaController extends Controller
     
     public function listarConsultas()
     {
-        $consulta = DB::table('procedimentos')
+        $consulta = DB::table('consultas')
         ->join('consultas','consultas.Procedimento_idProcedimento','=','procedimentos.id')
-        ->select('consultas.*','procedimentos.*')->get();
+        ->join('clientes','clientes.Cliente_idCliente','=','clientes.id')
+        ->select('consultas.*','procedimentos.*','clientes.*')->get();
 
         // $consulta = DB::table('clientes')
         //     ->Join('consultas', 'consultas.Cliente_idCliente', '=', 'clientes.id')
