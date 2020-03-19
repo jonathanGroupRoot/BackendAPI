@@ -15,10 +15,10 @@ class ConsultaController extends Controller
     {
         $consulta = DB::table('procedimentos')
         ->join('consultas','consultas.Procedimento_idProcedimento','=','procedimentos.id')
-        ->select('consultas.*','colaboradors.*','clientes.*')->get();
+        ->select('consultas.*')->get();
         return response()->json($consulta);
 
-        $colaborador = DB::table('colaborador')
+        $colaborador = DB::table('colaboradors')
         ->join('colaboradors','colaboradors.Colaborador_idColaborador','=','colaboradors.id')
         ->select('colaboradors.*')->get();
         return response()->json($colaborador);
