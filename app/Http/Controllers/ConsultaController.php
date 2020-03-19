@@ -46,7 +46,7 @@ class ConsultaController extends Controller
         $time = Consulta::all();
         $consulta = new Consulta();
         $consulta->tipoDeAtendimento = $request->tipoDeAtendimento;
-        $consulta->Procedimento_idProcedimento = $request->procedimento;
+        $consulta->Procedimento_idProcedimento = $request->Procedimento_idProcedimento;
         $consulta->hora = $request->hora;
         $consulta->Colaborador_idColaborador = $request->Colaborador_idColaborador;
         $consulta->Cliente_idCliente = $request->Cliente_idCliente;
