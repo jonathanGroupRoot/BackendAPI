@@ -79,6 +79,7 @@ class ConsultaController extends Controller
         ->select('clientes.*','pessoas.*')
         ->where('pessoas.nome','LIKE','%'.$filtro.'%')
         ->get();
+        return response()->json($consultas);
     }
   
 }
