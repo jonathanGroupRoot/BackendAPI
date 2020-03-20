@@ -59,6 +59,9 @@ $router->post('/api/atualizarConsulta/{id}','ConsultaController@atualizarConsult
 $router->get('/api/editarConsulta/{id}','ConsultaController@editar');
 $router->get('/api/pesquisarConsultas','ConsultaController@pesquisarConsultas');
 
+$router->get('api/listarProntuarios','ProntuarioController@listarProntuarios');
+$router->posT('/api/cadastrarProntuarios','ProntuarioController@cadastrarProntuarios');
+
 //Rota Colaborador
 $router->get('/api/listarColaboradores','ColaboradorController@listarColaboradores');
 $router->post('/api/cadastrarColaboradores','ColaboradorController@cadastrarColaboradores');
