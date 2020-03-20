@@ -16,7 +16,8 @@ class ProntuarioController extends Controller
         ->join('consultas','prontuarios.Consulta_idConsulta','=','consultas.id')
         ->join('dentistas','prontuarios.Dentista_idDentista','=','dentistas.id')
         ->join('colaboradors','dentistas.Colaborador_idColaborador','=','colaboradors.id')
-        ->select('colaboradors.*','dentistas.*','consultas.*')
+        ->join('pessoas','colaboradors.Pessoa_idPessoa','=','pessoas.id')
+        ->select('prontuarios.*','colaboradors.*','dentistas.*','consultas.*')
         ->get();
         return response()->json($prontuario);
     }
