@@ -22,8 +22,8 @@ class ProntuarioController extends Controller
     public function cadastrarProntuarios(Request $request)
     {
         $messages = [
-            'dateDeRetorno.required' => 'Data De Retorno é um campo obrigatório',
-            'dateDeRetorno.date' => 'Data de Retorno só é permitido caracteres do tipo data',
+            'dataDeRetorno.required' => 'Data De Retorno é um campo obrigatório',
+            'dataDeRetorno.date' => 'Data de Retorno só é permitido caracteres do tipo data',
             'dataDoProcedimento.required' => 'Data Do Procedimento é um campo obrigatório',
             'dataDoProcedimento.date' => 'Data Do Procedimento só é permitido caracteres do tipo data',
             'numeracaoDoDente.required' => 'Númeração do dente é um campo obrigatório',
