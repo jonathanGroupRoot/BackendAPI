@@ -14,7 +14,8 @@ class ProntuarioController extends Controller
     {
         $prontuario = DB::table('prontuarios')
         ->join('consultas','prontuarios.Consulta_idConsulta','=','consultas.id')
-        ->join('clientes','consultas.Cliente_idCliente','=','pessoas.id')
+        ->join('clientes','consultas.Cliente_idCliente','=','clientes.id')
+        ->join('pessoas','clientes.Pessoa_idPessoa','=','pessoas.id')
         ->select('pessoas.*','prontuarios.*')
         ->get();
         return response()->json($prontuario);
