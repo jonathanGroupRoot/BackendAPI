@@ -13,7 +13,7 @@ class ProntuarioController extends Controller
     public function listarProntuarios()
     {
         $prontuario = DB::table('prontuarios')
-        ->join('consultas','procedimentos.Consulta_idConsulta','=','consultas.id')
+        ->join('consultas','prontuarios.Consulta_idConsulta','=','consultas.id')
         ->join('clientes','consultas.Cliente_idCliente','=','pessoas.id')
         ->select('pessoas.*','prontuarios.*')
         ->get();
