@@ -37,7 +37,7 @@ class ProntuarioController extends Controller
             'numeracaoDoDente' => 'required|integer',
             'Dentista_idDentista' => 'required|integer',
             'Consulta_idConsulta' => 'required|integer',
-        ]);
+        ],$messages);
 
         $prontuario = new Prontuario();
         $prontuario->dataDeRetorno = $request->dataDeRetorno;
