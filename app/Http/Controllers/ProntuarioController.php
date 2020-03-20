@@ -13,12 +13,9 @@ class ProntuarioController extends Controller
     public function listarProntuarios()
     {
         $prontuario = DB::table('prontuarios')
-        ->join('consultas','prontuarios.Consulta_idConsulta','=','consultas.id')
-        // ->join('clientes','Consulta_idConsulta.Cliente_idCliente','=','pessoas.id')
-        ->join('dentistas','prontuarios.Dentista_idDentista','=','dentistas.id')
-        ->join('colaboradors','dentistas.Colaborador_idColaborador','=','colaboradors.id')
-        ->join('pessoas','colaboradors.Pessoa_idPessoa','=','pessoas.id')
-        ->select('pessoas.*','colaboradors.*','consultas.*','dentistas.*','prontuarios.*')
+        ->join('consultas','procedimentos.Consulta_idConsulta','=','consultas.id')
+        ->join('clientes','consultas.Cliente_idCliente','=','pessoas.id')
+        ->select('pessoas.*','prontuarios.*')
         ->get();
         return response()->json($prontuario);
     }
