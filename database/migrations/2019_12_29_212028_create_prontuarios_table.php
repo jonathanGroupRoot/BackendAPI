@@ -16,8 +16,8 @@ class CreateProntuariosTable extends Migration
         Schema::create('prontuarios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('numeracaoDoDente');
-            $table->date('dataDoProcedimento');
-            $table->date('dataDeRetorno')->default('2001-01-01');
+            $table->dateTime('dataDoProcedimento');
+            $table->dateTime('dataDeRetorno')->default('2001-01-01');
 
             $table->bigInteger('Consulta_idConsulta')->unsigned();
             $table->foreign('Consulta_idConsulta')->references('id')->on('consultas')->onDelete('cascade');

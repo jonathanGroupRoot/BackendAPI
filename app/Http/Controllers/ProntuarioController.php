@@ -16,6 +16,7 @@ class ProntuarioController extends Controller
         ->join('consultas','prontuarios.Consulta_idConsulta','=','consultas.id')
         ->join('dentistas','prontuarios.Dentista_idDentista','=','dentistas.id')
         ->join('colaboradors','dentistas.Colaborador_idColaborador','=','colaboradors.id')
+        ->select('consultas.*','colaboradors.*','dentistas.*');
         ->get();
         return response()->json($prontuario);
     }
@@ -46,5 +47,6 @@ class ProntuarioController extends Controller
         $prontuario->Dentista_idDentista = $request->Dentista_idDentista;
         $prontuario->Consulta_idConsulta = $request->Consulta_idConsulta;
         $prontuario->save();
+        return response()->json('Prontuario cadastrado com sucesso!');
     }
 }
