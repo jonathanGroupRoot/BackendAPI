@@ -70,44 +70,44 @@ $router->get('/api/pesquisarColaboradores','ColaboradorController@pesquisar');
 $router->get('/api/listarFornecedores','FornecedorController@listarFornecedores');
 $router->post('/api/cadastrarFornecedores','FornecedorController@cadastrarFornecedores');
 $router->delete('api/deletarFornecedores/{id}','FornecedorController@deletarFornecedores');
-$router->put('/api/atualizarFornecedores/{id}','FornecedorController@atualizarFornecedores');
+$router->post('/api/atualizarFornecedores/{id}','FornecedorController@atualizarFornecedores');
 $router->get('api/editarFornecedores/{id}','FornecedorController@editar');
 
 //Rota Material
 $router->get('/api/listarMaterial','MaterialController@listarMaterial');
 $router->post('api/cadastrarMaterial','MaterialController@cadastrarMaterial');
 $router->delete('/api/deletarMaterial/{id}','MaterialController@deletarMaterial');
-$router->put('/api/atualizarMaterial/{id}','MaterialController@atualizarMaterial');
+$router->post('/api/atualizarMaterial/{id}','MaterialController@atualizarMaterial');
 $router->get('api/editarMaterial/{id}','MaterialController@editar');
 
 //Rota Estoque
 $router->get('/api/listarEstoque','EstoqueController@listarEstoque');
 $router->post('/api/cadastrarEstoque','EstoqueController@cadastrarEstoque');
 $router->delete('/api/deletarEstoque/{id}','EstoqueController@deletarEstoque');
-$router->put('/api/atualizarEstoque/{id}','EstoqueController@atualizarEstoque');
+$router->post('/api/atualizarEstoque/{id}','EstoqueController@atualizarEstoque');
 $router->get('/api/editarEstoque/{id}','EstoqueController@editar');
 
 //Rota Entrada Estoque
 $router->get('/api/listarEntrada','EntradaController@listarEntrada');
 $router->post('/api/Entrada','EntradaController@entradaEstoque');
 $router->delete('/api/deletarEntrada/{id}','EntradaController@deletarEntrada');
-$router->put('/api/atualizarEntrada/{id}','EntradaController@atualizarEntrada');
+$router->post('/api/atualizarEntrada/{id}','EntradaController@atualizarEntrada');
 
 //Rota Saida Estoque
 $router->get('/api/listarSaida','SaidaController@listarSaida');
 $router->post('/api/saidaEstoque','SaidaController@saidaEstoque');
 $router->delete('/api/delSaida/{id}','SaidaController@deletarSaida');
-$router->put('/api/atualizarSaida/{id}','SaidaController@atualizarSaida');
+$router->post('/api/atualizarSaida/{id}','SaidaController@atualizarSaida');
 
 //Rota Caixa
 $router->get('/api/saldoTotal','CaixaController@saldoTotal');
-$router->put('/api/EntradaCaixa','CaixaController@entradaCaixa');
+$router->post('/api/EntradaCaixa','CaixaController@entradaCaixa');
 
 //Rota Usuário
 $router->get('/api/todosUsuarios','UsuarioController@mostrarTodosUsuarios');
 $router->post('/api/cadastrarUsuarios','UsuarioController@cadastrarUsuario');
 $router->get('/api/mostrarUmUsuario/{id}','UsuarioController@mostrarUmUsuario');
-$router->put('/api/atualizarUsuarios/{id}','UsuarioController@atualizarUsuario');
+$router->post('/api/atualizarUsuarios/{id}','UsuarioController@atualizarUsuario');
 $router->delete('/api/deletarUsuario/{id}','UsuarioController@deletar');
 
 //Rota Login
