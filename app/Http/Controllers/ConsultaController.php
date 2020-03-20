@@ -70,5 +70,15 @@ class ConsultaController extends Controller
         $del = $consulta->delete();
         return response()->json('Consulta Deletado Com Sucesso!!');
     }
+    public function pesquisarConsultas(Request $request)
+    {
+        $filtro = $request->get('nome');
+        $consultas = DB::table('consultas')
+        ->join('clientes','consultas.Cliente_idCliente','=','clientes.id')
+        ->join('pessoas','clientes.Pessoa_idPessoa','=','pessoas.id')
+        ->select('clientes.*','pessoas.*')
+        ->where('pessoas.nome','LIKE','%'.$filtro.'%')
+        ->get();
+    }
   
 }
