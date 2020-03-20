@@ -14,7 +14,7 @@ class ProntuarioController extends Controller
     {
         $prontuario = DB::table('prontuarios')
         ->join('consultas','prontuarios.Consulta_idConsulta','=','consultas.id')
-        ->join('clientes','consultas.Cliente_idCliente','=','pessoas.id')
+        ->join('clientes','Consulta_idConsulta.Cliente_idCliente','=','pessoas.id')
         ->join('dentistas','prontuarios.Dentista_idDentista','=','dentistas.id')
         ->join('colaboradors','dentistas.Colaborador_idColaborador','=','colaboradors.id')
         ->join('pessoas','colaboradors.Pessoa_idPessoa','=','pessoas.id')
