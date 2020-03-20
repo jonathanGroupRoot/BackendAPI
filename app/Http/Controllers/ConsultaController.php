@@ -74,11 +74,10 @@ class ConsultaController extends Controller
     {
         $filtro = $request->get('nome');
         $consultas = DB::table('consultas')
+        ->join('procedimentos','consultas.Procedimento_idProcedimento','=','procedimentos.id')
         ->join('clientes','consultas.Cliente_idCliente','=','clientes.id')
         ->join('pessoas','clientes.Pessoa_idPessoa','=','pessoas.id')
-        ->join('clientes','consultas.Cliente_idCliente','=','clientes.id')
-        ->join('colaboradors','consultas.Colaborador_idColaborador','=','colaboradors.id')
-        ->select('clientes.*','pessoas.*')
+        ->select('pessoas.*','procedimentos.*','consultas.*')
         ->where('pessoas.nome','LIKE','%'.$filtro.'%')
         ->get();
         return response()->json($consultas);
