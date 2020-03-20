@@ -76,6 +76,8 @@ class ConsultaController extends Controller
         $consultas = DB::table('consultas')
         ->join('clientes','consultas.Cliente_idCliente','=','clientes.id')
         ->join('pessoas','clientes.Pessoa_idPessoa','=','pessoas.id')
+        ->join('clientes','consultas.Cliente_idCliente','=','clientes.id')
+        ->join('colaboradors','consultas.Colaborador_idColaborador','=','colaboradors.id')
         ->select('clientes.*','pessoas.*')
         ->where('pessoas.nome','LIKE','%'.$filtro.'%')
         ->get();
