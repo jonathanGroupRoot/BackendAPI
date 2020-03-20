@@ -8,7 +8,7 @@ use App\Dentista;
 use App\Consulta;
 use DB;
 
-class ProntuarioController extends BaseController
+class ProntuarioController extends Controller
 {
     public function listarProntuarios()
     {
