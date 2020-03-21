@@ -58,7 +58,7 @@ class ProntuarioController extends Controller
         ->get();
         return response()->json($prontuario);
     }
-    public function atualizarProntuarios(Request $request)
+    public function atualizarProntuarios(Request $request,$id)
     {
         $messages = [
             'dataDeRetorno.required' => 'Data De Retorno é um campo obrigatório',
@@ -67,16 +67,16 @@ class ProntuarioController extends Controller
             'dataDoProcedimento.date' => 'Data Do Procedimento só é permitido caracteres do tipo data',
             'numeracaoDoDente.required' => 'Númeração do dente é um campo obrigatório',
             'numeracaoDoDente.integer' => 'Númeração do dente só é permitidos caracteres do tipo número',
-            'Dentista_idDentista.required' => 'Colaborador é um campo obrigatório',
-            'Consulta_idConsulta.required' => 'Selecione uma consulta',
+            
         ];
         $this->validate($request,[
             'dataDeRetorno' => 'required|date',
             'dataDoProcedimento' => 'required|date',
             'numeracaoDoDente' => 'required|integer',
-            'Dentista_idDentista' => 'required|integer',
-            'Consulta_idConsulta' => 'required|integer',
         ],$messages);
+        $registros =  $request->all();
+        Prontuario::find(id)->update($registros);
+        return response()->json("Atualizado com sucesso!");
 
         
         
