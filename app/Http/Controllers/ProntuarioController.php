@@ -78,4 +78,23 @@ class ProntuarioController extends Controller
         Prontuario::find($id)->update($registros);
         return response()->json("Atualizado com sucesso!");
     }
+    public function deletarProntuarios($id)
+    {
+        $prontuarios = Prontuario::find($id);
+        $del = $prontuarios->delete();
+        return response()->json("Deletado com sucesso!");
+    }
+    public function pesquisarProntuarios()
+    {
+        $filtro = $request->get('nome');
+        $prontuarios = DB::table('prontuarios')
+        ->join('consultas','prontuarios.Consulta_idConsulta','=','consultas.id')
+        ->join('clientes','consultas.Cliente_idCliente','=','clientes.id')
+        ->join('pessoas','clientes.Pessoa_idPessoa','=','pessoas.id')
+        ->join('dentistas','Dentista_idDentista','=','dentistas.id')
+        ->select('dentistas.*','consultas.*','pessoas.*','prontuarios.*')
+        ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
+        ->get();
+
+    }
 }

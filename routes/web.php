@@ -62,8 +62,10 @@ $router->get('/api/pesquisarConsultas','ConsultaController@pesquisarConsultas');
 //Rota Prontuário
 $router->get('api/listarProntuarios','ProntuarioController@listarProntuarios');
 $router->post('/api/cadastrarProntuarios','ProntuarioController@cadastrarProntuarios');
+$router->delete('/api/deletarProntuarios/{id}','ProntuarioController@deletarProntuarios');
 $router->get('/api/editarProntuarios/{id}','ProntuarioController@editarProntuarios');
 $router->post('/api/atualizarProntuarios/{id}','ProntuarioController@atualizarProntuarios');
+$router->get('/api/pesquisarProntuarios','ProntuarioController@pesquisarProntuarios');
 
 //Rota Colaborador
 $router->get('/api/listarColaboradores','ColaboradorController@listarColaboradores');
