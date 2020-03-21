@@ -49,7 +49,7 @@ class ProntuarioController extends Controller
         $prontuario->save();
         return response()->json('Prontuario cadastrado com sucesso!');
     }
-    public function editarProntuarios()
+    public function editarProntuarios($id)
     {
         $prontuario = DB::table('prontuarios')
         ->join('consultas','prontuarios.Consulta_idConsulta','=','consultas.id')
