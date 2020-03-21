@@ -62,7 +62,7 @@ $router->get('/api/pesquisarConsultas','ConsultaController@pesquisarConsultas');
 //Rota Prontuário
 $router->get('api/listarProntuarios','ProntuarioController@listarProntuarios');
 $router->post('/api/cadastrarProntuarios','ProntuarioController@cadastrarProntuarios');
-$router->get('/api/editarProntuarios','ProntuarioController@editarProntuarios');
+$router->get('/api/editarProntuarios/{id}','ProntuarioController@editarProntuarios');
 
 //Rota Colaborador
 $router->get('/api/listarColaboradores','ColaboradorController@listarColaboradores');
