@@ -53,11 +53,32 @@ class ProntuarioController extends Controller
     {
         $prontuario = DB::table('prontuarios')
         ->join('consultas','prontuarios.Consulta_idConsulta','=','consultas.id')
-        ->join('clientes','consultas.Cliente_idCliente','=','clientes.id')
-        ->join('pessoas','clientes.Pessoa_idPessoa','=','pessoas.id')
-        ->select('pessoas.*','prontuarios.*')
+        ->select('prontuarios.*')
         ->where('prontuarios.id','=',$id)
         ->get();
         return response()->json($prontuario);
+    }
+    public function atualizarProntuarios(Request $request)
+    {
+        $messages = [
+            'dataDeRetorno.required' => 'Data De Retorno é um campo obrigatório',
+            'dataDeRetorno.date' => 'Data de Retorno só é permitido caracteres do tipo data',
+            'dataDoProcedimento.required' => 'Data Do Procedimento é um campo obrigatório',
+            'dataDoProcedimento.date' => 'Data Do Procedimento só é permitido caracteres do tipo data',
+            'numeracaoDoDente.required' => 'Númeração do dente é um campo obrigatório',
+            'numeracaoDoDente.integer' => 'Númeração do dente só é permitidos caracteres do tipo número',
+            'Dentista_idDentista.required' => 'Colaborador é um campo obrigatório',
+            'Consulta_idConsulta.required' => 'Selecione uma consulta',
+        ];
+        $this->validate($request,[
+            'dataDeRetorno' => 'required|date',
+            'dataDoProcedimento' => 'required|date',
+            'numeracaoDoDente' => 'required|integer',
+            'Dentista_idDentista' => 'required|integer',
+            'Consulta_idConsulta' => 'required|integer',
+        ],$messages);
+
+        
+        
     }
 }
