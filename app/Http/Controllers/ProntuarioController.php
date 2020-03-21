@@ -95,6 +95,7 @@ class ProntuarioController extends Controller
         ->select('dentistas.*','consultas.*','pessoas.*','prontuarios.*')
         ->where('pessoas.nome', 'LIKE','%'.$filtro.'%')
         ->get();
+        return response($prontuarios);
 
     }
 }
