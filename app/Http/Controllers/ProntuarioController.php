@@ -84,7 +84,7 @@ class ProntuarioController extends Controller
         $del = $prontuarios->delete();
         return response()->json("Deletado com sucesso!");
     }
-    public function pesquisarProntuarios()
+    public function pesquisarProntuarios(Request $request)
     {
         $filtro = $request->get('nome');
         $prontuarios = DB::table('prontuarios')
