@@ -75,10 +75,7 @@ class ProntuarioController extends Controller
             'numeracaoDoDente' => 'required|integer',
         ],$messages);
         $registros =  $request->all();
-        Prontuario::find(id)->update($registros);
+        Prontuario::find($id)->update($registros);
         return response()->json("Atualizado com sucesso!");
-
-        
-        
     }
 }
