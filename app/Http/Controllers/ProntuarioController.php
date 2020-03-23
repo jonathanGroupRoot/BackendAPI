@@ -23,8 +23,6 @@ class ProntuarioController extends Controller
     public function cadastrarProntuarios(Request $request)
     {
         $messages = [
-            'dataDeRetorno.required' => 'Data De Retorno é um campo obrigatório',
-            'dataDeRetorno.date' => 'Data de Retorno só é permitido caracteres do tipo data',
             'dataDoProcedimento.required' => 'Data Do Procedimento é um campo obrigatório',
             'dataDoProcedimento.date' => 'Data Do Procedimento só é permitido caracteres do tipo data',
             'numeracaoDoDente.required' => 'Númeração do dente é um campo obrigatório',
@@ -33,7 +31,6 @@ class ProntuarioController extends Controller
             'Consulta_idConsulta.required' => 'Selecione uma consulta',
         ];
         $this->validate($request,[
-            'dataDeRetorno' => 'required|date',
             'dataDoProcedimento' => 'required|date',
             'numeracaoDoDente' => 'required|integer',
             'Dentista_idDentista' => 'required|integer',
@@ -61,8 +58,6 @@ class ProntuarioController extends Controller
     public function atualizarProntuarios(Request $request,$id)
     {
         $messages = [
-            'dataDeRetorno.required' => 'Data De Retorno é um campo obrigatório',
-            'dataDeRetorno.date' => 'Data de Retorno só é permitido caracteres do tipo data',
             'dataDoProcedimento.required' => 'Data Do Procedimento é um campo obrigatório',
             'dataDoProcedimento.date' => 'Data Do Procedimento só é permitido caracteres do tipo data',
             'numeracaoDoDente.required' => 'Númeração do dente é um campo obrigatório',
@@ -70,7 +65,6 @@ class ProntuarioController extends Controller
             
         ];
         $this->validate($request,[
-            'dataDeRetorno' => 'required|date',
             'dataDoProcedimento' => 'required|date',
             'numeracaoDoDente' => 'required|integer',
         ],$messages);

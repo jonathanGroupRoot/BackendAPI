@@ -17,7 +17,7 @@ class CreateProcedimentosTable extends Migration
             $table->bigIncrements('id');
             $table->string('tipo',255);
             $table->integer('valor');
-            $table->string('descricao');
+            $table->string('descricao')->nullable();
             $table->timestamps();
         });
     }
