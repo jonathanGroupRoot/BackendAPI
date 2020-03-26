@@ -48,8 +48,8 @@ class ConsultaController extends Controller
         $consulta->Colaborador_idColaborador = $request->Colaborador_idColaborador;
         $consulta->Cliente_idCliente = $request->Cliente_idCliente;
         foreach($time as $times)
-        if($consulta->hora === $times->hora || $Colaborador_idColaborador === $colab){
-            return response()->json(["hora"=>["Consulta já marcada nesse horário ou Dentista com consulta marcada nesse horário"]],400);
+        if($consulta->hora === $times->hora ){
+            return response()->json(["hora"=>["Consulta já marcada nesse horário"]],400);
         }
         $consulta->save();
         return response()->json('Consulta Marcada Com Sucesso!!');
