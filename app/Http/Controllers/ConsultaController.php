@@ -41,7 +41,7 @@ class ConsultaController extends Controller
         
         $time = DB::table('consultas')
         ->where('hora','=', $request->hora)
-        ->selectRaw('count(*)')
+        ->select('count(*)')
         ->first();
 
         if($time > 0){
