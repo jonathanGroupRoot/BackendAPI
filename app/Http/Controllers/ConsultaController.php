@@ -39,19 +39,22 @@ class ConsultaController extends Controller
             'Cliente_idCliente' => 'required|integer',
         ],$messages);
         
+        $time = DB::table('consultas')
+        ->where('time','=', $request->hora)
+        ->selectRaw('count(*)')
+        ->first();
 
-        $time = Consulta::all();
-        $consulta = new Consulta();
-        $consulta->Procedimento_idProcedimento = $request->Procedimento_idProcedimento;
-        $consulta->hora = $request->hora;
-        $consulta->Colaborador_idColaborador = $request->Colaborador_idColaborador;
-        $consulta->Cliente_idCliente = $request->Cliente_idCliente;
-        foreach($time as $times)
-        if($consulta->hora === $times->hora){
-            return response()->json(["hora"=>["Consulta já marcada nesse horário"]]);
-        }
-        $consulta->save();
-        return response()->json('Consulta Marcada Com Sucesso!!');
+        if($time > 0){
+            $consulta = new Consulta();
+            $consulta->Procedimento_idProcedimento = $request->Procedimento_idProcedimento;
+            $consulta->hora = $request->hora;
+            $consulta->Colaborador_idColaborador = $request->Colaborador_idColaborador;
+            $consulta->Cliente_idCliente = $request->Cliente_idCliente;
+            $consulta->save();
+            return response()->json('Consulta Marcada Com Sucesso!!');
+        }else{
+            return response()->json(['hora'=>['Consulta já marcada nesse horario.']]);
+        }    
     }
     public function editar($id)
     {
