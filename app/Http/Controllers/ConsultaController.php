@@ -43,7 +43,7 @@ class ConsultaController extends Controller
         ->where('hora','=', $request->hora)
         ->count();
 
-        if($time > 0){
+        if($time < 0){
             $consulta = new Consulta();
             $consulta->Procedimento_idProcedimento = $request->Procedimento_idProcedimento;
             $consulta->hora = $request->hora;
