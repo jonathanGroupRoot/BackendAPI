@@ -40,7 +40,7 @@ class ConsultaController extends Controller
         ],$messages);
         
         $time = DB::table('consultas')
-        ->where('time','=', $request->hora)
+        ->where('hora','=', $request->hora)
         ->selectRaw('count(*)')
         ->first();
 
