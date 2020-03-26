@@ -52,7 +52,7 @@ class ConsultaController extends Controller
             $consulta->save();
             return response()->json('Consulta Marcada Com Sucesso!!');
         }else{
-            return response()->json(['hora'=>['Consulta já marcada nesse horario.']]);
+            return response()->json(['hora'=>['Consulta já marcada nesse horario.']],400);
         }    
     }
     public function editar($id)
