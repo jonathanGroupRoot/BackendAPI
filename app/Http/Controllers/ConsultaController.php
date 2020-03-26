@@ -41,7 +41,6 @@ class ConsultaController extends Controller
         
 
         $time = Consulta::all();
-        $colab = Dentista::all();
         $consulta = new Consulta();
         $consulta->Procedimento_idProcedimento = $request->Procedimento_idProcedimento;
         $consulta->hora = $request->hora;
