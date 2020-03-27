@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\Fornecedor;
+use DB;
 
 class FornecedorController extends Controller
 {
@@ -86,6 +87,7 @@ class FornecedorController extends Controller
         ->select('fornecedors.*')
         ->where('fornecedors.nome','LIKE','%'.$search."%")
         ->get();
+        return response()->json($dados);
     }
     
 }
