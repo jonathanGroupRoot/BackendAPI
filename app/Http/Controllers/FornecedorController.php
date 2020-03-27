@@ -39,7 +39,7 @@ class FornecedorController extends Controller
         $fornecedor->cnpj = $request->cnpj;
         $fornecedor->telefone = $request->telefone;
         $fornecedor->endereco = $request->endereco;
-        // $fornecedor->CEP = $request->CEP;
+        $fornecedor->CEP = $request->CEP;
         $fornecedor->save();
         return response()->json('Fornecedor Cadastrado Com Sucesso!!');
     }
@@ -85,7 +85,7 @@ class FornecedorController extends Controller
         $search = $request->get('nome');
         $dados = DB::table('fornecedors')
         ->select('fornecedors.*')
-        ->where('fornecedors.nome','LIKE','%'.$search."%")
+        ->where('fornecedors.nome','LIKE','%'.$search.'%')
         ->get();
         return response()->json($dados);
     }
