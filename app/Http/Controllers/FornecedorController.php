@@ -38,7 +38,7 @@ class FornecedorController extends Controller
         $fornecedor->cnpj = $request->cnpj;
         $fornecedor->telefone = $request->telefone;
         $fornecedor->endereco = $request->endereco;
-        $fornecedor->CEP = $request->CEP;
+        // $fornecedor->CEP = $request->CEP;
         $fornecedor->save();
         return response()->json('Fornecedor Cadastrado Com Sucesso!!');
     }
