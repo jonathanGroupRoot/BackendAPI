@@ -27,12 +27,14 @@ class FornecedorController extends Controller
             'endereco.required' => 'Endereço é um campo obrigatório',
             'endereco.min' => 'Endereço mínimo 5 caracteres',
             'endereco.max' => 'Endereço máximo 255 caracteres',
+            'CEP' => "CEP é um campo obrigatório",
         ];
         $this->validate($request, [
             'nome' => 'required|min:5|max:255',
             'cnpj' => 'required|min:18|max:18',
             'telefone' => 'required|min:16|max:16',
             'endereco' => 'required|min:5|max:255',
+            'CEP' => 'required|min:9|max:9',
         ],$messages);
         $fornecedor  = new Fornecedor();
         $fornecedor->nome = $request->nome;
