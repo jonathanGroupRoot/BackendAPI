@@ -19,6 +19,7 @@ class CreateFornecedorsTable extends Migration
             $table->string('cnpj',18);
             $table->string('telefone',16);
             $table->string('endereco',255);
+            $table->string('CEP',9);
             $table->timestamps();
         });
     }

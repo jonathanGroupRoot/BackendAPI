@@ -81,6 +81,7 @@ $router->post('/api/cadastrarFornecedores','FornecedorController@cadastrarFornec
 $router->delete('api/deletarFornecedores/{id}','FornecedorController@deletarFornecedores');
 $router->post('/api/atualizarFornecedores/{id}','FornecedorController@atualizarFornecedores');
 $router->get('api/editarFornecedores/{id}','FornecedorController@editar');
+$router->get('/api/pesquisarFornecedores','FornecedorController@pesquisarFornecedores');
 
 //Rota Material
 $router->get('/api/listarMaterial','MaterialController@listarMaterial');

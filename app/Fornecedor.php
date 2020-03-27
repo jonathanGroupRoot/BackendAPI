@@ -22,6 +22,7 @@ class Fornecedor extends Model implements AuthenticatableContract, AuthorizableC
         'cnpj',
         'telefone',
         'endereco',
+        'CEP',
     ];
 
     /**

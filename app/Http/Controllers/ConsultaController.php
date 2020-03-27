@@ -47,7 +47,7 @@ class ConsultaController extends Controller
         $consulta->Colaborador_idColaborador = $request->Colaborador_idColaborador;
         $consulta->Cliente_idCliente = $request->Cliente_idCliente;
         foreach($time as $times)
-        if($consulta->hora === $times->hora ){
+        if($consulta->hora === $times->hora){
             return response()->json(["hora"=>["Consulta já marcada nesse horário"]],400);
         }
         $consulta->save();
