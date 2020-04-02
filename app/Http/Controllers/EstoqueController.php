@@ -52,5 +52,15 @@ class EstoqueController extends Controller
         Estoque::find($id)->update($estoque);
         return response()->json('Estoque Atualizado Com Sucesso!!');
     }
+    public function pesquisarEstoque(Request $request)
+    {
+        $filtro = $request->get('nome');
+        $dados = DB::table('materials')
+        ->join('estoques','estoques.Material_idMaterial', '=', 'materials.id')
+        ->select('materials.*','estoques.*')
+        ->where('materials.nome','LIKE','%'.$filtro.'%')
+        ->get();
+        return  response()->json($dados);
+    }
    
 }

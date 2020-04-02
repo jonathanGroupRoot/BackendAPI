@@ -12,12 +12,6 @@
 */
 
 
-//Rota Pessoa
-$router->get('/api/listPessoas', 'PessoaController@list');
-$router->post('/api/CadastrarPessoas','PessoaController@cadastrarPessoa');
-$router->delete('/api/delete/{id}','PessoaController@delete');
-$router->post('/api/atualizarPessoa/{id}', 'PessoaController@atualizar');
-$router->get('/api/editarPessoa/{id}','PessoaController@editar');
 
 //Rota Dentista
 $router->get('/api/listarDentista','DentistaController@listDentista');
@@ -88,15 +82,14 @@ $router->get('/api/listarMaterial','MaterialController@listarMaterial');
 $router->post('api/cadastrarMaterial','MaterialController@cadastrarMaterial');
 $router->delete('/api/deletarMaterial/{id}','MaterialController@deletarMaterial');
 $router->post('/api/atualizarMaterial/{id}','MaterialController@atualizarMaterial');
-$router->get('api/editarMaterial/{id}','MaterialController@editar');
-$router->get('api/pesquisarMateriais','MaterialController@pesquisarMateriais');
+$router->get('/api/editarMaterial/{id}','MaterialController@editar');
+$router->get('/api/pesquisarMateriais','MaterialController@pesquisarMateriais');
 
 //Rota Estoque
 $router->get('/api/listarEstoque','EstoqueController@listarEstoque');
 $router->post('/api/cadastrarEstoque','EstoqueController@cadastrarEstoque');
 $router->delete('/api/deletarEstoque/{id}','EstoqueController@deletarEstoque');
-$router->post('/api/atualizarEstoque/{id}','EstoqueController@atualizarEstoque');
-$router->get('/api/editarEstoque/{id}','EstoqueController@editar');
+$router->get('/api/pesquisarEstoque','EstoqueController@pesquisarEstoque');
 
 //Rota Entrada Estoque
 $router->get('/api/listarEntrada','EntradaController@listarEntrada');
