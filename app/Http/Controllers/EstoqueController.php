@@ -12,7 +12,11 @@ class EstoqueController extends Controller
 {
     public function listarEstoque()
     {
-        return response()->json(Estoque::all());
+        $dados = DB::table('materials')
+        ->join('estoques','estoques.Material_idMaterial', '=', 'materials.id')
+        ->select('materials.*','estoques.*')
+        ->get();
+        return  response()->json($dados);
     }
     public function cadastrarEstoque(Request $request)
     {
