@@ -6,6 +6,7 @@ use Illuminate\Validation\ValidationException;
 use App\Estoque;
 use App\Fornecedor;
 use App\Material;
+use DB;
 
 class EstoqueController extends Controller
 {
