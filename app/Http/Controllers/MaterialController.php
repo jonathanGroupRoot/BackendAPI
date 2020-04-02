@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\Material;
 use App\Fornecedor;
+use DB;
 
 class MaterialController extends Controller
 {
