@@ -65,4 +65,14 @@ class MaterialController extends Controller
         Material::find($id)->update($material);
         return response()->json('Material Atualizado Com Sucesso!!');
    }
+   public function pesquisarMateriais(Request $request)
+   {
+        $filtro = $request->get('nome');
+        $dados = DB::table('materials')
+        ->select('materials.*')
+        ->where('materials.nome','LIKE','%'.$filtro.'%')
+        ->get();
+        return response()->json($dados);
+
+   }
 }

@@ -89,6 +89,7 @@ $router->post('api/cadastrarMaterial','MaterialController@cadastrarMaterial');
 $router->delete('/api/deletarMaterial/{id}','MaterialController@deletarMaterial');
 $router->post('/api/atualizarMaterial/{id}','MaterialController@atualizarMaterial');
 $router->get('api/editarMaterial/{id}','MaterialController@editar');
+$router->get('api/pesquisarMateriais','MaterialController@pesquisarMateriais');
 
 //Rota Estoque
 $router->get('/api/listarEstoque','EstoqueController@listarEstoque');
