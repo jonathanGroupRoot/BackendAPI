@@ -16,8 +16,8 @@ class EntradaController extends Controller
     public function entradaEstoque(Request $request)
     {
         $messages = [
-            'Estoque_idEstoque.required' => 'Estoque é um campo obrigatório',
-            'Estoque_idEstoque.integer' => 'Estoque não cadastrado em nosso sistema',
+            // 'Estoque_idEstoque.required' => 'Estoque é um campo obrigatório',
+            // 'Estoque_idEstoque.integer' => 'Estoque não cadastrado em nosso sistema',
             'Colaborador_idColaborador.required' => 'Colaborador é um campo obrigatório',
             'Colaborador_idColaborador.integer' => 'Colaborador não cadastrado em nosso sistema',
             'quantidade.required' => 'Quantidade é um campo obrogatório',
