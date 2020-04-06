@@ -16,14 +16,14 @@ class EntradaController extends Controller
     public function entradaEstoque(Request $request)
     {
         $messages = [
-            // 'Estoque_idEstoque.required' => 'Estoque é um campo obrigatório',
-            // 'Estoque_idEstoque.integer' => 'Estoque não cadastrado em nosso sistema',
+            'Estoque_idEstoque.required' => 'Estoque é um campo obrigatório',
+            'Estoque_idEstoque.integer' => 'Estoque não cadastrado em nosso sistema',
             'Colaborador_idColaborador.required' => 'Colaborador é um campo obrigatório',
             'Colaborador_idColaborador.integer' => 'Colaborador não cadastrado em nosso sistema',
-            'quantidade.required' => 'Quantidade é um campo obrigatório',
+            'quantidade.required' => 'Quantidade é um campo obrogatório',
         ];
         $this->validate($request, [
-            // 'Estoque_idEstoque' => 'required|integer',
+            'Estoque_idEstoque' => 'required|integer',
             'Colaborador_idColaborador' => 'required|integer',
             'quantidade' => 'required|integer',
         ],$messages);
@@ -33,9 +33,9 @@ class EntradaController extends Controller
         $entrada->quantidade = $request->quantidade;
 
         $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
-        $valorFinal = $request->quantidade + $dadoEstoque->quantidade;
+        $valorFinal = $entrada->quantidade + $dadoEstoque->quantidade;
 
-        $valorFinal->update($dadoEstoque);
+        $up = $valorFinal->update($dadoEstoque);
         $entrada->save();
         return response()->json('Entrada Com Sucesso!!');
     }
