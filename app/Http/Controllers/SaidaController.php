@@ -31,6 +31,7 @@ class SaidaController extends Controller
         $this->validate($request, [
             'Estoque_idEstoque' => 'required|integer',
             'Colaborador_idColaborador' => 'required|integer',
+            'quantidade' => 'required|integer',
         ],$messages);
         $saida =  new Saida();
         $saida->Estoque_idEstoque = $request->Estoque_idEstoque;

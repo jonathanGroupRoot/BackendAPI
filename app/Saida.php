@@ -20,6 +20,7 @@ class Saida extends Model implements AuthenticatableContract, AuthorizableContra
     protected $fillable = [
         'Estoque_idEstoque', 
         'Colaborador_idColaborador',
+        'quantidade',
     ];
 
     /**
