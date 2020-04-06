@@ -33,8 +33,8 @@ class EntradaController extends Controller
         $entrada->quantidade = $request->quantidade;
 
         $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
-        $valorFinal = $request->quantidade + $dadoEstoque->quantidade;
-        $dadoEstoque->update($valorFinal);
+        $valorFinal = $entrada->quantidade + $dadoEstoque->quantidade;
+        
 
         // $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
         // $valorFinal = $entrada->quantidade + $dadoEstoque->quantidade;
