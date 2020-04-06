@@ -15,6 +15,8 @@ class CreateSaidasTable extends Migration
     {
         Schema::create('saidas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('quantidade');
+            
             $table->bigInteger('Estoque_idEstoque')->unsigned();
             $table->foreign('Estoque_idEstoque')->references('id')->on('estoques')->onDelete('cascade');
 
