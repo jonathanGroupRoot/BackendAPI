@@ -36,7 +36,7 @@ class SaidaController extends Controller
         $saida =  new Saida();
         $saida->Estoque_idEstoque = $request->Estoque_idEstoque;
         $saida->Colaborador_idColaborador = $request->Colaborador_idColaborador;
-        $entrada->quantidade = $request->quantidade;
+        $saida->quantidade = $request->quantidade;
 
         $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
     
