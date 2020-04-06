@@ -36,7 +36,9 @@ class EntradaController extends Controller
     
         $valorFinal = $entrada->quantidade + $dadoEstoque->quantidade;
 
-        $up = $valorFinal->update($dadoEstoque);
+        DB::table('estoques')
+        ->where('id', $request->Estoque_idEstoque)
+        ->update(['quantidade' => $valorFinal]);
         $entrada->save();
         return response()->json('Entrada Com Sucesso!!');
     }
