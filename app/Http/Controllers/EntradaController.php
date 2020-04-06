@@ -20,7 +20,7 @@ class EntradaController extends Controller
             // 'Estoque_idEstoque.integer' => 'Estoque não cadastrado em nosso sistema',
             'Colaborador_idColaborador.required' => 'Colaborador é um campo obrigatório',
             'Colaborador_idColaborador.integer' => 'Colaborador não cadastrado em nosso sistema',
-            'quantidade.required' => 'Quantidade é um campo obrogatório',
+            'quantidade.required' => 'Quantidade é um campo obrigatório',
         ];
         $this->validate($request, [
             // 'Estoque_idEstoque' => 'required|integer',
@@ -35,7 +35,7 @@ class EntradaController extends Controller
         $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
         $valorFinal = $request->quantidade + $dadoEstoque->quantidade;
 
-        $dados = $valorFinal->update($dadoEstoque);
+        $valorFinal->update($dadoEstoque);
         $entrada->save();
         return response()->json('Entrada Com Sucesso!!');
     }
