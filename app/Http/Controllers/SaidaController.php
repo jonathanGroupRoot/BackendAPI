@@ -37,9 +37,12 @@ class SaidaController extends Controller
         $entrada->quantidade = $request->quantidade;
 
         $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
-        $valorFinal = $request->quantidade - $dadoEstoque->quantidade;
+    
+        $valorFinal = $entrada->quantidade - $dadoEstoque->quantidade;
 
-        $dadoEstoque->update($valorFinal);
+        DB::table('estoques')
+        ->where('id', $request->Estoque_idEstoque)
+        ->update(['quantidade' => $valorFinal]);
         $saida->save();
         return response()->json('Saida com Sucesso!!');
     }
