@@ -23,7 +23,7 @@ class EntradaController extends Controller
             'quantidade.required' => 'Quantidade é um campo obrogatório',
         ];
         $this->validate($request, [
-            'Estoque_idEstoque' => 'required|integer',
+            // 'Estoque_idEstoque' => 'required|integer',
             'Colaborador_idColaborador' => 'required|integer',
             'quantidade' => 'required|integer',
         ],$messages);
