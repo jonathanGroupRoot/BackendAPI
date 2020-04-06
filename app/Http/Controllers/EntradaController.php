@@ -31,11 +31,12 @@ class EntradaController extends Controller
         $entrada->Estoque_idEstoque = $request->Estoque_idEstoque;
         $entrada->Colaborador_idColaborador = $request->Colaborador_idColaborador;
         $entrada->quantidade = $request->quantidade;
+        $entrada->quantidade + $entrada->Estoque_idEstoque;
 
-        $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
-        $valorFinal = $request->quantidade + $dadoEstoque->quantidade;
+        // $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
+        // $valorFinal = $request->quantidade + $dadoEstoque->quantidade;
 
-        $valorFinal->update($dadoEstoque);
+        // $valorFinal->update($dadoEstoque);
         $entrada->save();
         return response()->json('Entrada Com Sucesso!!');
     }
