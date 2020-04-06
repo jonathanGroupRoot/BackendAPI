@@ -94,14 +94,11 @@ $router->get('/api/pesquisarEstoque','EstoqueController@pesquisarEstoque');
 //Rota Entrada Estoque
 $router->get('/api/listarEntrada','EntradaController@listarEntrada');
 $router->post('/api/Entrada','EntradaController@entradaEstoque');
-// $router->delete('/api/deletarEntrada/{id}','EntradaController@deletarEntrada');
-// $router->post('/api/atualizarEntrada/{id}','EntradaController@atualizarEntrada');
+$router->get('/api/listarEntradaSaida','EntradaController@pesquisarEntradaSaida');
 
 //Rota Saida Estoque
 $router->get('/api/listarSaida','SaidaController@listarSaida');
 $router->post('/api/saidaEstoque','SaidaController@saidaEstoque');
-// $router->delete('/api/delSaida/{id}','SaidaController@deletarSaida');
-// $router->post('/api/atualizarSaida/{id}','SaidaController@atualizarSaida');
 
 
 //Rota Caixa

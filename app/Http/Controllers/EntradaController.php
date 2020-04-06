@@ -6,6 +6,7 @@ use Illuminate\Validation\ValidationException;
 use App\Entrada;
 use App\Colaborador;
 use App\Estoque;
+use App\Saida;
 use DB;
 
 class EntradaController extends Controller
@@ -43,18 +44,20 @@ class EntradaController extends Controller
         $entrada->save();
         return response()->json('Entrada Com Sucesso!!');
     }
-    // public function deletarEntrada($id)
-    // {
-    //     $entrada = Entrada::find($id);
-    //     $del = $entrada->delete();
-    //     return response()->json('Entrada Deletado Com Sucesso!!');
-    // }
-    // public function atualizarEntrada(Request $request,$id)
-    // {
-    //     $entrada = $request->all();
-    //     Entrada::find($id)->update($entrada);
-    //     return response()->json('Entrada Atualizado Com Sucesso!!');
+    public function pesquisarEntradaSaida($id)
+    {
 
-    // }
+
+        $dados = DB::table('estoques')
+        ->where('entradas.id','=',$id)
+        ->select('entradas.*')
+        ->get();
+        $dadosSaida = DB::table('estoques')
+        ->where('saidas.id','=',$id)
+        ->select('saidas.*')
+        ->get();
+        return response($dados.$dadosSaida);
+        
+    }
     
 }

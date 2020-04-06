@@ -7,6 +7,7 @@ use App\Estoque;
 use App\Fornecedor;
 use App\Material;
 use DB;
+use App\Entrada;
 
 class EstoqueController extends Controller
 {
@@ -67,5 +68,5 @@ class EstoqueController extends Controller
         ->get();
         return  response()->json($dados);
     }
-   
+    
 }

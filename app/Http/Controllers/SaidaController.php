@@ -40,7 +40,7 @@ class SaidaController extends Controller
 
         $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
     
-        $valorFinal =$dadoEstoque->quantidade - $saida->quantidade; 
+        $valorFinal = $dadoEstoque->quantidade - $saida->quantidade; 
 
         DB::table('estoques')
         ->where('id', $request->Estoque_idEstoque)
