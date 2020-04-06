@@ -94,7 +94,7 @@ $router->get('/api/pesquisarEstoque','EstoqueController@pesquisarEstoque');
 //Rota Entrada Estoque
 $router->get('/api/listarEntrada','EntradaController@listarEntrada');
 $router->post('/api/Entrada','EntradaController@entradaEstoque');
-$router->get('/api/listarEntradaSaida','EntradaController@pesquisarEntradaSaida');
+$router->get('/api/listarEntradaSaida/{id}','EntradaController@pesquisarEntradaSaida');
 
 //Rota Saida Estoque
 $router->get('/api/listarSaida','SaidaController@listarSaida');
