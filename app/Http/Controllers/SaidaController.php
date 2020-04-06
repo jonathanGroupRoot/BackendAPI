@@ -34,20 +34,26 @@ class SaidaController extends Controller
         $saida =  new Saida();
         $saida->Estoque_idEstoque = $request->Estoque_idEstoque;
         $saida->Colaborador_idColaborador = $request->Colaborador_idColaborador;
+        $entrada->quantidade = $request->quantidade;
+
+        $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
+        $valorFinal = $request->quantidade - $dadoEstoque->quantidade;
+
+        $dadoEstoque->update($valorFinal);
         $saida->save();
         return response()->json('Saida com Sucesso!!');
     }
-    public function deletarSaida($id)
-    {
-        $saida = Saida::find($id);
-        $del = $saida->delete();
-        return response()->json('Saida Deletada Com Sucesso!!');
-    }
-    public function atualizarSaida(Request $request,$id)
-    {
-        $saida = $request->all();
-        Saida::find($id)->update($saida);
-        return response()->json('Saida Atualizado Com Sucesso!!');
+    // public function deletarSaida($id)
+    // {
+    //     $saida = Saida::find($id);
+    //     $del = $saida->delete();
+    //     return response()->json('Saida Deletada Com Sucesso!!');
+    // }
+    // public function atualizarSaida(Request $request,$id)
+    // {
+    //     $saida = $request->all();
+    //     Saida::find($id)->update($saida);
+    //     return response()->json('Saida Atualizado Com Sucesso!!');
 
-    }
+    // }
 }
