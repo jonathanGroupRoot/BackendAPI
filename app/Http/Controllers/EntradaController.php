@@ -49,11 +49,11 @@ class EntradaController extends Controller
 
 
         $dados = DB::table('entradas')
-        ->where('entradas.id','=',$id)
+        ->where('entradas.Estoque_idEstoque','=',$id)
         ->select('entradas.*')
         ->get();
         $dadosSaida = DB::table('saidas')
-        ->where('saidas.id','=',$id)
+        ->where('saidas.Estoque_idEstoque','=',$id)
         ->select('saidas.*')
         ->get();
         return response($dados.$dadosSaida);
