@@ -40,7 +40,7 @@ class EntradaController extends Controller
         DB::table('estoques')
         ->where('id', $request->Estoque_idEstoque)
         ->update(['quantidade' => $valorFinal]);
-        $entrada->save();
+        $saida->save();
         return response()->json('Entrada Com Sucesso!!');
     }
     // public function deletarEntrada($id)
