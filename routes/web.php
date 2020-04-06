@@ -100,8 +100,8 @@ $router->post('/api/Entrada','EntradaController@entradaEstoque');
 //Rota Saida Estoque
 $router->get('/api/listarSaida','SaidaController@listarSaida');
 $router->post('/api/saidaEstoque','SaidaController@saidaEstoque');
-$router->delete('/api/delSaida/{id}','SaidaController@deletarSaida');
-$router->post('/api/atualizarSaida/{id}','SaidaController@atualizarSaida');
+// $router->delete('/api/delSaida/{id}','SaidaController@deletarSaida');
+// $router->post('/api/atualizarSaida/{id}','SaidaController@atualizarSaida');
 
 
 //Rota Caixa

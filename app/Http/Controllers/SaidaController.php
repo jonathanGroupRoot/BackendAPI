@@ -26,6 +26,7 @@ class SaidaController extends Controller
             'Estoque_idEstoque.integer' => 'Estoque não encontrado',
             'Colaborador_idColaborador.required' => 'Nome do colaborador é um campo obrigatório',
             'Colaborador_idColaborador.integer' => 'Colaborador não cadastrado no sistema',
+            'quantidade.required' => "Quantidade é um campo obrigatório",
         ];
         $this->validate($request, [
             'Estoque_idEstoque' => 'required|integer',
