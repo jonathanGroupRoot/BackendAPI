@@ -20,6 +20,7 @@ class Entrada extends Model implements AuthenticatableContract, AuthorizableCont
     protected $fillable = [
         'Estoque_idEstoque', 
         'Colaborador_idColaborador',
+        'quantidade',
     ];
 
     /**
