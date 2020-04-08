@@ -39,22 +39,18 @@ class SaidaController extends Controller
         $saida->quantidade = $request->quantidade;
 
         $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
-        if($dadoEstoque < $valorFinal)
-        {
-            return response()->json("Não foi possivel ");
-        }
-        else
-        {
-            $valorFinal = $dadoEstoque->quantidade - $saida->quantidade; 
 
-            DB::table('estoques')
-            ->where('id', $request->Estoque_idEstoque)
-            ->update(['quantidade' => $valorFinal]);
-            $saida->save();
-            return response()->json('Saida com Sucesso!!');
+        if($request->quantidade > $dadoEstoque)
+        {
+            return response()->json("Quantidade maior que a contida no estoque verifique e tente novamente");
         }
-    
-       
+        $valorFinal = $dadoEstoque->quantidade - $saida->quantidade; 
+
+        DB::table('estoques')
+        ->where('id', $request->Estoque_idEstoque)
+        ->update(['quantidade' => $valorFinal]);
+        $saida->save();
+        return response()->json('Saida com Sucesso!!');
     }
     // public function deletarSaida($id)
     // {
