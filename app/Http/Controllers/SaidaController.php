@@ -40,7 +40,7 @@ class SaidaController extends Controller
 
         $dadoEstoque = Estoque::find($request->Estoque_idEstoque);
 
-        if($request->quantidade > $dadoEstoque)
+        if($request->quantidade > $dadoEstoque->quantidade)
         {
             return response()->json("Quantidade maior que a contida no estoque verifique e tente novamente");
         }
