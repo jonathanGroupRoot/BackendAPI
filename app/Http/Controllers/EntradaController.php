@@ -56,7 +56,7 @@ class EntradaController extends Controller
         ->where('saidas.Estoque_idEstoque','=',$id)
         ->select('saidas.*')
         ->get();
-        return response()->json($dados.$dadosSaida);
+        return response()->json(['entrada'=>$dados,'saida'=>$dadosSaida]);
         
     }
     
