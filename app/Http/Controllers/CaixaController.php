@@ -59,6 +59,7 @@ class CaixaController extends Controller
         ->join('colaboradors','caixas.id_Colaborador', '=','colaboradors.id')
         ->join('pessoas','colaboradors.Pessoa_idPessoa','=','pessoas.id')
         ->join('consultas','caixas.id_Consulta','=','consultas.id')
+        ->join('clientes','consultas.Cliente_idCliente','=','pessoas.id')
         ->join('procedimentos','consultas.Procedimento_idProcedimento','=','procedimentos.id')
         ->select('procedimentos.*','consultas.*','pessoas.*','colaboradors.*','caixas.*')
         ->get();
