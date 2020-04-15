@@ -59,7 +59,7 @@ class CaixaController extends Controller
         ->select('caixas.*')
         ->get();
 
-        $dadosColaborador = DB::table('caixas')
+        $dadosColaborador = DB::table('colaboradors')
         ->join('colaboradors','caixas.id_Colaborador', '=','colaboradors.id')
         ->select('colaboradors.*')
         ->get();
