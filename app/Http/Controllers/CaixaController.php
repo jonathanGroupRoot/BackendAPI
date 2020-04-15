@@ -62,7 +62,7 @@ class CaixaController extends Controller
         $dadosColaborador = DB::table('colaboradors')
         ->join('caixas','caixas.id_Colaborador', '=','colaboradors.id')
         ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
-        ->select('colaboradors.*')
+        ->select('colaboradors.*','pessoas.*')
         ->get();
        
         return response()->json(['caixa' => $dados,'dadosColaborador' => $dadosColaborador]);
