@@ -104,6 +104,7 @@ $router->post('/api/saidaEstoque','SaidaController@saidaEstoque');
 //Rota Caixa
 $router->get('/api/saldoTotal','CaixaController@saldoTotal');
 $router->post('/api/EntradaCaixa','CaixaController@entradaCaixa');
+$router->get('/api/ListarCaixa','CaixaController@retornaSaldo');
 
 //Rota Usuário
 $router->get('/api/todosUsuarios','UsuarioController@mostrarTodosUsuarios');

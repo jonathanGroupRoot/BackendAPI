@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\Caixa;
+use App\Colaborador;
+use DB;
 
 class CaixaController extends Controller
 {
@@ -50,6 +52,18 @@ class CaixaController extends Controller
        }
         $caixa->save();
         return response()->json(['Alteração no Caixa!!']);
+    }
+    public function retornaSaldo(Request $request)
+    {
+        $dados = DB::table('caixas')
+        ->select('caixas.*')
+        ->get();
+        $dadosColaborador = DB::table('colaboradors')
+        ->join('caixas.id_colaborador', '=', 'colaboradors.id')
+        ->select('colaboradors.*')
+        ->get();
+        return response()->json(['caixa' => $dados,'dadosColaborador' => $dadosColaborador]);
+
     }
 }
 
