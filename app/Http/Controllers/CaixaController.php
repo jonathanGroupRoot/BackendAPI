@@ -61,7 +61,7 @@ class CaixaController extends Controller
 
         $dadosColaborador = DB::table('colaboradors')
         ->join('caixas','caixas.id_Colaborador', '=','colaboradors.id')
-        ->join('colaboradors','colaboradors.Pessoa_idPessoa','=','pessoas.id')
+        ->join('caixas','colaboradors.Pessoa_idPessoa','=','pessoas.id')
         ->select('colaboradors.*','pessoas.*')
         ->get();
        
