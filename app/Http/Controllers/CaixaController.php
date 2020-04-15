@@ -56,16 +56,21 @@ class CaixaController extends Controller
     public function retornaSaldo(Request $request)
     {
         $dados = DB::table('caixas')
-        ->select('caixas.*')
-        ->get();
-
-        $dadosColaborador = DB::table('colaboradors')
         ->join('caixas','caixas.id_Colaborador', '=','colaboradors.id')
         ->join('pessoas','colaboradors.Pessoa_idPessoa','=','pessoas.id')
-        ->select('colaboradors.*','pessoas.*')
+        ->select('caixas.*','colaboradors.*','pessoas.*')
         ->get();
+        // $dados = DB::table('caixas')
+        // ->select('caixas.*')
+        // ->get();
+
+        // $dadosColaborador = DB::table('colaboradors')
+        // ->join('caixas','caixas.id_Colaborador', '=','colaboradors.id')
+        // ->join('pessoas','colaboradors.Pessoa_idPessoa','=','pessoas.id')
+        // ->select('colaboradors.*','pessoas.*')
+        // ->get();
        
-        return response()->json(['caixa' => $dados,'dadosColaborador' => $dadosColaborador]);
+        return response()->json();
 
     }
 }
