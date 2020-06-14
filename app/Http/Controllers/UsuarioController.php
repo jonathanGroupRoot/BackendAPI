@@ -59,8 +59,8 @@ class UsuarioController extends Controller
         return response()->json(Usuario::all());
     }
 
-    public function teste(Request $request) {
-        return response()->json('ok: true');
+    public function teste() {
+        return json('ok: true');
     }
 
     public function cadastrarUsuario(Request $request){
