@@ -58,8 +58,8 @@ class UsuarioController extends Controller
     public function mostrarTodosUsuarios(){
         return response()->json(Usuario::all());
     }
-    
-    public function teste() {
+
+    public function teste(Request $request) {
         return response()->json('ok: true');
     }
 
