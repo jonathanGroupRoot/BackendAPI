@@ -59,9 +59,6 @@ class UsuarioController extends Controller
         return response()->json(Usuario::all());
     }
 
-    public function teste() {
-        
-    }
 
     public function cadastrarUsuario(Request $request){
         $messages = [
