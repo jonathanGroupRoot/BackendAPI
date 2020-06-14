@@ -112,7 +112,7 @@ $router->post('/api/cadastrarUsuarios','UsuarioController@cadastrarUsuario');
 $router->get('/api/mostrarUmUsuario/{id}','UsuarioController@mostrarUmUsuario');
 $router->post('/api/atualizarUsuarios/{id}','UsuarioController@atualizarUsuario');
 $router->delete('/api/deletarUsuario/{id}','UsuarioController@deletar');
-$router->get('/api/testeLogin', 'UsuarioController@teste');
+$router->get('/api/testeLogin', 'ClienteController@teste');
 
 //Rota Login
 $router->post('/login','UsuarioController@usuarioLogin');

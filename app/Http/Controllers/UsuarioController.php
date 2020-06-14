@@ -90,6 +90,7 @@ class UsuarioController extends Controller
     {
         return response()->json(Usuario::find($id));
     }
+    
     public function atualizarUsuario(Request $request,$id)
     {
         $usuario = Usuario::find($id);

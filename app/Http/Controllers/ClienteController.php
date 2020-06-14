@@ -152,6 +152,10 @@ class ClienteController extends Controller
         ->get();
         return response()->json($dados);
     }
+
+    public function teste() {
+        return response()->json('OK');
+    }
     
   
 }
