@@ -60,7 +60,7 @@ class UsuarioController extends Controller
     }
 
     public function teste() {
-        return json('ok: true');
+        
     }
 
     public function cadastrarUsuario(Request $request){
