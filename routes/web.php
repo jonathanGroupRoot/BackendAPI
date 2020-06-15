@@ -12,6 +12,9 @@
 */
 
 
+Route::group(['middleware' => ['auth']], function () {
+    
+
 
 //Rota Dentista
 $router->get('/api/listarDentista','DentistaController@listDentista');
@@ -113,7 +116,7 @@ $router->get('/api/mostrarUmUsuario/{id}','UsuarioController@mostrarUmUsuario');
 $router->post('/api/atualizarUsuarios/{id}','UsuarioController@atualizarUsuario');
 $router->delete('/api/deletarUsuario/{id}','UsuarioController@deletar');
 $router->get('/api/testeLogin', 'ClienteController@teste');
-
+});
 //Rota Login
 $router->post('/login','UsuarioController@usuarioLogin');
 $router->post('/info' ,'UsuarioController@mostrarUsuarioAutenticado');
