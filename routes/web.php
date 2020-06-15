@@ -12,7 +12,7 @@
 */
 
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
     
 
 
@@ -116,7 +116,7 @@ $router->get('/api/mostrarUmUsuario/{id}','UsuarioController@mostrarUmUsuario');
 $router->post('/api/atualizarUsuarios/{id}','UsuarioController@atualizarUsuario');
 $router->delete('/api/deletarUsuario/{id}','UsuarioController@deletar');
 
-});
+// });
 $router->get('/api/testeLogin', 'ClienteController@teste');
 //Rota Login
 $router->post('/login','UsuarioController@usuarioLogin');
