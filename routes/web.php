@@ -12,7 +12,7 @@
 */
 
 
-Route::group(['middleware' => ['auth']], function () {
+Route::middleware(['auth'])->group(function () {
     
 
 
