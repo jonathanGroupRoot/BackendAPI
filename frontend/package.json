@@ -17,7 +17,7 @@
     "redux": "^4.0.5",
     "simplebar-react": "^2.1.0",
     "styled-components": "^4.4.1",
-    "yarn": "^1.21.1"
+    "yarn": "^1.22.0"
   },
   "scripts": {
     "start": "react-scripts start",
