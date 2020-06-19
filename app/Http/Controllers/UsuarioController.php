@@ -25,19 +25,21 @@ class UsuarioController extends Controller
     public function usuarioLogin(Request $request)
     {
         $messages = [
-            'usuario.required' => 'Usuário é um campo obrigatório',
-            'usuario.min' => 'Usuário mínimo 5 caracteres',
-            'usuario.max' => 'Usuário máximo 40 caracteres',
+            // 'usuario.required' => 'Usuário é um campo obrigatório',
+            // 'usuario.min' => 'Usuário mínimo 5 caracteres',
+            // 'usuario.max' => 'Usuário máximo 40 caracteres',
+            'email' => 'required|email|max:255',
 
             'password.required' => 'Senha é um campo obrigatório',
             'password.min' => 'Senha mínimo 8 caracteres',
             'password.max' => 'Senha máximo 40 caracteres',
         ];
         $this->validate($request, [
-            'usuario' => 'required|min:5|max:40',
+            'email' => 'required|min:5|max:40',
             'password' => 'required|min:8:max:40',
         ],$messages);
-        if(! $token = $this->jwt->claims(['usuario' => $request->usuario])->attempt($request->only('usuario','password')))
+        // if(! $token = $this->jwt->claims(['usuario' => $request->usuario])->attempt($request->only('usuario','password')))
+        if(! $token = $this->jwt->attempt($request->only('email','password'))
         {
             return response()->json(['Usuário não encontrado'],404);
         }
