@@ -12,7 +12,7 @@
 */
 
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
     
 // Route::group(['middleware' => [ 'jwt', 'jwt.auth']], function () {
        
@@ -118,7 +118,7 @@ $router->post('/api/atualizarUsuarios/{id}','UsuarioController@atualizarUsuario'
 $router->delete('/api/deletarUsuario/{id}','UsuarioController@deletar');
 
 // });
-});
+
 //Rota Login
 $router->post('/login','UsuarioController@usuarioLogin');
 $router->post('/info' ,'UsuarioController@mostrarUsuarioAutenticado');
