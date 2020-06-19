@@ -39,7 +39,7 @@ class UsuarioController extends Controller
             'password' => 'required|min:8:max:40',
         ],$messages);
         // if(! $token = $this->jwt->claims(['usuario' => $request->usuario])->attempt($request->only('usuario','password')))
-        if(! $token = $this->jwt->attempt($request->only('email','password'))
+        if(! $token = $this->jwt->attempt($request->only('email','password')))
         {
             return response()->json(['Usuário não encontrado'],404);
         }
