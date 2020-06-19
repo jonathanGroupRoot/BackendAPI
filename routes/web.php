@@ -12,9 +12,9 @@
 */
 
 
-// Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     
-    Route::group(['middleware' => [ 'jwt', 'jwt.auth']], function () {
+// Route::group(['middleware' => [ 'jwt', 'jwt.auth']], function () {
        
 
 //Rota Dentista
