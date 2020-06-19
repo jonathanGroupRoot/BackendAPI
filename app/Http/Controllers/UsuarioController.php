@@ -38,7 +38,7 @@ class UsuarioController extends Controller
             'email' => 'required|min:5|max:40',
             'password' => 'required|min:8:max:40',
         ],$messages);
-        if(! $token = $this->jwt->claims(['usuario' => $request->usuario])->Auth::guard('web')->attempt($request->only('usuario','password')))
+        if(! $token = $this->jwt->attempt($request->only('usuario','password')))
         // if(! $token = $this->jwt->Auth::guard('web')->attempt($request->only('email','password')))
         {
             return response()->json(['Usuário não encontrado'],404);
